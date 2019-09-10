@@ -57,7 +57,7 @@ let languageDictionary = {};
 	const OLSKString = require('OLSKString');
 
 	languageDictionary = require('glob').sync('**/*i18n*.y*(a)ml', {
-	  cwd: pathPackage.join(__dirname, 'lch.safariextension'),
+	  cwd: pathPackage.join(__dirname, 'lbx.safariextension'),
 		realpath: true,
 	}).filter(function(e) {
 	  return OLSKInternational.OLSKInternationalIsTranslationFileBasename(pathPackage.basename(e));

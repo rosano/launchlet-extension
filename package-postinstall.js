@@ -6,5 +6,5 @@
 
 	OLSKAssets.OLSKAssetsCopyAssetsFromTo([
 		'normalize.css',
-	], pathPackage.join(__dirname, 'node_modules'), pathPackage.join(__dirname, 'lch.safariextension/-shared/--external'));
+	], pathPackage.join(__dirname, 'node_modules'), pathPackage.join(__dirname, 'lbx.safariextension/-shared/--external'));
 })();
