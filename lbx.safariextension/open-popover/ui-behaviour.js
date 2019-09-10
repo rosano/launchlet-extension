@@ -1,11 +1,17 @@
 const mod = {
 
+	// DATA
+
+	DataProps() {
+		return Object.fromEntries((new URLSearchParams(window.location.search)).entries());
+	},
+
 	// SETUP
 
 	SetupEverything() {
 		const app = new Main({
 			target: document.body,
-			props: Object.fromEntries((new URLSearchParams(window.location.search)).entries()),
+			props: mod.DataProps(),
 		});
 	},
 
