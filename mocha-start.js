@@ -56,14 +56,11 @@ let languageDictionary = {};
 	const OLSKInternational = require('OLSKInternational');
 	const OLSKString = require('OLSKString');
 
-	let baseDirectory = pathPackage.join(__dirname, 'os-app');
-	languageDictionary = require('glob').sync('*i18n*.y*(a)ml', {
-	  matchBase: true,
-	  cwd: baseDirectory,
+	languageDictionary = require('glob').sync('**/*i18n*.y*(a)ml', {
+	  cwd: pathPackage.join(__dirname, 'lch.safariextension'),
+		realpath: true,
 	}).filter(function(e) {
 	  return OLSKInternational.OLSKInternationalIsTranslationFileBasename(pathPackage.basename(e));
-	}).map(function (e) {
-		return pathPackage.join(baseDirectory, e);
 	}).reduce(function(coll, item) {
 		let languageID = OLSKInternational.OLSKInternationalLanguageID(pathPackage.basename(item));
 
