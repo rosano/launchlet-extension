@@ -28,7 +28,7 @@ const mod = {
 	// INTERFACE
 
 	InterfaceGenerateButtonDidClick () {
-		mod.ValuePrivateKey(cryptico.generateRSAKey(LBXPopoverRandomSeed(), 1024))
+		mod.ValuePrivateKey(OLSK_TESTING_BEHAVIOUR() ? LBXPopoverRandomSeed() : cryptico.generateRSAKey(LBXPopoverRandomSeed(), 1024))
 		mod.ValuePublicKey(OLSK_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PUBLIC_KEY' : cryptico.publicKeyString(mod.ValuePrivateKey()))
 	},
 
