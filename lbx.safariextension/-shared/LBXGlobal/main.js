@@ -3,15 +3,3 @@ import OLSKInternational from 'OLSKInternational';
 export const OLSKLocalized = function(translationConstant) {
 	return OLSKInternational.OLSKInternationalLocalizedString(translationConstant, _translationDictionary[OLSKInternational.OLSKInternationalSimplifiedLanguageCode(navigator.language)]);
 };
-
-export const LBX_TESTING_BEHAVIOUR = function () {
-	if (typeof require !== 'undefined') {
-		return false;
-	}
-
-	if (typeof navigator === 'undefined') {
-		return false;
-	}
-
-	return navigator.appName === 'Zombie';
-};

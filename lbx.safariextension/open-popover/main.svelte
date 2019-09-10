@@ -1,5 +1,6 @@
 <script>
-import { OLSKLocalized, LBX_TESTING_BEHAVIOUR } from '../-shared/LBXGlobal/main.js';
+import { OLSKLocalized } from '../-shared/LBXGlobal/main.js';
+import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
 
 import { LBXPopoverRandomSeed } from './ui-logic.js'
 
@@ -28,7 +29,7 @@ const mod = {
 
 	InterfaceGenerateButtonDidClick () {
 		mod.ValuePrivateKey(cryptico.generateRSAKey(LBXPopoverRandomSeed(), 1024))
-		mod.ValuePublicKey(LBX_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PUBLIC_KEY' : cryptico.publicKeyString(mod.ValuePrivateKey()))
+		mod.ValuePublicKey(OLSK_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PUBLIC_KEY' : cryptico.publicKeyString(mod.ValuePrivateKey()))
 	},
 
 }
