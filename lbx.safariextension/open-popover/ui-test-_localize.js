@@ -22,6 +22,19 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 		
 	});
 
+	context('DidGenerate', function testDidGenerate() {
+
+		before(async function () {
+			browser.click(LBXPopoverGenerateButton)
+			await browser.wait({ element: LBXPopoverPublicKeyField })
+		});
+
+		it('localizes LBXPopoverDisconnectButton', function() {
+			browser.assert.text(LBXPopoverDisconnectButton, uLocalized('LBXPopoverDisconnectButtonText'))
+		});
+
+	});
+
 });
 
 });
