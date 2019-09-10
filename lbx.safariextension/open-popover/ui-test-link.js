@@ -21,7 +21,7 @@ describe('LBXPopoverUILink', function () {
 
 	});
 
-	context('Preload', function testPreload() {
+	context('DidGenerate', function testDidGenerate() {
 
 		before(async function () {
 			return browser.visit(`${ kDefaultRoute.OLSKRoutePath }?LBXPopoverInitializingPublicKey=alfa`);
@@ -37,6 +37,22 @@ describe('LBXPopoverUILink', function () {
 
 		it('fills LBXPopoverPublicKeyField with LBXPopoverInitializingPublicKey', function() {
 			browser.assert.input(LBXPopoverPublicKeyField, 'alfa')
+		});
+
+	});
+
+	context('DidLink', function testDidLink() {
+
+		before(async function () {
+			return browser.visit(`${ kDefaultRoute.OLSKRoutePath }?LBXPopoverInitializingPublicKey=alfa&LBXPopoverInitializingDidLink=true`);
+		});
+
+		it('hides LBXPopoverGenerateButton', function() {
+			browser.assert.elements(LBXPopoverGenerateButton, 0)
+		});
+
+		it('hides LBXPopoverPublicKeyField', function() {
+			browser.assert.elements(LBXPopoverPublicKeyField, 0)
 		});
 
 	});

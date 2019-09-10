@@ -5,6 +5,7 @@ import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
 import { LBXPopoverRandomSeed } from './ui-logic.js'
 
 export let LBXPopoverInitializingPublicKey = null;
+export let LBXPopoverInitializingDidLink = false;
 
 const mod = {
 
@@ -51,7 +52,7 @@ mod.LifecycleModuleWillMount();
 	<button class="LBXPopoverGenerateButton" on:click={ mod.InterfaceGenerateButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateButtonText') }</button>
 {/if}
 
-{#if mod.ValuePublicKey()}
+{#if mod.ValuePublicKey() && !LBXPopoverInitializingDidLink}
 	<textarea class="LBXPopoverPublicKeyField">{ mod.ValuePublicKey() }</textarea>
 {/if}
 
