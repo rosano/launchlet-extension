@@ -29,12 +29,20 @@ describe('LBXPopoverUIAccess', function () {
 	
 	context('Generate', function testGenerate() {
 
-		it('shows LBXPopoverGenerateButton', async function() {
+		before(async function () {
 			browser.click(LBXPopoverGenerateButton)
 			await browser.wait({ element: LBXPopoverPublicKeyField })
+		});
 
+		it('shows LBXPopoverGenerateButton', function() {
 			browser.assert.elements(LBXPopoverPublicKeyField, 1)
 		});
+
+		it('hides LBXPopoverGenerateButton', function() {
+			browser.assert.elements(LBXPopoverGenerateButton, 0)
+		});
+
+		
 		
 	});
 

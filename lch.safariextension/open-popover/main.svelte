@@ -22,7 +22,9 @@ const mod = {
 }
 </script>
 
-<button class="LBXPopoverGenerateButton" on:click={ mod.InterfaceGenerateButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateButtonText') }</button>
+{#if !mod.ValuePublicKey()}
+	<button class="LBXPopoverGenerateButton" on:click={ mod.InterfaceGenerateButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateButtonText') }</button>
+{/if}
 
 {#if mod.ValuePublicKey()}
 	<textarea class="LBXPopoverPublicKeyField"></textarea>
