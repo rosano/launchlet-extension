@@ -4,6 +4,8 @@ import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
 
 import { LBXPopoverRandomSeed } from './ui-logic.js'
 
+export let LBXPopoverInitializingPublicKey;
+
 const mod = {
 
 	// VALUE

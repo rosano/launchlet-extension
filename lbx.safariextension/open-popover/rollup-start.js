@@ -1,7 +1,3 @@
-import App from './main.svelte';
+import RollupMain from './main.svelte';
 
-const LBXPopover = new App({
-	target: document.body,
-});
-
-export default LBXPopover;
+export default RollupMain;
