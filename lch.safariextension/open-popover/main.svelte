@@ -1,5 +1,8 @@
 <script>
-import { OLSKLocalized } from '../-shared/LBXGlobal/main.js';
+import { OLSKLocalized, LBX_TESTING_BEHAVIOUR } from '../-shared/LBXGlobal/main.js';
+
+import { LBXPopoverRandomSeed } from './ui-logic.js'
+
 const mod = {
 
 	// VALUE
@@ -16,7 +19,7 @@ const mod = {
 	// INTERFACE
 
 	InterfaceGenerateButtonDidClick () {
-		mod.ValuePublicKey('alfa')
+		mod.ValuePublicKey(LBX_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PUBLIC_KEY' : LBXPopoverRandomSeed())
 	},
 
 }
@@ -27,7 +30,7 @@ const mod = {
 {/if}
 
 {#if mod.ValuePublicKey()}
-	<textarea class="LBXPopoverPublicKeyField"></textarea>
+	<textarea class="LBXPopoverPublicKeyField">{ mod.ValuePublicKey() }</textarea>
 {/if}
 
 <style src="./ui-style.css"></style>
