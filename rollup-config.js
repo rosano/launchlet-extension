@@ -1,3 +1,3 @@
 import { OLSKRollupScanStart } from 'OLSKRollup'
 
-export default OLSKRollupScanStart(__dirname);
+export default OLSKRollupScanStart(require('path').join(__dirname, 'lch.safariextension'));
