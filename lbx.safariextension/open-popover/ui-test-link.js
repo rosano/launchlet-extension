@@ -21,14 +21,39 @@ describe('LBXPopoverUILink', function () {
 
 	});
 
-	context('DidGenerate', function testDidGenerate() {
+	context('Disconnect', function testDisconnect() {
 
 		before(async function () {
+			browser.click(LBXPopoverDisconnectButton)
+			await browser.wait({ element: LBXPopoverPublicKeyField })
+		});
+
+		it('show LBXPopoverGenerateButton', function() {
+			browser.assert.elements(LBXPopoverGenerateButton, 1)
+		});
+
+		it('hides LBXPopoverDisconnectButton', function() {
+			browser.assert.elements(LBXPopoverDisconnectButton, 0)
+		});
+
+		it('hides LBXPopoverPublicKeyField', function() {
+			browser.assert.elements(LBXPopoverPublicKeyField, 0)
+		});
+
+	});
+
+	context('DidGenerate', function testDidGenerate() {
+
+		before(function () {
 			return browser.visit(`${ kDefaultRoute.OLSKRoutePath }?LBXPopoverInitializingPublicKey=alfa`);
 		});
 
 		it('hides LBXPopoverGenerateButton', function() {
 			browser.assert.elements(LBXPopoverGenerateButton, 0)
+		});
+
+		it('show LBXPopoverDisconnectButton', function() {
+			browser.assert.elements(LBXPopoverDisconnectButton, 1)
 		});
 
 		it('shows LBXPopoverPublicKeyField', function() {
@@ -43,12 +68,16 @@ describe('LBXPopoverUILink', function () {
 
 	context('DidLink', function testDidLink() {
 
-		before(async function () {
+		before(function () {
 			return browser.visit(`${ kDefaultRoute.OLSKRoutePath }?LBXPopoverInitializingPublicKey=alfa&LBXPopoverInitializingDidLink=true`);
 		});
 
 		it('hides LBXPopoverGenerateButton', function() {
 			browser.assert.elements(LBXPopoverGenerateButton, 0)
+		});
+
+		it('show LBXPopoverDisconnectButton', function() {
+			browser.assert.elements(LBXPopoverDisconnectButton, 1)
 		});
 
 		it('hides LBXPopoverPublicKeyField', function() {
