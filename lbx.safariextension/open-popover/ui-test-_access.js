@@ -34,12 +34,12 @@ describe('LBXPopoverUIAccess', function () {
 			await browser.wait({ element: LBXPopoverPublicKeyField })
 		});
 
-		it('shows LBXPopoverPublicKeyField', function() {
-			browser.assert.elements(LBXPopoverPublicKeyField, 1)
-		});
-
 		it('hides LBXPopoverGenerateButton', function() {
 			browser.assert.elements(LBXPopoverGenerateButton, 0)
+		});
+
+		it('shows LBXPopoverPublicKeyField', function() {
+			browser.assert.elements(LBXPopoverPublicKeyField, 1)
 		});
 		
 	});

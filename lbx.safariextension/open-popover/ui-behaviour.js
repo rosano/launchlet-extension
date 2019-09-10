@@ -5,9 +5,7 @@ const mod = {
 	SetupEverything() {
 		const app = new Main({
 			target: document.body,
-			props: {
-				LBXPopoverInitializingPublicKey: 'alfa'
-			},
+			props: Object.fromEntries((new URLSearchParams(window.location.search)).entries()),
 		});
 	},
 

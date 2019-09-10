@@ -4,7 +4,7 @@ import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
 
 import { LBXPopoverRandomSeed } from './ui-logic.js'
 
-export let LBXPopoverInitializingPublicKey;
+export let LBXPopoverInitializingPublicKey = null;
 
 const mod = {
 
@@ -34,7 +34,17 @@ const mod = {
 		mod.ValuePublicKey(OLSK_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PUBLIC_KEY' : cryptico.publicKeyString(mod.ValuePrivateKey()))
 	},
 
+	// LIFECYCLE
+
+	LifecycleModuleWillMount() {
+		if (LBXPopoverInitializingPublicKey) {
+			mod.ValuePublicKey(LBXPopoverInitializingPublicKey)
+		};
+	}
+
 }
+
+mod.LifecycleModuleWillMount();
 </script>
 
 {#if !mod.ValuePublicKey()}

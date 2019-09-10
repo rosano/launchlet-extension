@@ -8,7 +8,7 @@ describe('LBXPopoverUILink', function () {
 		return browser.visit(kDefaultRoute.OLSKRoutePath);
 	});
 
-	context('Generate', function testGenerate() {
+	context('Startup', function testStartup() {
 
 		before(async function () {
 			browser.click(LBXPopoverGenerateButton)
@@ -17,6 +17,26 @@ describe('LBXPopoverUILink', function () {
 
 		it('fills LBXPopoverPublicKeyField with public key', function() {
 			browser.assert.input(LBXPopoverPublicKeyField, 'LBX_TESTING_PUBLIC_KEY')
+		});
+
+	});
+
+	context('Preload', function testPreload() {
+
+		before(async function () {
+			return browser.visit(`${ kDefaultRoute.OLSKRoutePath }?LBXPopoverInitializingPublicKey=alfa`);
+		});
+
+		it('hides LBXPopoverGenerateButton', function() {
+			browser.assert.elements(LBXPopoverGenerateButton, 0)
+		});
+
+		it('shows LBXPopoverPublicKeyField', function() {
+			browser.assert.elements(LBXPopoverPublicKeyField, 1)
+		});
+
+		it('fills LBXPopoverPublicKeyField with LBXPopoverInitializingPublicKey', function() {
+			browser.assert.input(LBXPopoverPublicKeyField, 'alfa')
 		});
 
 	});
