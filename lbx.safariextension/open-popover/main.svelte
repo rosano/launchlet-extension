@@ -15,11 +15,20 @@ const mod = {
 
 		mod._ValuePublicKey = inputData
 	},
+	_ValuePrivateKey: undefined,
+	ValuePrivateKey(inputData) {
+		if (typeof inputData === 'undefined') {
+			return mod._ValuePrivateKey
+		};
+
+		mod._ValuePrivateKey = inputData
+	},
 
 	// INTERFACE
 
 	InterfaceGenerateButtonDidClick () {
-		mod.ValuePublicKey(LBX_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PUBLIC_KEY' : LBXPopoverRandomSeed())
+		mod.ValuePrivateKey(cryptico.generateRSAKey(LBXPopoverRandomSeed(), 1024))
+		mod.ValuePublicKey(LBX_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PUBLIC_KEY' : cryptico.publicKeyString(mod.ValuePrivateKey()))
 	},
 
 }
