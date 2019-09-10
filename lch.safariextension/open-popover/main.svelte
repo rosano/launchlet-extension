@@ -1,6 +1,6 @@
 <script>
 </script>
 
-<strong>hello</strong>
+<button class="LBXPopoverGenerateButton"></button>
 
 <style src="./ui-style.css"></style>
