@@ -34,6 +34,9 @@ const mod = {
 		mod.ValuePrivateKey(OLSK_TESTING_BEHAVIOUR() ? LBXPopoverRandomSeed() : cryptico.generateRSAKey(LBXPopoverRandomSeed(), 1024))
 		mod.ValuePublicKey(OLSK_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PUBLIC_KEY' : cryptico.publicKeyString(mod.ValuePrivateKey()))
 	},
+	InterfaceDisconnectButtonDidClick () {
+		
+	},
 
 	// LIFECYCLE
 
@@ -41,7 +44,7 @@ const mod = {
 		if (LBXPopoverInitializingPublicKey) {
 			mod.ValuePublicKey(LBXPopoverInitializingPublicKey)
 		};
-	}
+	},
 
 }
 
@@ -50,6 +53,10 @@ mod.LifecycleModuleWillMount();
 
 {#if !mod.ValuePublicKey()}
 	<button class="LBXPopoverGenerateButton" on:click={ mod.InterfaceGenerateButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateButtonText') }</button>
+{/if}
+
+{#if mod.ValuePublicKey()}
+	<button class="LBXPopoverDisconnectButton" on:click={ mod.InterfaceDisconnectButtonDidClick }>{ OLSKLocalized('LBXPopoverDisconnectButtonText') }</button>
 {/if}
 
 {#if mod.ValuePublicKey() && !LBXPopoverInitializingDidLink}
