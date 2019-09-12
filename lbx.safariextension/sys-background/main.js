@@ -9,8 +9,14 @@ const mod = {
       DispatchBackgroundStorePrivateKey () {
         mod.CommandPrivateKeyStore(event.message)
       },
+      DispatchBackgroundStorePublicKey () {
+        mod.CommandPublicKeyStore(event.message)
+      },
       DispatchBackgroundStorePayloadEncryptedData () {
         mod.CommandHandleEventStorePayloadEncryptedData(event)
+      },
+      DispatchBackgroundDeleteKeys() {
+      	mod.CommandDeleteKeys();
       },
     }[event.name]();
   },
@@ -31,8 +37,15 @@ const mod = {
   CommandPrivateKeyStore (inputData) {
     mod._CommandLocalDataSet('XYZPrivateKey', inputData);
   },
+  CommandPublicKeyStore (inputData) {
+    mod._CommandLocalDataSet('XYZPublicKey', inputData);
+  },
   _CommandLocalDataSet (key, inputData) {
     api.LocalDataSet(key, JSON.stringify(inputData));
+  },
+  CommandDeleteKeys () {
+    mod._CommandLocalDataSet('XYZPrivateKey', null);
+    mod._CommandLocalDataSet('XYZPublicKey', null);
   },
   
   // SETUP
@@ -55,6 +68,7 @@ const mod = {
 mod.LifecycleExtensionDidLoad();
 
 window.LCHBackgroundModule = {
-  DispatchBackgroundStorePrivateKey: mod.CommandPrivateKeyStore
+  DispatchBackgroundStorePrivateKey: mod.CommandPrivateKeyStore,
+  DispatchBackgroundStorePublicKey: mod.CommandPublicKeyStore,
+  DispatchBackgroundDeleteKeys: mod.CommandDeleteKeys,
 };
-

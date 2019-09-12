@@ -6,6 +6,7 @@ import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
 
 import { LBXPopoverRandomSeed } from './ui-logic.js'
 
+export let LBXPopoverInitializingPrivateKey = null;
 export let LBXPopoverInitializingPublicKey = null;
 export let LBXPopoverInitializingDidLink = false;
 
@@ -27,7 +28,30 @@ const mod = {
 			return mod._ValuePrivateKey
 		};
 
-		api.CallBackgroundFunction('DispatchBackgroundStorePrivateKey', (function SerializePrivateKey(key) {
+		mod._ValuePrivateKey = inputData
+	},
+
+	// INTERFACE
+
+	InterfaceGenerateButtonDidClick () {
+		mod.CommandGenerateKeys()
+	},
+	InterfaceDisconnectButtonDidClick () {
+		mod.CommandDisconnect()
+	},
+
+	// COMMAND
+	
+	CommandGenerateKeys () {
+		let item = OLSK_TESTING_BEHAVIOUR() ? LBXPopoverRandomSeed() : cryptico.generateRSAKey(LBXPopoverRandomSeed(), 1024);
+
+		mod._CommandStorePrivateKey(item)
+		mod._CommandStorePublicKey(OLSK_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PUBLIC_KEY' : cryptico.publicKeyString(item));
+	},
+	_CommandStorePrivateKey (inputData) {
+		mod.ValuePrivateKey(inputData)
+
+		api.CallBackgroundFunction('DispatchBackgroundStorePrivateKey', OLSK_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PRIVATE_KEY' : (function SerializePrivateKey(key) {
 			// https://github.com/wwwtyro/cryptico/issues/28#issuecomment-319841493
 		  return {
 		    coeff: key.coeff.toString(16),
@@ -39,34 +63,38 @@ const mod = {
 		    p: key.p.toString(16),
 		    q: key.q.toString(16)
 		  }
-		})(mod._ValuePrivateKey = inputData))
+		})(mod.ValuePrivateKey()))
 	},
+	_CommandStorePublicKey (inputData) {
+		mod.ValuePublicKey(inputData)
 
-	// INTERFACE
-
-	InterfaceGenerateButtonDidClick () {
-		mod.CommandGenerateKey()
-	},
-	InterfaceDisconnectButtonDidClick () {
-		mod.CommandDisconnect()
-	},
-
-	// COMMAND
-
-	CommandGenerateKey () {
-		mod.ValuePrivateKey(OLSK_TESTING_BEHAVIOUR() ? LBXPopoverRandomSeed() : cryptico.generateRSAKey(LBXPopoverRandomSeed(), 1024))
-		mod.ValuePublicKey(OLSK_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PUBLIC_KEY' : cryptico.publicKeyString(mod.ValuePrivateKey()))
+		api.CallBackgroundFunction('DispatchBackgroundStorePublicKey', mod.ValuePublicKey())
 	},
 	CommandDisconnect () {
+		mod.ValuePrivateKey(null)
 		mod.ValuePublicKey(null)
+		api.CallBackgroundFunction('DispatchBackgroundDeleteKeys')
+	},
+
+	// SETUP
+
+	SetupEverything() {
+		if (LBXPopoverInitializingPrivateKey) {
+			mod.ValuePrivateKey(LBXPopoverInitializingPrivateKey)
+		};
+
+		if (LBXPopoverInitializingPublicKey) {
+			mod.ValuePublicKey(LBXPopoverInitializingPublicKey)
+		};
+
+		api.LocalDataGet('XYZPrivateKey').then(mod.ValuePrivateKey)
+		api.LocalDataGet('XYZPublicKey').then(mod.ValuePublicKey)
 	},
 
 	// LIFECYCLE
 
 	LifecycleModuleWillMount() {
-		if (LBXPopoverInitializingPublicKey) {
-			mod.ValuePublicKey(LBXPopoverInitializingPublicKey)
-		};
+		mod.SetupEverything()
 	},
 
 }
@@ -74,15 +102,15 @@ const mod = {
 mod.LifecycleModuleWillMount();
 </script>
 
-{#if !mod.ValuePublicKey()}
+{#if !mod._ValuePrivateKey || !mod._ValuePublicKey }
 	<button class="LBXPopoverGenerateButton" on:click={ mod.InterfaceGenerateButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateButtonText') }</button>
 {/if}
 
-{#if mod.ValuePublicKey()}
+{#if mod._ValuePublicKey}
 	<button class="LBXPopoverDisconnectButton" on:click={ mod.InterfaceDisconnectButtonDidClick }>{ OLSKLocalized('LBXPopoverDisconnectButtonText') }</button>
 {/if}
 
-{#if mod.ValuePublicKey() && !LBXPopoverInitializingDidLink}
+{#if mod._ValuePublicKey && !LBXPopoverInitializingDidLink}
 	<textarea class="LBXPopoverPublicKeyField">{ mod.ValuePublicKey() }</textarea>
 {/if}
 
