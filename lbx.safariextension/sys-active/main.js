@@ -1,3 +1,4 @@
+import api from './api.js'
 import { LBXPayloadIsValid } from './logic.js'
 
 const mod = {
@@ -15,7 +16,7 @@ const mod = {
 
 	// MESSAGE
 
-	MessageReceiveFromPage (event) {
+	MessageDidReceiveFromPage (event) {
 		if (event.source !== window) {
 		  return;
 		}
@@ -45,8 +46,7 @@ const mod = {
 		mod.SetupMessageReceiveFromPage();
 	},
 	SetupMessageReceiveFromPage() {
-		// @MessageReceiveFromPage
-		window.addEventListener('message', mod.MessageReceiveFromPage, false);
+		api.MessageReceiveFromPage(mod.MessageDidReceiveFromPage)
 	},
 
 	// LIFECYCLE
