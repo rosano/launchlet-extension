@@ -1,4 +1,6 @@
 <script>
+import api from './api.js'
+
 import { OLSKLocalized } from '../-shared/LBXGlobal/main.js';
 import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
 
@@ -25,7 +27,19 @@ const mod = {
 			return mod._ValuePrivateKey
 		};
 
-		mod._ValuePrivateKey = inputData
+		api.CallBackgroundFunction('DispatchBackgroundStorePrivateKey', (function SerializePrivateKey(key) {
+			// https://github.com/wwwtyro/cryptico/issues/28#issuecomment-319841493
+		  return {
+		    coeff: key.coeff.toString(16),
+		    d: key.d.toString(16),
+		    dmp1: key.dmp1.toString(16),
+		    dmq1: key.dmq1.toString(16),
+		    e: key.e.toString(16),
+		    n: key.n.toString(16),
+		    p: key.p.toString(16),
+		    q: key.q.toString(16)
+		  }
+		})(mod._ValuePrivateKey = inputData))
 	},
 
 	// INTERFACE

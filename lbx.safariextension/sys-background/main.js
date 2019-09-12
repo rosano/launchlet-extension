@@ -6,6 +6,9 @@ const mod = {
 
 	MessageDidReceiveFromActive (event) {
     return {
+      DispatchBackgroundStorePrivateKey () {
+        mod.CommandPrivateKeyStore(event.message)
+      },
       DispatchBackgroundStorePayloadEncryptedData () {
         mod.CommandHandleEventStorePayloadEncryptedData(event)
       },
@@ -21,6 +24,10 @@ const mod = {
   	} catch (e) {
   		api.MessageSendToPage('DispatchActivePayloadError', e, event);
   	}
+  },
+
+  CommandPrivateKeyStore (inputData) {
+    mod.ValueLocalDataKeySet('XYZPrivateKey', inputData);
   },
   
   // SETUP
@@ -41,3 +48,8 @@ const mod = {
 };
 
 mod.LifecycleExtensionDidLoad();
+
+window.LCHBackgroundModule = {
+  DispatchBackgroundStorePrivateKey: mod.CommandPrivateKeyStore
+};
+
