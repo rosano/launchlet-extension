@@ -40,5 +40,19 @@ export default {
 	    return coll;
 	  }, {}));
 	},
+	async LocalDataGet (inputData) {
+	  if (typeof safari !== 'undefined') {
+	  	// @LocalDataGet:Safari
+	    return Promise.resolve(safari.extension.settings[inputData]);
+	  };
+
+	  // @LocalDataGet:Shared
+	  // return Promise.resolve(localStorage.getItem(inputData));
+	  return new Promise(function (resolve, reject) {
+	    return chrome.storage.local.get([inputData], function (result) {
+	      return resolve(result[inputData])
+	    });
+	  })
+	},
 	
 }
