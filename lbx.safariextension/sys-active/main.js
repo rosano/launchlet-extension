@@ -30,6 +30,13 @@ const mod = {
 		};
 
 		mod.ValueMessageSource(event.source);
+
+		mod.CommandStorePayloadEncryptedData(event.data.LBXPayloadEncryptedData)
+	},
+
+	// COMMAND
+
+	CommandStorePayloadEncryptedData(inputData) {
 	},
 
 	// SETUP
