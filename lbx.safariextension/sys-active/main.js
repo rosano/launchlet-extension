@@ -36,8 +36,8 @@ const mod = {
 	},
 	MessageDidReceiveFromBackground (event) {
 		return {
-		DispatchPagePayloadError() {
-	  	console.log('DispatchPagePayloadError', event.message);
+		DispatchActivePayloadError() {
+	  	console.log('DispatchActivePayloadError', event.message);
 	  },
 		}[event.name]();
 	},

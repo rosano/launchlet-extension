@@ -19,7 +19,7 @@ const mod = {
   	try {
   	  throw 'XYZErrorInputInvalid'
   	} catch (e) {
-  		api.MessageSendToPage('DispatchPagePayloadError', e, event);
+  		api.MessageSendToPage('DispatchActivePayloadError', e, event);
   	}
   },
   
