@@ -27,12 +27,8 @@
 			<dict>
 				<key>Filename</key>
 				<string>open-popover/ui-view.html</string>
-				<key>Height</key>
-				<integer>200</integer>
 				<key>Identifier</key>
 				<string>LBXPopover</string>
-				<key>Width</key>
-				<integer>200</integer>
 			</dict>
 		</array>
 		<key>Toolbar Items</key>
