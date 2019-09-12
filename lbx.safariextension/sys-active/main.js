@@ -38,6 +38,7 @@ const mod = {
 	// COMMAND
 
 	CommandStorePayloadEncryptedData(inputData) {
+		api.MessageSendToBackground('DispatchBackgroundStorePayloadEncryptedData', inputData);
 	},
 
 	// SETUP
