@@ -1,0 +1,44 @@
+{
+
+  "manifest_version": 2,
+  "name": "Launchlet",
+  "version": "0.0.0",
+  "icons": {
+    "48": "/-shared/images/Icon-128.png",
+    "96": "/-shared/images/Icon-128.png"
+  },
+
+  "permissions": [
+    // @LocalDataGet
+    // @LocalDataSet
+    "storage",
+    "unlimitedStorage"
+  ],
+
+  "background": {
+    "scripts": [
+      "/-shared/--external/cryptico/cryptico.min.js",
+      "/sys-background/main.js"
+    ]
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["/sys-active/main.js"]
+    }
+  ],
+
+  // @ToolbarButton
+  "browser_action": {
+    "default_title": "Launchlet",
+    "browser_style": true,
+
+    // @ToolbarButtonIcon
+    "default_icon": "/-shared/images/Icon-128.png",
+    
+    // @ToolbarButtonContextMenu
+    "default_popup": "/open-popover/ui-view.html"
+  }
+
+}
