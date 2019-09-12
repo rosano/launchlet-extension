@@ -36,9 +36,11 @@ const mod = {
 	},
 	MessageDidReceiveFromBackground (event) {
 		return {
-		DispatchActivePayloadError() {
-	  	console.log('DispatchActivePayloadError', event.message);
-	  },
+			DispatchActivePayloadError() {
+		  	window.postMessage({
+		  		LCHResponseString: event.message,
+		  	}, window.location.href)
+		  },
 		}[event.name]();
 	},
 
