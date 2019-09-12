@@ -2,6 +2,17 @@
 
 const mod = {
 
+	// VALUE
+
+	_ValueMessageSource: undefined,
+	ValueMessageSource (inputData) {
+	  if (typeof inputData === 'undefined') {
+	    return mod._ValueMessageSource;
+	  };
+
+	  mod._ValueMessageSource = inputData
+	},
+
 	// MESSAGE
 
 	MessageReceiveFromPage (event) {
@@ -15,6 +26,8 @@ const mod = {
 		//   return;
 		// }
 		console.log('stub check event source');
+
+		mod.ValueMessageSource(event.source);
 	},
 
 	// SETUP
