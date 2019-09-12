@@ -15,7 +15,7 @@
 
   "background": {
     "scripts": [
-      "/-shared/--external/cryptico/cryptico.min.js",
+      "/-shared/__external/cryptico/cryptico.min.js",
       "/sys-background/main.js"
     ]
   },

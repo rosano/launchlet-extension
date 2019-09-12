@@ -2,6 +2,6 @@
 
 exports.OLSKControllerSharedStaticAssetFolders = function() {
 	return [
-		'-shared/--external',
+		'-shared/__external',
 	];
 };
