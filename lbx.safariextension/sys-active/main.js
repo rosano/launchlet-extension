@@ -16,16 +16,14 @@ const mod = {
 	// MESSAGE
 
 	MessageReceiveFromPage (event) {
-		// We only accept messages from ourselves
 		if (event.source !== window) {
 		  return;
 		}
 
-		// We only accept messages from ourselves
 		// if (not launchlet.dev) {
 		//   return;
 		// }
-		console.log('stub check event source');
+		console.warn('stub check event.origin');
 
 		if (!LBXPayloadIsValid(event.data)) {
 			return;
@@ -37,9 +35,9 @@ const mod = {
 	// SETUP
 
 	SetupEveryting() {
-		mod.SetupReceiveMessageFromPage();
+		mod.SetupMessageReceiveFromPage();
 	},
-	SetupReceiveMessageFromPage() {
+	SetupMessageReceiveFromPage() {
 		// @MessageReceiveFromPage
 		window.addEventListener('message', mod.MessageReceiveFromPage, false);
 	},
