@@ -15,11 +15,8 @@ const mod = {
     }[event.name]();
   },
 
-  // VALUE
 
-  ValueLocalDataSet (key, inputData) {
-    api.LocalDataSet(key, JSON.stringify(inputData));
-  },
+  // // VALUE
 
   // COMMAND
 
@@ -32,7 +29,10 @@ const mod = {
   },
 
   CommandPrivateKeyStore (inputData) {
-    mod.ValueLocalDataSet('XYZPrivateKey', inputData);
+    mod._CommandLocalDataSet('XYZPrivateKey', inputData);
+  },
+  _CommandLocalDataSet (key, inputData) {
+    api.LocalDataSet(key, JSON.stringify(inputData));
   },
   
   // SETUP
