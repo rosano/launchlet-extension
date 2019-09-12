@@ -1,4 +1,4 @@
-'use strict';
+import { LBXPayloadIsValid } from './logic.js'
 
 const mod = {
 
@@ -26,6 +26,10 @@ const mod = {
 		//   return;
 		// }
 		console.log('stub check event source');
+
+		if (!LBXPayloadIsValid(event.data)) {
+			return;
+		};
 
 		mod.ValueMessageSource(event.source);
 	},
