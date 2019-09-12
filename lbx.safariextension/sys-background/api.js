@@ -24,5 +24,21 @@ export default {
 		  });
 		});
 	},
+
+	LocalDataSet (param1, param2) {
+	  console.log('LocalDataSet', param1, param2);
+	  if (typeof safari !== 'undefined') {
+	  	// @LocalDataSet:Safari
+	    return (safari.extension.settings[param1] = param2)
+	  };
+
+	  // @LocalDataSet:Shared
+	  // localStorage.setItem(param1, param2);
+	  chrome.storage.local.set([param1].reduce(function (coll, item) {
+	    coll[item] = param2
+
+	    return coll;
+	  }, {}));
+	},
 	
 }
