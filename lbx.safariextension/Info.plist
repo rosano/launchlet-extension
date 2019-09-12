@@ -60,7 +60,7 @@
 		<dict>
 			<key>End</key>
 			<array>
-				<string>sys-active/main.js</string>
+				<string>sys-active/__compiled/ui-behaviour.js</string>
 			</array>
 		</dict>
 	</dict>
