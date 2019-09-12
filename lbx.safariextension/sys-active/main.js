@@ -15,7 +15,7 @@ const mod = {
 		//   return;
 		// }
 		console.log('stub check event source');
-	}
+	},
 
 	// SETUP
 
