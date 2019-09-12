@@ -6,11 +6,22 @@ const mod = {
 
 	MessageDidReceiveFromActive (event) {
     return {
-      async DispatchBackgroundStorePayloadEncryptedData () {
+      DispatchBackgroundStorePayloadEncryptedData () {
+        mod.CommandHandleEventStorePayloadEncryptedData(event)
       },
     }[event.name]();
   },
 
+
+  // COMMAND
+
+  async CommandHandleEventStorePayloadEncryptedData (event) {
+  	try {
+  	  throw 'XYZErrorInputInvalid'
+  	} catch (e) {
+  		api.MessageSendToPage('DispatchPagePayloadError', e, event);
+  	}
+  },
   
   // SETUP
 

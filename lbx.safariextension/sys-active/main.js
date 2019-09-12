@@ -34,6 +34,13 @@ const mod = {
 
 		mod.CommandStorePayloadEncryptedData(event.data.LBXPayloadEncryptedData)
 	},
+	MessageDidReceiveFromBackground (event) {
+		return {
+		DispatchPagePayloadError() {
+	  	console.log('DispatchPagePayloadError', event.message);
+	  },
+		}[event.name]();
+	},
 
 	// COMMAND
 
@@ -45,9 +52,13 @@ const mod = {
 
 	SetupEveryting() {
 		mod.SetupMessageReceiveFromPage();
+		mod.SetupMessageReceiveFromBackground();
 	},
 	SetupMessageReceiveFromPage() {
 		api.MessageReceiveFromPage(mod.MessageDidReceiveFromPage)
+	},
+	SetupMessageReceiveFromBackground() {
+		api.MessageReceiveFromBackground(mod.MessageDidReceiveFromBackground)
 	},
 
 	// LIFECYCLE
