@@ -22,6 +22,7 @@
 		<integer>104857600</integer>
 		<key>Global Page</key>
 		<string>sys-background/safari.html</string>
+		<!-- @ToolbarButtonContextMenu -->
 		<key>Popovers</key>
 		<array>
 			<dict>
@@ -33,9 +34,11 @@
 		</array>
 		<key>Toolbar Items</key>
 		<array>
+			<!-- @ToolbarButton -->
 			<dict>
 				<key>Identifier</key>
 				<string>LBXToolbarItemIdentifier</string>
+				<!-- @ToolbarButtonIcon -->
 				<key>Image</key>
 				<string>-shared/images/safari-toolbar-icon.png</string>
 				<key>Include By Default</key>
