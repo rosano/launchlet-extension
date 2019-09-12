@@ -9,8 +9,6 @@
   },
 
   "permissions": [
-    // @LocalDataGet
-    // @LocalDataSet
     "storage",
     "unlimitedStorage"
   ],
