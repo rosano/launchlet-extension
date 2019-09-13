@@ -66,6 +66,7 @@ const mod = {
 	},
 	CommandDeleteKey () {
 		mod.ValuePublicKey(null)
+		LBXPopoverPreloadDidPair = false;
 		
 		api.CallBackgroundFunction('DispatchBackgroundDeleteKeys')
 	},
