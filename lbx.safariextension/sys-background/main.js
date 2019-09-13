@@ -45,7 +45,15 @@ const mod = {
 
   async CommandHandleEventStorePayloadEncryptedData (event) {
   	try {
-  	  mod._CommandStoreDecryptedPayload(JSON.parse(await mod._CommandDecrypt(event.message, mod.ValuePrivateKey())))
+      const decryptedPayload = JSON.parse(await mod._CommandDecrypt(event.message, mod.ValuePrivateKey()));
+
+      if (!decryptedPayload.LBXPayloadBookmarklet) {
+        throw "XYZErrorInputInvalid"
+      };
+
+      mod.ValueMemoryPayload(decryptedPayload);
+
+      mod._CommandLocalDataSet('XYZPayload', decryptedPayload);
 
       api.MessageSendToPage('DispatchActivePayloadSuccess', mod.ValueMemoryPayload().LBXPayloadHash, event);
   	} catch (e) {
@@ -59,15 +67,6 @@ const mod = {
       });
     })
   },
-  _CommandStoreDecryptedPayload (inputData) {
-    if (inputData.LBXPayloadBookmarklet) {
-      mod.ValueMemoryPayload(inputData);
-
-      return mod._CommandLocalDataSet('XYZPayload', inputData);
-    };
-
-    throw "XYZErrorInputInvalid"
-  },
 
   CommandPrivateKeyStore (inputData) {
     mod._CommandLocalDataSet('XYZPrivateKey', inputData);
@@ -76,7 +75,7 @@ const mod = {
   CommandPublicKeyStore (inputData) {
     mod._CommandLocalDataSet('XYZPublicKey', inputData);
   },
-  
+
   CommandDeleteKeys () {
     mod._CommandLocalDataSet('XYZPrivateKey', null);
     mod._CommandLocalDataSet('XYZPublicKey', null);
