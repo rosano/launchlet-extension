@@ -76,15 +76,14 @@ const mod = {
 		mod.SetupMessageReceiveFromActive();
 	},
 	async SetupValuePrivateKey() {
-	  mod.ValuePrivateKey((function DeserializePrivateKey(json) {
-	  	if (!json) {
-	  		return json;
-	  	};
-
-			// https://github.com/wwwtyro/cryptico/issues/28#issuecomment-319841493
-		  let rsa = new RSAKey();
-		  rsa.setPrivateEx(json.n, json.e, json.d, json.p, json.q, json.dmp1, json.dmq1, json.coeff)
-		  return rsa;
+	  mod.ValuePrivateKey(await (async function DeserializePrivateKey(inputData) {
+      if (!inputData) {
+        return Promise.resolve(inputData)
+      };
+	  	
+      return new Promise(function (resolve, reject) {
+        return simpleCrypto.asym.importEncryptPrivateKey(inputData, reject, resolve);
+      })
 		})(await mod._CommandLocalDataGet('XYZPrivateKey')))
 	},
 	SetupMessageReceiveFromActive() {

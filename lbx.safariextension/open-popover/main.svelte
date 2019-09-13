@@ -22,15 +22,7 @@ const mod = {
 
 		mod._ValuePublicKey = inputData
 	},
-	_ValuePrivateKey: undefined,
-	ValuePrivateKey(inputData) {
-		if (typeof inputData === 'undefined') {
-			return mod._ValuePrivateKey
-		};
-
-		mod._ValuePrivateKey = inputData
-	},
-
+	
 	// INTERFACE
 
 	InterfaceGenerateButtonDidClick () {
@@ -42,28 +34,22 @@ const mod = {
 
 	// COMMAND
 	
-	CommandGenerateKeys () {
-		let item = OLSK_TESTING_BEHAVIOUR() ? LBXPopoverRandomSeed() : cryptico.generateRSAKey(LBXPopoverRandomSeed(), 1024);
+	async CommandGenerateKeys () {
+		let item = OLSK_TESTING_BEHAVIOUR() ? {
+			privateJwk: 'LBX_TESTING_PRIVATE_KEY',
+			publicJwk: 'LBX_TESTING_PUBLIC_KEY',
+		} : await mod._CommandGenerateKeys()
 
-		mod._CommandStorePrivateKey(item)
-		mod._CommandStorePublicKey(OLSK_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PUBLIC_KEY' : cryptico.publicKeyString(item));
+		mod._CommandStorePrivateKey(item.privateJwk)
+		mod._CommandStorePublicKey(JSON.stringify(item.publicJwk));
+	},
+	async _CommandGenerateKeys () {
+		return new Promise(function (resolve, reject) {
+			window.simpleCrypto.asym.generateEncryptKey(reject, resolve)
+		})
 	},
 	_CommandStorePrivateKey (inputData) {
-		mod.ValuePrivateKey(inputData)
-
-		api.CallBackgroundFunction('DispatchBackgroundStorePrivateKey', OLSK_TESTING_BEHAVIOUR() ? 'LBX_TESTING_PRIVATE_KEY' : (function SerializePrivateKey(key) {
-			// https://github.com/wwwtyro/cryptico/issues/28#issuecomment-319841493
-		  return {
-		    coeff: key.coeff.toString(16),
-		    d: key.d.toString(16),
-		    dmp1: key.dmp1.toString(16),
-		    dmq1: key.dmq1.toString(16),
-		    e: key.e.toString(16),
-		    n: key.n.toString(16),
-		    p: key.p.toString(16),
-		    q: key.q.toString(16)
-		  }
-		})(mod.ValuePrivateKey()))
+		api.CallBackgroundFunction('DispatchBackgroundStorePrivateKey', inputData)
 	},
 	_CommandStorePublicKey (inputData) {
 		mod.ValuePublicKey(inputData)
@@ -71,24 +57,19 @@ const mod = {
 		api.CallBackgroundFunction('DispatchBackgroundStorePublicKey', mod.ValuePublicKey())
 	},
 	CommandDisconnect () {
-		mod.ValuePrivateKey(null)
 		mod.ValuePublicKey(null)
+		
 		api.CallBackgroundFunction('DispatchBackgroundDeleteKeys')
 	},
 
 	// SETUP
 
-	SetupEverything() {
-		if (LBXPopoverInitializingPrivateKey) {
-			mod.ValuePrivateKey(LBXPopoverInitializingPrivateKey)
-		};
-
+	async SetupEverything() {
 		if (LBXPopoverInitializingPublicKey) {
 			mod.ValuePublicKey(LBXPopoverInitializingPublicKey)
 		};
 
-		api.LocalDataGet('XYZPrivateKey').then(mod.ValuePrivateKey)
-		api.LocalDataGet('XYZPublicKey').then(mod.ValuePublicKey)
+	  mod.ValuePublicKey(await api.LocalDataGet('XYZPublicKey'))
 	},
 
 	// LIFECYCLE
@@ -102,7 +83,7 @@ const mod = {
 mod.LifecycleModuleWillMount();
 </script>
 
-{#if !mod._ValuePrivateKey || !mod._ValuePublicKey }
+{#if !mod._ValuePublicKey }
 	<button class="LBXPopoverGenerateButton" on:click={ mod.InterfaceGenerateButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateButtonText') }</button>
 {/if}
 

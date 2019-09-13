@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "install": "git clone --depth 1 https://github.com/wwwtyro/cryptico.git node_modules/cryptico",
     "postinstall": "node ./package-postinstall.js",
 
     "start": "olsk-app lbx.safariextension",
@@ -24,6 +23,9 @@
 
     "// SERVE UI TEST STUBS": null,
     "OLSKApp": "olsk/OLSKApp",
+
+    "// WEBCRYPTO": null,
+    "simplecrypto": "encryb/simplecrypto",
 
     "// I sacrifice myself for the commas of others": null    
   }
