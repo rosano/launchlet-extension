@@ -28,7 +28,7 @@ export default {
 	},
 
 	async LocalDataGet (inputData) {
-	  return JSON.parse(await this._LocalDataGet(inputData));
+	  return JSON.parse((await this._LocalDataGet(inputData)) || 'null');
 	},
 	async _LocalDataGet (inputData) {
 	  if (typeof safari !== 'undefined') {
