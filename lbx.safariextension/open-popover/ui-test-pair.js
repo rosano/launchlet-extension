@@ -2,7 +2,7 @@ import { deepEqual } from 'assert';
 
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().LBXPopoverRoute;
 
-describe('LBXPopoverUILink', function () {
+describe('LBXPopoverUIPair', function () {
 
 	before(function() {
 		return browser.visit(kDefaultRoute.OLSKRoutePath);
@@ -66,10 +66,10 @@ describe('LBXPopoverUILink', function () {
 
 	});
 
-	context('DidLink', function testDidLink() {
+	context('DidPair', function testDidPair() {
 
 		before(function () {
-			return browser.visit(`${ kDefaultRoute.OLSKRoutePath }?LBXPopoverPreloadPrivateKey=alfa&LBXPopoverPreloadPublicKey=bravo&LBXPopoverPreloadDidLink=true`);
+			return browser.visit(`${ kDefaultRoute.OLSKRoutePath }?LBXPopoverPreloadPrivateKey=alfa&LBXPopoverPreloadPublicKey=bravo&LBXPopoverPreloadDidPair=true`);
 		});
 
 		it('hides LBXPopoverGenerateKeyButton', function() {

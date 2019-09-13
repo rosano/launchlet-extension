@@ -8,7 +8,7 @@ import { LBXPopoverRandomSeed } from './ui-logic.js'
 
 export let LBXPopoverPreloadPrivateKey = null;
 export let LBXPopoverPreloadPublicKey = null;
-export let LBXPopoverPreloadDidLink = false;
+export let LBXPopoverPreloadDidPair = false;
 
 const mod = {
 
@@ -103,7 +103,7 @@ mod.LifecycleModuleWillMount();
 	<button class="LBXPopoverDeleteKeyButton" on:click={ mod.InterfaceDeleteKeyButtonDidClick }>{ OLSKLocalized('LBXPopoverDeleteKeyButtonText') }</button>
 {/if}
 
-{#if mod._ValuePublicKey && !LBXPopoverPreloadDidLink}
+{#if mod._ValuePublicKey && !LBXPopoverPreloadDidPair}
 	<textarea class="LBXPopoverPublicKeyField">{ mod.ValuePublicKey() }</textarea>
 {/if}
 
