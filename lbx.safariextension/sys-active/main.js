@@ -42,6 +42,11 @@ const mod = {
 		  		LBXResponseError: event.message,
 		  	}, window.location.href)
 		  },
+			DispatchActivePayloadSuccess() {
+		  	window.postMessage({
+		  		LBXResponseHash: event.message,
+		  	}, window.location.href)
+		  },
 		}[event.name]();
 	},
 

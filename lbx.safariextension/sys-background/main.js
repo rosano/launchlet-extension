@@ -21,7 +21,6 @@ const mod = {
     }[event.name]();
   },
 
-
   // VALUE
 
   _ValuePrivateKey: undefined,
@@ -32,7 +31,14 @@ const mod = {
 
     mod._ValuePrivateKey = inputData
   },
+  _ValueMemoryPayload: undefined,
+  ValueMemoryPayload (inputData) {
+    if (typeof inputData === 'undefined') {
+      return mod._ValueMemoryPayload;
+    };
 
+    mod._ValueMemoryPayload = inputData
+  },
 
   // // VALUE
 
@@ -40,12 +46,29 @@ const mod = {
 
   async CommandHandleEventStorePayloadEncryptedData (event) {
   	try {
-  	  throw 'XYZErrorInputInvalid'
+  	  mod._CommandStoreDecryptedPayload(JSON.parse(await mod._CommandDecrypt(event.message, mod.ValuePrivateKey())))
+
+      api.MessageSendToPage('DispatchActivePayloadSuccess', mod.ValueMemoryPayload().LBXPayloadHash, event);
   	} catch (e) {
   		api.MessageSendToPage('DispatchActivePayloadError', e, event);
   	}
   },
+  async _CommandDecrypt (param1, param2) {
+    return new Promise(function (resolve, reject) {
+      return simpleCrypto.asym.decrypt(param2, param1, reject, function(decrypted){
+        return resolve((new TextDecoder("utf-8")).decode(decrypted))
+      });
+    })
+  },
+  _CommandStoreDecryptedPayload (inputData) {
+    if (inputData.LBXPayloadBookmarklet) {
+      mod.ValueMemoryPayload(inputData);
 
+      return mod._CommandLocalDataSet('XYZPayload', inputData);
+    };
+
+    throw "XYZErrorInputInvalid"
+  },
   CommandPrivateKeyStore (inputData) {
     mod._CommandLocalDataSet('XYZPrivateKey', inputData);
   },
