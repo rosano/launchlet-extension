@@ -38,7 +38,8 @@ const mod = {
 		return {
 			DispatchActivePayloadError() {
 		  	window.postMessage({
-		  		LCHResponseString: event.message,
+		  		LBXResponseHash: '',
+		  		LBXResponseError: event.message,
 		  	}, window.location.href)
 		  },
 		}[event.name]();
