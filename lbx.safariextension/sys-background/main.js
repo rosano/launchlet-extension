@@ -99,6 +99,7 @@ const mod = {
 
   SetupEverything () {
 		mod.SetupValuePrivateKey();
+    mod.SetupValueMemoryPayload();
 		mod.SetupMessageReceiveFromActive();
 	},
 	async SetupValuePrivateKey() {
@@ -112,6 +113,9 @@ const mod = {
       })
 		})(await mod._CommandLocalDataGet('XYZPrivateKey')))
 	},
+  async SetupValueMemoryPayload() {
+    mod.ValueMemoryPayload(await mod._CommandLocalDataGet('XYZPayload'))
+  },
 	SetupMessageReceiveFromActive() {
 		api.MessageReceiveFromActive(mod.MessageDidReceiveFromActive)
 	},
