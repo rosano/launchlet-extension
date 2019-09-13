@@ -31,6 +31,7 @@ const mod = {
 
     mod._ValuePrivateKey = inputData
   },
+
   _ValueMemoryPayload: undefined,
   ValueMemoryPayload (inputData) {
     if (typeof inputData === 'undefined') {
@@ -39,8 +40,6 @@ const mod = {
 
     mod._ValueMemoryPayload = inputData
   },
-
-  // // VALUE
 
   // COMMAND
 
@@ -69,12 +68,21 @@ const mod = {
 
     throw "XYZErrorInputInvalid"
   },
+
   CommandPrivateKeyStore (inputData) {
     mod._CommandLocalDataSet('XYZPrivateKey', inputData);
   },
+
   CommandPublicKeyStore (inputData) {
     mod._CommandLocalDataSet('XYZPublicKey', inputData);
   },
+  
+  CommandDeleteKeys () {
+    mod._CommandLocalDataSet('XYZPrivateKey', null);
+    mod._CommandLocalDataSet('XYZPublicKey', null);
+    mod._CommandLocalDataSet('XYZPayload', null);
+  },
+
   _CommandLocalDataSet (key, inputData) {
     api.LocalDataSet(key, JSON.stringify(inputData));
   },
@@ -86,11 +94,6 @@ const mod = {
     };
 
     return JSON.parse(outputData);
-  },
-  CommandDeleteKeys () {
-    mod._CommandLocalDataSet('XYZPrivateKey', null);
-    mod._CommandLocalDataSet('XYZPublicKey', null);
-    mod._CommandLocalDataSet('XYZPayload', null);
   },
   
   // SETUP
