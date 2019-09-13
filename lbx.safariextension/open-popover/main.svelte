@@ -82,6 +82,7 @@ const mod = {
 		};
 
 	  mod.ValuePublicKey(await api.LocalDataGet('XYZPublicKey'))
+	  LBXPopoverPreloadDidPair = !!(await api.LocalDataGet('XYZPayload'))
 	},
 
 	// LIFECYCLE
