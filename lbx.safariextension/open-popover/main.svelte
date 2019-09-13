@@ -25,7 +25,7 @@ const mod = {
 	
 	// INTERFACE
 
-	InterfaceGenerateButtonDidClick () {
+	InterfaceGenerateKeyButtonDidClick () {
 		mod.CommandGenerateKeys()
 	},
 	InterfaceDisconnectButtonDidClick () {
@@ -84,7 +84,7 @@ mod.LifecycleModuleWillMount();
 </script>
 
 {#if !mod._ValuePublicKey }
-	<button class="LBXPopoverGenerateButton" on:click={ mod.InterfaceGenerateButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateButtonText') }</button>
+	<button class="LBXPopoverGenerateKeyButton" on:click={ mod.InterfaceGenerateKeyButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateKeyButtonText') }</button>
 {/if}
 
 {#if mod._ValuePublicKey}

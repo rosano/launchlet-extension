@@ -16,8 +16,8 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 
 	context('Startup', function testStartup() {
 
-		it('localizes LBXPopoverGenerateButton', function() {
-			browser.assert.text(LBXPopoverGenerateButton, uLocalized('LBXPopoverGenerateButtonText'))
+		it('localizes LBXPopoverGenerateKeyButton', function() {
+			browser.assert.text(LBXPopoverGenerateKeyButton, uLocalized('LBXPopoverGenerateKeyButtonText'))
 		});
 		
 	});
@@ -25,7 +25,7 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 	context('DidGenerate', function testDidGenerate() {
 
 		before(async function () {
-			browser.click(LBXPopoverGenerateButton)
+			browser.click(LBXPopoverGenerateKeyButton)
 			await browser.wait({ element: LBXPopoverPublicKeyField })
 		});
 
