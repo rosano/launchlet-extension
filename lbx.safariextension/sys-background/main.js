@@ -90,6 +90,7 @@ const mod = {
   CommandDeleteKeys () {
     mod._CommandLocalDataSet('XYZPrivateKey', null);
     mod._CommandLocalDataSet('XYZPublicKey', null);
+    mod._CommandLocalDataSet('XYZPayload', null);
   },
   
   // SETUP
