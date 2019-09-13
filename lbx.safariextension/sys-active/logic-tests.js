@@ -10,27 +10,25 @@ describe('LBXPayloadIsValid', function testPayloadIsValid() {
 		}, /LBXErrorInputInvalid/);
 	});
 
-	it('returns false if LBXPayloadEncryptedData not string', function() {
+	it('returns false if LBXPayloadEncryptedData not object', function() {
 		deepEqual(mainModule.LBXPayloadIsValid({
 			LBXPayloadEncryptedData: null
 		}), false);
 	});
 
-	it('returns false if LBXPayloadEncryptedData blank', function() {
+	it('returns false if LBXPayloadEncryptedData.rsaEncrypted not object', function() {
 		deepEqual(mainModule.LBXPayloadIsValid({
-			LBXPayloadEncryptedData: ''
-		}), false);
-	});
-
-	it('returns false if LBXPayloadEncryptedData contains untrimmed whitespace', function() {
-		deepEqual(mainModule.LBXPayloadIsValid({
-			LBXPayloadEncryptedData: ' alfa '
+			LBXPayloadEncryptedData: {
+				rsaEncrypted: null
+			},
 		}), false);
 	});
 
 	it('returns true', function() {
 		deepEqual(mainModule.LBXPayloadIsValid({
-			LBXPayloadEncryptedData: 'alfa',
+			LBXPayloadEncryptedData: {
+				rsaEncrypted: {}
+			},
 		}), true);
 	});	
 

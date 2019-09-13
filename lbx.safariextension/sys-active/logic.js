@@ -3,17 +3,13 @@ export const LBXPayloadIsValid = function(inputData) {
 		throw 'LBXErrorInputInvalid'
 	}
 
-	if (typeof inputData.LBXPayloadEncryptedData !== 'string') {
-		return false;
-	};
+	if (typeof inputData.LBXPayloadEncryptedData !== 'object' || inputData.LBXPayloadEncryptedData === null) {
+		return false
+	}
 
-	if (!inputData.LBXPayloadEncryptedData) {
-		return false;
-	};
+	if (typeof inputData.LBXPayloadEncryptedData.rsaEncrypted !== 'object' || inputData.LBXPayloadEncryptedData.rsaEncrypted === null) {
+		return false
+	}
 
-	if (inputData.LBXPayloadEncryptedData.trim() !== inputData.LBXPayloadEncryptedData) {
-		return false;
-	};
-	
 	return true;
 };
