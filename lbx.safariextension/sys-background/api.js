@@ -54,5 +54,27 @@ export default {
 	    });
 	  })
 	},
+
+	RunDynamicScript (inputData, event) {
+		if (typeof safari !== 'undefined') {
+			console.log(this.MessageSendToPage);
+			// @RunDynamicScript:Safari
+			return this.MessageSendToPage('DispatchActiveRunDynamicScript', inputData, event);
+		};
+
+		// @RunDynamicScript:Shared
+		chrome.tabs.executeScript({
+		  'code': inputData,
+		  'matchAboutBlank': true,
+		  // file: 'contentScript.js'
+		  // 'runAt': document_start,
+		}, function () {
+		  if (!chrome.runtime.lastError) {
+		    return;
+		  };
+
+		  console.log(chrome.runtime.lastError);
+		});
+	}
 	
 }

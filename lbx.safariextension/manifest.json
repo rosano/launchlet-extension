@@ -10,7 +10,10 @@
 
   "permissions": [
     "storage",
-    "unlimitedStorage"
+    "unlimitedStorage",
+
+    // @KeyboardShortcuts
+    "<all_urls>"
   ],
 
   "background": {

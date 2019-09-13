@@ -49,6 +49,25 @@ const mod = {
 		  },
 		}[event.name]();
 	},
+	MessageDidKeyDown (event) {
+		console.log(event);
+		if (event.key.toLowerCase() !== 'y') {
+			return;
+		};
+
+		if (!event.shiftKey) {
+			return;
+		};
+
+		if (!event.metaKey && !event.ctrlKey) {
+			return;
+		};
+
+		event.stopPropagation();
+		event.preventDefault();
+
+		api.MessageSendToBackground('DispatchBackgroundLaunch');
+	},
 
 	// COMMAND
 
@@ -61,12 +80,17 @@ const mod = {
 	SetupEveryting() {
 		mod.SetupMessageReceiveFromPage();
 		mod.SetupMessageReceiveFromBackground();
+		mod.SetupKeyboardShortcuts();
 	},
 	SetupMessageReceiveFromPage() {
 		api.MessageReceiveFromPage(mod.MessageDidReceiveFromPage)
 	},
 	SetupMessageReceiveFromBackground() {
 		api.MessageReceiveFromBackground(mod.MessageDidReceiveFromBackground)
+	},
+	SetupKeyboardShortcuts() {
+		// @KeyboardShortcuts
+		window.addEventListener('keydown', mod.MessageDidKeyDown, false);
 	},
 
 	// LIFECYCLE

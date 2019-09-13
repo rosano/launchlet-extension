@@ -18,6 +18,9 @@ const mod = {
       DispatchBackgroundDeleteKeys() {
       	mod.CommandDeleteKeys();
       },
+      DispatchBackgroundLaunch() {
+        mod.CommandLaunch(event)
+      },
     }[event.name]();
   },
 
@@ -93,6 +96,10 @@ const mod = {
     };
 
     return JSON.parse(outputData);
+  },
+
+  CommandLaunch (event) {
+    api.RunDynamicScript(mod.ValueMemoryPayload().LBXPayloadBookmarklet, event)
   },
   
   // SETUP
