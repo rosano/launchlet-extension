@@ -49,11 +49,19 @@ const mod = {
 		})
 	},
 	_CommandStorePrivateKey (inputData) {
+		if (!api.IsExtensionContext()) {
+			return;
+		};
+		
 		api.CallBackgroundFunction('DispatchBackgroundStorePrivateKey', inputData)
 	},
 	_CommandStorePublicKey (inputData) {
 		mod.ValuePublicKey(inputData)
 
+		if (!api.IsExtensionContext()) {
+			return;
+		};
+		
 		api.CallBackgroundFunction('DispatchBackgroundStorePublicKey', mod.ValuePublicKey())
 	},
 	CommandDeleteKey () {
@@ -67,6 +75,10 @@ const mod = {
 	async SetupEverything() {
 		if (LBXPopoverInitializingPublicKey) {
 			mod.ValuePublicKey(LBXPopoverInitializingPublicKey)
+		};
+
+		if (!api.IsExtensionContext()) {
+			return;
 		};
 
 	  mod.ValuePublicKey(await api.LocalDataGet('XYZPublicKey'))

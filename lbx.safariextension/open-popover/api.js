@@ -1,5 +1,17 @@
 export default {
 
+	IsExtensionContext () {
+		if (typeof safari !== 'undefined' && typeof safari.extension !== 'undefined') {
+			return true;
+		};
+
+		if (typeof chrome !== 'undefined') {
+			return true
+		};
+
+		return false
+	},
+
 	CallBackgroundFunction (param1, param2) {
 		if (typeof safari !== 'undefined') {
 			// @CallBackgroundFunction:Safari
