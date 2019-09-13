@@ -6,9 +6,9 @@ import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
 
 import { LBXPopoverRandomSeed } from './ui-logic.js'
 
-export let LBXPopoverInitializingPrivateKey = null;
-export let LBXPopoverInitializingPublicKey = null;
-export let LBXPopoverInitializingDidLink = false;
+export let LBXPopoverPreloadPrivateKey = null;
+export let LBXPopoverPreloadPublicKey = null;
+export let LBXPopoverPreloadDidLink = false;
 
 const mod = {
 
@@ -73,8 +73,8 @@ const mod = {
 	// SETUP
 
 	async SetupEverything() {
-		if (LBXPopoverInitializingPublicKey) {
-			mod.ValuePublicKey(LBXPopoverInitializingPublicKey)
+		if (LBXPopoverPreloadPublicKey) {
+			mod.ValuePublicKey(LBXPopoverPreloadPublicKey)
 		};
 
 		if (!api.IsExtensionContext()) {
@@ -103,7 +103,7 @@ mod.LifecycleModuleWillMount();
 	<button class="LBXPopoverDeleteKeyButton" on:click={ mod.InterfaceDeleteKeyButtonDidClick }>{ OLSKLocalized('LBXPopoverDeleteKeyButtonText') }</button>
 {/if}
 
-{#if mod._ValuePublicKey && !LBXPopoverInitializingDidLink}
+{#if mod._ValuePublicKey && !LBXPopoverPreloadDidLink}
 	<textarea class="LBXPopoverPublicKeyField">{ mod.ValuePublicKey() }</textarea>
 {/if}
 
