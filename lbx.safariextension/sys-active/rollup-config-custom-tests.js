@@ -7,7 +7,7 @@ describe('LBXActiveRollupConfigCustom', function testLBXActiveRollupConfigCustom
 	it('throws error if not object', function() {
 		throws(function() {
 			mainModule.LBXActiveRollupConfigCustom(null);
-		}, /LCHErrorInputInvalid/);
+		}, /LBXErrorInputInvalid/);
 	})
 
 	it('removes livereload', function() {

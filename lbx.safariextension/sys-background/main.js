@@ -130,7 +130,7 @@ const mod = {
 
 mod.LifecycleExtensionDidLoad();
 
-window.LCHBackgroundModule = {
+window.LBXBackgroundModule = {
   DispatchBackgroundStorePrivateKey: mod.CommandPrivateKeyStore,
   DispatchBackgroundStorePublicKey: mod.CommandPublicKeyStore,
   DispatchBackgroundDeleteKeys: mod.CommandDeleteKeys,

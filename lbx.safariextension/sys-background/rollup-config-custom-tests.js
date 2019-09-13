@@ -7,7 +7,7 @@ describe('LBXBackgroundRollupConfigCustom', function testLBXBackgroundRollupConf
 	it('throws error if not object', function() {
 		throws(function() {
 			mainModule.LBXBackgroundRollupConfigCustom(null);
-		}, /LCHErrorInputInvalid/);
+		}, /LBXErrorInputInvalid/);
 	})
 
 	it('removes livereload', function() {
