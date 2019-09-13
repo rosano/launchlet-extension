@@ -48,12 +48,12 @@ const mod = {
       const decryptedPayload = JSON.parse(await mod._CommandDecrypt(event.message, mod.ValuePrivateKey()));
 
       if (!decryptedPayload.LBXPayloadBookmarklet) {
-        throw "XYZErrorInputInvalid"
+        throw "LBXErrorInputInvalid"
       };
 
       mod.ValueMemoryPayload(decryptedPayload);
 
-      mod._CommandLocalDataSet('XYZPayload', decryptedPayload);
+      mod._CommandLocalDataSet('LBXPairPayload', decryptedPayload);
 
       api.MessageSendToPage('DispatchActivePayloadSuccess', mod.ValueMemoryPayload().LBXPayloadHash, event);
   	} catch (e) {
@@ -69,17 +69,17 @@ const mod = {
   },
 
   CommandPrivateKeyStore (inputData) {
-    mod._CommandLocalDataSet('XYZPrivateKey', inputData);
+    mod._CommandLocalDataSet('LBXPairPrivateKey', inputData);
   },
 
   CommandPublicKeyStore (inputData) {
-    mod._CommandLocalDataSet('XYZPublicKey', inputData);
+    mod._CommandLocalDataSet('LBXPairPublicKey', inputData);
   },
 
   CommandDeleteKeys () {
-    mod._CommandLocalDataSet('XYZPrivateKey', null);
-    mod._CommandLocalDataSet('XYZPublicKey', null);
-    mod._CommandLocalDataSet('XYZPayload', null);
+    mod._CommandLocalDataSet('LBXPairPrivateKey', null);
+    mod._CommandLocalDataSet('LBXPairPublicKey', null);
+    mod._CommandLocalDataSet('LBXPairPayload', null);
   },
 
   _CommandLocalDataSet (key, inputData) {
@@ -111,10 +111,10 @@ const mod = {
       return new Promise(function (resolve, reject) {
         return simpleCrypto.asym.importEncryptPrivateKey(inputData, reject, resolve);
       })
-		})(await mod._CommandLocalDataGet('XYZPrivateKey')))
+		})(await mod._CommandLocalDataGet('LBXPairPrivateKey')))
 	},
   async SetupValueMemoryPayload() {
-    mod.ValueMemoryPayload(await mod._CommandLocalDataGet('XYZPayload'))
+    mod.ValueMemoryPayload(await mod._CommandLocalDataGet('LBXPairPayload'))
   },
 	SetupMessageReceiveFromActive() {
 		api.MessageReceiveFromActive(mod.MessageDidReceiveFromActive)
