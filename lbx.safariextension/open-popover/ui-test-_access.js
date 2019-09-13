@@ -32,7 +32,7 @@ describe('LBXPopoverUIAccess', function () {
 		
 	});
 	
-	context('Generate', function testGenerate() {
+	context('GenerateKey', function testGenerateKey() {
 
 		before(async function () {
 			browser.click(LBXPopoverGenerateKeyButton)

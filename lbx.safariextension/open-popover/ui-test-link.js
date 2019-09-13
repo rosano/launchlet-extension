@@ -42,7 +42,7 @@ describe('LBXPopoverUILink', function () {
 
 	});
 
-	context('DidGenerate', function testDidGenerate() {
+	context('GenerateKey', function testGenerateKey() {
 
 		before(function () {
 			return browser.visit(`${ kDefaultRoute.OLSKRoutePath }?LBXPopoverInitializingPrivateKey=alfa&LBXPopoverInitializingPublicKey=bravo`);

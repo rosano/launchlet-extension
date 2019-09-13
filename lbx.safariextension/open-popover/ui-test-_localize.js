@@ -22,7 +22,7 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 		
 	});
 
-	context('DidGenerate', function testDidGenerate() {
+	context('GenerateKey', function testGenerateKey() {
 
 		before(async function () {
 			browser.click(LBXPopoverGenerateKeyButton)
