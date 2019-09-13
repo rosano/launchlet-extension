@@ -47,6 +47,9 @@ const mod = {
 		  		LBXResponseHash: event.message,
 		  	}, window.location.href)
 		  },
+			DispatchActiveRunDynamicScript() {
+		  	eval(event.message)
+		  },
 		}[event.name]();
 	},
 	MessageDidKeyDown (event) {
