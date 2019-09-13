@@ -15,7 +15,7 @@ export default {
 	CallBackgroundFunction (param1, param2) {
 		if (typeof safari !== 'undefined') {
 			// @CallBackgroundFunction:Safari
-			return safari.extension.globalPage.contentWindow.LBXBackground.param1(param2);
+			return safari.extension.globalPage.contentWindow.LBXBackgroundModule[param1](param2);
 		};
 
 		if (typeof chrome !== 'undefined') {

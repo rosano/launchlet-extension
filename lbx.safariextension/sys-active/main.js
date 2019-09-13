@@ -50,7 +50,6 @@ const mod = {
 		}[event.name]();
 	},
 	MessageDidKeyDown (event) {
-		console.log(event);
 		if (event.key.toLowerCase() !== 'y') {
 			return;
 		};
