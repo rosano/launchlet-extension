@@ -16,7 +16,7 @@ describe('LBXPopoverUILink', function () {
 		});
 
 		it('fills LBXPopoverPublicKeyField with public key', function() {
-			browser.assert.input(LBXPopoverPublicKeyField, 'LBX_TESTING_PUBLIC_KEY')
+			browser.assert.input(LBXPopoverPublicKeyField, '"LBX_TESTING_PUBLIC_KEY"')
 		});
 
 	});
