@@ -1,5 +1,3 @@
-//# ROCOHotfixSimplecryptoForUITests
-
 (function ROCOHotfixSimplecryptoForUITests() {
 	if (process.env.NODE_ENV === 'production') {
 		return;
@@ -16,8 +14,6 @@
     };`)
 	);
 })();
-
-//# OLSKPostinstallExternalAssets
 
 (function OLSKPostinstallExternalAssets() {
 	const OLSKAssets = require('./node_modules/OLSKApp/modules/OLSKAssets/main.js');
