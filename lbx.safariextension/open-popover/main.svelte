@@ -28,8 +28,8 @@ const mod = {
 	InterfaceGenerateKeyButtonDidClick () {
 		mod.CommandGenerateKeys()
 	},
-	InterfaceDisconnectButtonDidClick () {
-		mod.CommandDisconnect()
+	InterfaceDeleteKeyButtonDidClick () {
+		mod.CommandDeleteKey()
 	},
 
 	// COMMAND
@@ -56,7 +56,7 @@ const mod = {
 
 		api.CallBackgroundFunction('DispatchBackgroundStorePublicKey', mod.ValuePublicKey())
 	},
-	CommandDisconnect () {
+	CommandDeleteKey () {
 		mod.ValuePublicKey(null)
 		
 		api.CallBackgroundFunction('DispatchBackgroundDeleteKeys')
@@ -88,7 +88,7 @@ mod.LifecycleModuleWillMount();
 {/if}
 
 {#if mod._ValuePublicKey}
-	<button class="LBXPopoverDisconnectButton" on:click={ mod.InterfaceDisconnectButtonDidClick }>{ OLSKLocalized('LBXPopoverDisconnectButtonText') }</button>
+	<button class="LBXPopoverDeleteKeyButton" on:click={ mod.InterfaceDeleteKeyButtonDidClick }>{ OLSKLocalized('LBXPopoverDeleteKeyButtonText') }</button>
 {/if}
 
 {#if mod._ValuePublicKey && !LBXPopoverInitializingDidLink}

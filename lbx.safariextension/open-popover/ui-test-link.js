@@ -21,10 +21,10 @@ describe('LBXPopoverUILink', function () {
 
 	});
 
-	context('Disconnect', function testDisconnect() {
+	context('DeleteKey', function testDeleteKey() {
 
 		before(async function () {
-			browser.click(LBXPopoverDisconnectButton)
+			browser.click(LBXPopoverDeleteKeyButton)
 			await browser.wait({ element: LBXPopoverPublicKeyField })
 		});
 
@@ -32,8 +32,8 @@ describe('LBXPopoverUILink', function () {
 			browser.assert.elements(LBXPopoverGenerateKeyButton, 1)
 		});
 
-		it('hides LBXPopoverDisconnectButton', function() {
-			browser.assert.elements(LBXPopoverDisconnectButton, 0)
+		it('hides LBXPopoverDeleteKeyButton', function() {
+			browser.assert.elements(LBXPopoverDeleteKeyButton, 0)
 		});
 
 		it('hides LBXPopoverPublicKeyField', function() {
@@ -52,8 +52,8 @@ describe('LBXPopoverUILink', function () {
 			browser.assert.elements(LBXPopoverGenerateKeyButton, 0)
 		});
 
-		it('show LBXPopoverDisconnectButton', function() {
-			browser.assert.elements(LBXPopoverDisconnectButton, 1)
+		it('show LBXPopoverDeleteKeyButton', function() {
+			browser.assert.elements(LBXPopoverDeleteKeyButton, 1)
 		});
 
 		it('shows LBXPopoverPublicKeyField', function() {
@@ -76,8 +76,8 @@ describe('LBXPopoverUILink', function () {
 			browser.assert.elements(LBXPopoverGenerateKeyButton, 0)
 		});
 
-		it('show LBXPopoverDisconnectButton', function() {
-			browser.assert.elements(LBXPopoverDisconnectButton, 1)
+		it('show LBXPopoverDeleteKeyButton', function() {
+			browser.assert.elements(LBXPopoverDeleteKeyButton, 1)
 		});
 
 		it('hides LBXPopoverPublicKeyField', function() {

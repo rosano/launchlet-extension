@@ -29,8 +29,8 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 			await browser.wait({ element: LBXPopoverPublicKeyField })
 		});
 
-		it('localizes LBXPopoverDisconnectButton', function() {
-			browser.assert.text(LBXPopoverDisconnectButton, uLocalized('LBXPopoverDisconnectButtonText'))
+		it('localizes LBXPopoverDeleteKeyButton', function() {
+			browser.assert.text(LBXPopoverDeleteKeyButton, uLocalized('LBXPopoverDeleteKeyButtonText'))
 		});
 
 	});
