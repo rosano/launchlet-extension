@@ -1,4 +1,5 @@
 import api from './api.js'
+import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/global.js'
 
 const mod = {
 
@@ -64,6 +65,10 @@ const mod = {
   	}
   },
   async _CommandDecrypt (param1, param2) {
+    if (_LBX_DISABLE_ENCRYPTION()) {
+      return Promise.resolve(param1);
+    };
+
     return new Promise(function (resolve, reject) {
       return simpleCrypto.asym.decrypt(param2, param1, reject, function(decrypted){
         return resolve((new TextDecoder("utf-8")).decode(decrypted))

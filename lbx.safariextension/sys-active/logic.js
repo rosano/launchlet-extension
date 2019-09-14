@@ -1,7 +1,13 @@
+import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/global.js'
+
 export const LBXPayloadIsValid = function(inputData) {
 	if (typeof inputData !== 'object' || inputData === null) {
 		throw 'LBXErrorInputInvalid'
 	}
+
+	if (_LBX_DISABLE_ENCRYPTION()) {
+		return typeof inputData.LBXPayloadEncryptedData === 'string';
+	};
 
 	if (typeof inputData.LBXPayloadEncryptedData !== 'object' || inputData.LBXPayloadEncryptedData === null) {
 		return false
