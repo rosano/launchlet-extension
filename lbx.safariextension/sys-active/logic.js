@@ -2,7 +2,7 @@ import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/global.js'
 
 export const LBXPayloadIsValid = function(inputData) {
 	if (typeof inputData !== 'object' || inputData === null) {
-		throw new Error('LBXErrorInputInvalid')
+		throw new Error('LBXErrorInputNotValid')
 	}
 
 	if (_LBX_DISABLE_ENCRYPTION()) {

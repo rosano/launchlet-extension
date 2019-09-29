@@ -52,7 +52,7 @@ const mod = {
       const decryptedPayload = JSON.parse(await mod._CommandDecrypt(event.message, mod.ValuePrivateKey()));
 
       if (!decryptedPayload.LBXPayloadBookmarklet) {
-        throw "LBXErrorInputInvalid"
+        throw "LBXErrorInputNotValid"
       };
 
       mod.ValueMemoryPayload(decryptedPayload);

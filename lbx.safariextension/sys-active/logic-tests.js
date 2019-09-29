@@ -9,7 +9,7 @@ describe('LBXPayloadIsValid', function testPayloadIsValid() {
 	it('throws error if not object', function() {
 		throws(function() {
 			mainModule.LBXPayloadIsValid(null);
-		}, /LBXErrorInputInvalid/);
+		}, /LBXErrorInputNotValid/);
 	});
 
 	if (_LBX_DISABLE_ENCRYPTION()) {
