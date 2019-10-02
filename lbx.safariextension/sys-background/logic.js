@@ -3,7 +3,15 @@ export const LBXPayloadIsValid = function(inputData) {
 		throw new Error('LBXErrorInputNotValid');
 	}
 
-	if (typeof inputData.LBXPayloadBookmarklet !== 'string') {
+	if (typeof inputData.LBXPayloadPackageScript !== 'string') {
+		return false;
+	}
+
+	if (typeof inputData.LBXPayloadPackageStyle !== 'string') {
+		return false;
+	}
+
+	if (typeof inputData.LBXPayloadPackageOptions !== 'object' || inputData.LBXPayloadPackageOptions === null) {
 		return false;
 	}
 
