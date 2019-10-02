@@ -57,7 +57,6 @@ export default {
 
 	RunDynamicScript (inputData, event) {
 		if (typeof safari !== 'undefined') {
-			console.log(this.MessageSendToPage);
 			// @RunDynamicScript:Safari
 			return this.MessageSendToPage('DispatchActiveRunDynamicScript', inputData, event);
 		};
