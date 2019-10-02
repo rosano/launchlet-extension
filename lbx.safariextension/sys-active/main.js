@@ -87,6 +87,7 @@ const mod = {
 		mod.SetupMessageReceiveFromPage();
 		mod.SetupMessageReceiveFromBackground();
 		mod.SetupKeyboardShortcuts();
+		mod.SetupRunTasks();
 	},
 
 	SetupMessageReceiveFromPage() {
@@ -100,6 +101,10 @@ const mod = {
 	SetupKeyboardShortcuts() {
 		// @KeyboardShortcuts
 		window.addEventListener('keydown', mod.MessageDidKeyDown, false);
+	},
+	
+	SetupRunTasks() {
+		api.MessageSendToBackground('DispatchBackgroundRunTasks');
 	},
 
 	// LIFECYCLE

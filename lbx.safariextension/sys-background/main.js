@@ -23,6 +23,9 @@ const mod = {
       DispatchBackgroundLaunch() {
         mod.CommandLaunch(event)
       },
+      DispatchBackgroundRunTasks() {
+        mod.CommandRunTasks(event)
+      },
     }[event.name]();
   },
 
@@ -123,6 +126,13 @@ const mod = {
 
   CommandLaunch (event) {
     api.RunDynamicScript(mod.ValueMemoryPayload().LBXPayloadBookmarklet, event)
+  },
+
+  CommandRunTasks (event) {
+    api.RunDynamicScript(`(function () {
+      ${ mod.ValueMemoryPayload().LBXPayloadPackage };
+      Launchlet.LRTTasksRun(${ mod.ValueMemoryPayload().LBXPayloadRecipes })
+    })()`, event)
   },
   
   // SETUP
