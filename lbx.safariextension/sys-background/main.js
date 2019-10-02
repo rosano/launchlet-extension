@@ -59,7 +59,7 @@ const mod = {
 
       mod._CommandLocalDataSet('LBXPairPayload', decryptedPayload);
 
-      api.MessageSendToPage('DispatchActivePayloadSuccess', mod.ValueMemoryPayload().LBXPayloadHash, event);
+      api.MessageSendToPage('DispatchActivePayloadSuccess', mod.ValueMemoryPayload().LBXPayloadConfirmation, event);
   	} catch (e) {
   		api.MessageSendToPage('DispatchActivePayloadError', e, event);
   	}
