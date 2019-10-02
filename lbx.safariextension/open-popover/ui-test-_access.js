@@ -3,6 +3,8 @@ import { deepEqual } from 'assert';
 const kDefaultRoutePath = require('./controller.js').OLSKControllerRoutes().LBXPopoverRoute.OLSKRoutePath;
 
 Object.entries({
+	LBXPopover: '.LBXPopover',
+
 	LBXPopoverGenerateKeyButton: '.LBXPopoverGenerateKeyButton',
 	LBXPopoverDeleteKeyButton: '.LBXPopoverDeleteKeyButton',
 	LBXPopoverPublicKeyField: '.LBXPopoverPublicKeyField',
@@ -16,23 +18,23 @@ describe('LBXPopoverUIAccess', function () {
 		return browser.visit(kDefaultRoutePath);
 	});
 	
-	context('Startup', function testStartup() {
-
-		it('shows LBXPopoverGenerateKeyButton', function() {
-			browser.assert.elements(LBXPopoverGenerateKeyButton, 1);
-		});
-
-		it('hides LBXPopoverDeleteKeyButton', function() {
-			browser.assert.elements(LBXPopoverDeleteKeyButton, 0);
-		});
-
-		it('hides LBXPopoverPublicKeyField', function() {
-			browser.assert.elements(LBXPopoverPublicKeyField, 0);
-		});
-		
+	it('shows LBXPopover', function() {
+		browser.assert.elements(LBXPopover, 1);
 	});
 	
-	context('GenerateKey', function testGenerateKey() {
+	it('shows LBXPopoverGenerateKeyButton', function() {
+		browser.assert.elements(LBXPopoverGenerateKeyButton, 1);
+	});
+
+	it('hides LBXPopoverDeleteKeyButton', function() {
+		browser.assert.elements(LBXPopoverDeleteKeyButton, 0);
+	});
+
+	it('hides LBXPopoverPublicKeyField', function() {
+		browser.assert.elements(LBXPopoverPublicKeyField, 0);
+	});
+	
+	context('GenerateKey', function () {
 
 		before(async function () {
 			browser.click(LBXPopoverGenerateKeyButton);

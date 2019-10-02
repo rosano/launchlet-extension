@@ -97,6 +97,8 @@ const mod = {
 mod.LifecycleModuleWillMount();
 </script>
 
+<div class="LBXPopover"> 
+
 {#if !mod._ValuePublicKey }
 	<button class="LBXPopoverGenerateKeyButton" on:click={ mod.InterfaceGenerateKeyButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateKeyButtonText') }</button>
 {/if}
@@ -108,5 +110,7 @@ mod.LifecycleModuleWillMount();
 {#if mod._ValuePublicKey && !LBXPopoverPreloadDidPair}
 	<textarea class="LBXPopoverPublicKeyField">{ mod.ValuePublicKey() }</textarea>
 {/if}
+
+</div>
 
 <style src="./ui-style.css"></style>
