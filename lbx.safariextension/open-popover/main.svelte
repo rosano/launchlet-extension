@@ -108,7 +108,7 @@ mod.LifecycleModuleWillMount();
 {/if}
 
 {#if mod._ValuePublicKey && !LBXPopoverPreloadDidPair}
-	<textarea class="LBXPopoverPublicKeyField">{ mod.ValuePublicKey() }</textarea>
+	<input class="LBXPopoverPublicKeyField" value={ mod.ValuePublicKey() } onclick="this.select()" />
 {/if}
 
 </div>

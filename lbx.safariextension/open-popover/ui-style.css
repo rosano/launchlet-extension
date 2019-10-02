@@ -27,13 +27,10 @@
 	margin-bottom: var(--LBXPopoverPadding);
 }
 
-textarea {
-	padding: var(--LBXPopoverPadding);
+input {
+	padding: 5px;
 	border: 1px solid var(--LCHCommonForeground);
 	border-radius: 5px;
-
-	background: hsl(0, 0%, 100%);
-	color: hsl(0, 0%, 80%);
 	
 	/* browser quirks https://davidwalsh.name/textarea-width */
 	-webkit-box-sizing: border-box;
@@ -42,7 +39,7 @@ textarea {
 }
 
 button {
-	padding: var(--LBXPopoverPadding);
+	padding: 5px;
 	border: 1px solid hsl(0, 0%, 70%);
 	border-radius: 5px;
 
