@@ -1,0 +1,51 @@
+:root {
+	--LBXPopoverPadding: 10px;
+
+	--LCHCommonBackground: hsl(0, 0%, 97%);
+	--LCHCommonForeground: hsl(0, 0%, 0%);
+}
+
+:global(html, body) {
+	width: 200px;
+	height: 200px;
+}
+
+:global(body) {
+	font-family: 'Lucida Grande', sans-serif;
+	font-size: 11pt;
+	background: var(--LCHCommonBackground);
+	color: var(--LCHCommonForeground);
+}
+
+.LBXPopover {
+	padding: var(--LBXPopoverPadding)
+}
+
+.LBXPopover > * {
+	width: 100%;
+
+	margin-bottom: var(--LBXPopoverPadding);
+}
+
+textarea {
+	padding: var(--LBXPopoverPadding);
+	border: 1px solid var(--LCHCommonForeground);
+	border-radius: 5px;
+
+	background: hsl(0, 0%, 100%);
+	color: hsl(0, 0%, 80%);
+	
+	/* browser quirks https://davidwalsh.name/textarea-width */
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+button {
+	padding: var(--LBXPopoverPadding);
+	border: 1px solid hsl(0, 0%, 70%);
+	border-radius: 5px;
+
+	background: hsl(0, 0%, 90%);
+	text-align: center;
+}
