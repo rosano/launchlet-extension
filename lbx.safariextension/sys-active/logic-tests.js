@@ -29,25 +29,15 @@ describe('LBXPayloadIsValid', function testPayloadIsValid() {
 		return
 	};
 
-	it('returns false if LBXPayloadEncryptedData not object', function() {
+	it('returns false if LBXPayloadEncryptedData not string', function() {
 		deepEqual(mainModule.LBXPayloadIsValid({
-			LBXPayloadEncryptedData: null
-		}), false);
-	});
-
-	it('returns false if LBXPayloadEncryptedData.rsaEncrypted not object', function() {
-		deepEqual(mainModule.LBXPayloadIsValid({
-			LBXPayloadEncryptedData: {
-				rsaEncrypted: null
-			},
+			LBXPayloadEncryptedData: null,
 		}), false);
 	});
 
 	it('returns true', function() {
 		deepEqual(mainModule.LBXPayloadIsValid({
-			LBXPayloadEncryptedData: {
-				rsaEncrypted: {}
-			},
+			LBXPayloadEncryptedData: '',
 		}), true);
 	});	
 

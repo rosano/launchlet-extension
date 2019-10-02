@@ -9,11 +9,7 @@ export const LBXPayloadIsValid = function(inputData) {
 		return typeof inputData.LBXPayloadEncryptedData === 'string';
 	};
 
-	if (typeof inputData.LBXPayloadEncryptedData !== 'object' || inputData.LBXPayloadEncryptedData === null) {
-		return false
-	}
-
-	if (typeof inputData.LBXPayloadEncryptedData.rsaEncrypted !== 'object' || inputData.LBXPayloadEncryptedData.rsaEncrypted === null) {
+	if (typeof inputData.LBXPayloadEncryptedData !== 'string') {
 		return false
 	}
 

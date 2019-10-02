@@ -70,7 +70,24 @@ const mod = {
     };
 
     return new Promise(function (resolve, reject) {
-      return simpleCrypto.asym.decrypt(param2, param1, reject, function(decrypted){
+      return simpleCrypto.asym.decrypt(param2, (function DeserializeCipher(inputData) {
+
+        // javascript - Converting between strings and ArrayBuffers - Stack Overflow https://stackoverflow.com/a/11058858
+        function str2ab(str) {
+          var buf = new ArrayBuffer(str.length*2); // 2 bytes for each char
+          var bufView = new Uint16Array(buf);
+          for (var i=0, strLen=str.length; i<strLen; i++) {
+            bufView[i] = str.charCodeAt(i);
+          }
+          return buf;
+        };
+
+        return Object.keys(inputData).reduce(function (coll, item) {
+          coll[item] = str2ab(inputData[item]);
+
+          return coll;
+        }, {});
+      })(JSON.parse(param1)), reject, function(decrypted){
         return resolve((new TextDecoder("utf-8")).decode(decrypted))
       });
     })
@@ -115,7 +132,7 @@ const mod = {
 		mod.SetupMessageReceiveFromActive();
 	},
 	async SetupValuePrivateKey() {
-	  mod.ValuePrivateKey(await (async function DeserializePrivateKey(inputData) {
+	  mod.ValuePrivateKey(await (async function (inputData) {
       if (!inputData) {
         return Promise.resolve(inputData)
       };
