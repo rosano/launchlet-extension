@@ -130,7 +130,7 @@ const mod = {
 
   CommandRunTasks (event) {
     api.RunDynamicScript(`(function () {
-      ${ mod.ValueMemoryPayload().LBXPayloadPackage };
+      ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
       Launchlet.LRTTasksRun(${ mod.ValueMemoryPayload().LBXPayloadRecipes })
     })()`, event)
   },
