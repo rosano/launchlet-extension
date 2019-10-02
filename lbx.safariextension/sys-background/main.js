@@ -125,7 +125,20 @@ const mod = {
   },
 
   CommandLaunch (event) {
-    api.RunDynamicScript(mod.ValueMemoryPayload().LBXPayloadBookmarklet, event)
+    api.RunDynamicScript(`(function () {
+      ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
+
+      Launchlet.LRTTasksRun([{
+        LCHRecipeCallback () {},
+        LCHRecipeStyle: \`${ mod.ValueMemoryPayload().LBXPayloadPackageStyle }\`,
+        LCHRecipeURLFilter: '*',
+        LCHRecipeIsAutomatic: true,
+      }]);
+
+      Launchlet.LRTSingletonCreate(Object.assign(${ JSON.stringify(mod.ValueMemoryPayload().LBXPayloadPackageOptions) }, {
+        LRTOptionRecipes: ${ mod.ValueMemoryPayload().LBXPayloadRecipes },
+      }));
+    })()`, event)
   },
 
   CommandRunTasks (event) {
