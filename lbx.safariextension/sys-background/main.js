@@ -1,5 +1,6 @@
 import api from './api.js'
 import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/global.js'
+import { LBXPayloadIsValid } from './logic.js'
 
 const mod = {
 
@@ -51,13 +52,13 @@ const mod = {
   	try {
       const decryptedPayload = JSON.parse(await mod._CommandDecrypt(event.message, mod.ValuePrivateKey()));
 
-      if (!decryptedPayload.LBXPayloadBookmarklet) {
-        throw "LBXErrorInputNotValid"
+      if (!LBXPayloadIsValid(decryptedPayload)) {
+        throw new Error('LBXPayloadNotValid');
       };
 
       mod.ValueMemoryPayload(decryptedPayload);
 
-      mod._CommandLocalDataSet('LBXPairPayload', decryptedPayload);
+      mod._CommandLocalDataSet('LBXPayload', decryptedPayload);
 
       api.MessageSendToPage('DispatchActivePayloadSuccess', mod.ValueMemoryPayload().LBXPayloadConfirmation, event);
   	} catch (e) {
@@ -104,7 +105,7 @@ const mod = {
   CommandDeleteKeys () {
     mod._CommandLocalDataSet('LBXPairPrivateKey', null);
     mod._CommandLocalDataSet('LBXPairPublicKey', null);
-    mod._CommandLocalDataSet('LBXPairPayload', null);
+    mod._CommandLocalDataSet('LBXPayload', null);
   },
 
   _CommandLocalDataSet (key, inputData) {
@@ -143,7 +144,7 @@ const mod = {
 		})(await mod._CommandLocalDataGet('LBXPairPrivateKey')))
 	},
   async SetupValueMemoryPayload() {
-    mod.ValueMemoryPayload(await mod._CommandLocalDataGet('LBXPairPayload'))
+    mod.ValueMemoryPayload(await mod._CommandLocalDataGet('LBXPayload'))
   },
 	SetupMessageReceiveFromActive() {
 		api.MessageReceiveFromActive(mod.MessageDidReceiveFromActive)
