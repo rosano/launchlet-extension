@@ -59,7 +59,7 @@ let languageDictionary = {};
 	require.extensions['.js'] = function(module, filename) {
 		if (filename.match('OLSKRollup')) {
 			return;
-		};
+		}
 
 		try {
 			return module._compile(replaceFunctions.reduce(function (coll, item) {

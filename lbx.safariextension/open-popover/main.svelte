@@ -1,10 +1,10 @@
 <script>
-import api from './api.js'
+import api from './api.js';
 
 import { OLSKLocalized } from '../-shared/LBXGlobal/main.js';
 import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
 
-import { LBXPopoverRandomSeed } from './ui-logic.js'
+import { LBXPopoverRandomSeed } from './ui-logic.js';
 
 export let LBXPopoverPreloadPrivateKey = null;
 export let LBXPopoverPreloadPublicKey = null;
@@ -17,19 +17,19 @@ const mod = {
 	_ValuePublicKey: undefined,
 	ValuePublicKey(inputData) {
 		if (typeof inputData === 'undefined') {
-			return mod._ValuePublicKey
-		};
+			return mod._ValuePublicKey;
+		}
 
-		mod._ValuePublicKey = inputData
+		mod._ValuePublicKey = inputData;
 	},
 	
 	// INTERFACE
 
 	InterfaceGenerateKeyButtonDidClick () {
-		mod.CommandGenerateKeys()
+		mod.CommandGenerateKeys();
 	},
 	InterfaceDeleteKeyButtonDidClick () {
-		mod.CommandDeleteKey()
+		mod.CommandDeleteKey();
 	},
 
 	// COMMAND
@@ -38,61 +38,61 @@ const mod = {
 		let item = OLSK_TESTING_BEHAVIOUR() ? {
 			privateJwk: 'LBX_TESTING_PRIVATE_KEY',
 			publicJwk: 'LBX_TESTING_PUBLIC_KEY',
-		} : await mod._CommandGenerateKeys()
+		} : await mod._CommandGenerateKeys();
 
-		mod._CommandStorePrivateKey(item.privateJwk)
+		mod._CommandStorePrivateKey(item.privateJwk);
 		mod._CommandStorePublicKey(JSON.stringify(item.publicJwk));
 	},
 	async _CommandGenerateKeys () {
 		return new Promise(function (resolve, reject) {
-			window.simpleCrypto.asym.generateEncryptKey(reject, resolve)
-		})
+			window.simpleCrypto.asym.generateEncryptKey(reject, resolve);
+		});
 	},
 	_CommandStorePrivateKey (inputData) {
 		if (!api.IsExtensionContext()) {
 			return;
-		};
+		}
 		
-		api.CallBackgroundFunction('DispatchBackgroundStorePrivateKey', inputData)
+		api.CallBackgroundFunction('DispatchBackgroundStorePrivateKey', inputData);
 	},
 	_CommandStorePublicKey (inputData) {
-		mod.ValuePublicKey(inputData)
+		mod.ValuePublicKey(inputData);
 
 		if (!api.IsExtensionContext()) {
 			return;
-		};
+		}
 		
-		api.CallBackgroundFunction('DispatchBackgroundStorePublicKey', mod.ValuePublicKey())
+		api.CallBackgroundFunction('DispatchBackgroundStorePublicKey', mod.ValuePublicKey());
 	},
 	CommandDeleteKey () {
-		mod.ValuePublicKey(null)
+		mod.ValuePublicKey(null);
 		LBXPopoverPreloadDidPair = false;
 		
-		api.CallBackgroundFunction('DispatchBackgroundDeleteKeys')
+		api.CallBackgroundFunction('DispatchBackgroundDeleteKeys');
 	},
 
 	// SETUP
 
 	async SetupEverything() {
 		if (LBXPopoverPreloadPublicKey) {
-			mod.ValuePublicKey(LBXPopoverPreloadPublicKey)
-		};
+			mod.ValuePublicKey(LBXPopoverPreloadPublicKey);
+		}
 
 		if (!api.IsExtensionContext()) {
 			return;
-		};
+		}
 
-	  mod.ValuePublicKey(await api.LocalDataGet('LBXPairPublicKey'))
-	  LBXPopoverPreloadDidPair = !!(await api.LocalDataGet('LBXPayload'))
+	  mod.ValuePublicKey(await api.LocalDataGet('LBXPairPublicKey'));
+	  LBXPopoverPreloadDidPair = !!(await api.LocalDataGet('LBXPayload'));
 	},
 
 	// LIFECYCLE
 
 	LifecycleModuleWillMount() {
-		mod.SetupEverything()
+		mod.SetupEverything();
 	},
 
-}
+};
 
 mod.LifecycleModuleWillMount();
 </script>

@@ -1,5 +1,5 @@
-import api from './api.js'
-import { LBXMessageIsValid } from './logic.js'
+import api from './api.js';
+import { LBXMessageIsValid } from './logic.js';
 
 const mod = {
 
@@ -9,9 +9,9 @@ const mod = {
 	ValueMessageSource (inputData) {
 	  if (typeof inputData === 'undefined') {
 	    return mod._ValueMessageSource;
-	  };
+	  }
 
-	  mod._ValueMessageSource = inputData
+	  mod._ValueMessageSource = inputData;
 	},
 
 	// MESSAGE
@@ -28,44 +28,46 @@ const mod = {
 
 		if (!LBXMessageIsValid(event.data)) {
 			return;
-		};
+		}
 
 		mod.ValueMessageSource(event.source);
 
-		mod.CommandStorePayloadEncryptedData(event.data.LBXMessageEncryptedData)
+		mod.CommandStorePayloadEncryptedData(event.data.LBXMessageEncryptedData);
 	},
+
 	MessageDidReceiveFromBackground (event) {
 		return {
 			DispatchActivePayloadError() {
 		  	window.postMessage({
 		  		LBXResponseHash: '',
 		  		LBXResponseError: event.message,
-		  	}, window.location.href)
+		  	}, window.location.href);
 		  },
 			DispatchActivePayloadSuccess() {
 		  	window.postMessage({
 		  		LBXResponseHash: event.message,
-		  	}, window.location.href)
+		  	}, window.location.href);
 		  },
 			DispatchActiveRunDynamicScript() {
 				if (window.top === window) {
-		  		eval(event.message)
+		  		eval(event.message);
 				}
 		  },
 		}[event.name]();
 	},
+
 	MessageDidKeyDown (event) {
 		if (event.key.toLowerCase() !== 'y') {
 			return;
-		};
+		}
 
 		if (!event.shiftKey) {
 			return;
-		};
+		}
 
 		if (!event.metaKey && !event.ctrlKey) {
 			return;
-		};
+		}
 
 		event.stopPropagation();
 		event.preventDefault();
@@ -86,12 +88,15 @@ const mod = {
 		mod.SetupMessageReceiveFromBackground();
 		mod.SetupKeyboardShortcuts();
 	},
+
 	SetupMessageReceiveFromPage() {
-		api.MessageReceiveFromPage(mod.MessageDidReceiveFromPage)
+		api.MessageReceiveFromPage(mod.MessageDidReceiveFromPage);
 	},
+	
 	SetupMessageReceiveFromBackground() {
-		api.MessageReceiveFromBackground(mod.MessageDidReceiveFromBackground)
+		api.MessageReceiveFromBackground(mod.MessageDidReceiveFromBackground);
 	},
+	
 	SetupKeyboardShortcuts() {
 		// @KeyboardShortcuts
 		window.addEventListener('keydown', mod.MessageDidKeyDown, false);
@@ -102,6 +107,7 @@ const mod = {
 	LifecyclePageDidLoad() {
 		mod.SetupEveryting();
 	},
+
 };
 
 mod.LifecyclePageDidLoad();

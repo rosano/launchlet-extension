@@ -8,7 +8,7 @@ describe('LBXActiveRollupConfigCustom', function testLBXActiveRollupConfigCustom
 		throws(function() {
 			mainModule.LBXActiveRollupConfigCustom(null);
 		}, /LBXErrorInputNotValid/);
-	})
+	});
 
 	it('removes livereload', function() {
 		deepEqual(mainModule.LBXActiveRollupConfigCustom({

@@ -2,7 +2,7 @@ import { throws, deepEqual } from 'assert';
 
 import * as mainModule from './logic.js';
 
-import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/global.js'
+import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/global.js';
 
 describe('LBXMessageIsValid', function testLBXMessageIsValid() {
 
@@ -26,8 +26,8 @@ describe('LBXMessageIsValid', function testLBXMessageIsValid() {
 			}), true);
 		});	
 
-		return
-	};
+		return;
+	}
 
 	it('returns false if LBXMessageEncryptedData not string', function() {
 		deepEqual(mainModule.LBXMessageIsValid({
