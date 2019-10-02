@@ -48,7 +48,9 @@ const mod = {
 		  	}, window.location.href)
 		  },
 			DispatchActiveRunDynamicScript() {
-		  	eval(event.message)
+				if (window.top === window) {
+		  		eval(event.message)
+				}
 		  },
 		}[event.name]();
 	},
