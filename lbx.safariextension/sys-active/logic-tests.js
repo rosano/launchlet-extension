@@ -4,40 +4,40 @@ import * as mainModule from './logic.js';
 
 import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/global.js'
 
-describe('LBXPayloadIsValid', function testPayloadIsValid() {
+describe('LBXMessageIsValid', function testLBXMessageIsValid() {
 
 	it('throws error if not object', function() {
 		throws(function() {
-			mainModule.LBXPayloadIsValid(null);
+			mainModule.LBXMessageIsValid(null);
 		}, /LBXErrorInputNotValid/);
 	});
 
 	if (_LBX_DISABLE_ENCRYPTION()) {
 		
-		it('returns false if LBXPayloadEncryptedData not string', function() {
-			deepEqual(mainModule.LBXPayloadIsValid({
-				LBXPayloadEncryptedData: null
+		it('returns false if LBXMessageEncryptedData not string', function() {
+			deepEqual(mainModule.LBXMessageIsValid({
+				LBXMessageEncryptedData: null
 			}), false);
 		});
 
 		it('returns true', function() {
-			deepEqual(mainModule.LBXPayloadIsValid({
-				LBXPayloadEncryptedData: '',
+			deepEqual(mainModule.LBXMessageIsValid({
+				LBXMessageEncryptedData: '',
 			}), true);
 		});	
 
 		return
 	};
 
-	it('returns false if LBXPayloadEncryptedData not string', function() {
-		deepEqual(mainModule.LBXPayloadIsValid({
-			LBXPayloadEncryptedData: null,
+	it('returns false if LBXMessageEncryptedData not string', function() {
+		deepEqual(mainModule.LBXMessageIsValid({
+			LBXMessageEncryptedData: null,
 		}), false);
 	});
 
 	it('returns true', function() {
-		deepEqual(mainModule.LBXPayloadIsValid({
-			LBXPayloadEncryptedData: '',
+		deepEqual(mainModule.LBXMessageIsValid({
+			LBXMessageEncryptedData: '',
 		}), true);
 	});	
 

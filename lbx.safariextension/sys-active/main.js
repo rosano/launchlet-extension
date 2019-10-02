@@ -1,5 +1,5 @@
 import api from './api.js'
-import { LBXPayloadIsValid } from './logic.js'
+import { LBXMessageIsValid } from './logic.js'
 
 const mod = {
 
@@ -26,13 +26,13 @@ const mod = {
 		// }
 		console.warn('stub check event.origin');
 
-		if (!LBXPayloadIsValid(event.data)) {
+		if (!LBXMessageIsValid(event.data)) {
 			return;
 		};
 
 		mod.ValueMessageSource(event.source);
 
-		mod.CommandStorePayloadEncryptedData(event.data.LBXPayloadEncryptedData)
+		mod.CommandStorePayloadEncryptedData(event.data.LBXMessageEncryptedData)
 	},
 	MessageDidReceiveFromBackground (event) {
 		return {
