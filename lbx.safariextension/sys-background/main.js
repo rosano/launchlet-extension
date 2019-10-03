@@ -1,5 +1,5 @@
 import api from './api.js'
-import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/global.js'
+import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/main.js'
 import { LBXPayloadIsValid } from './logic.js'
 
 const mod = {

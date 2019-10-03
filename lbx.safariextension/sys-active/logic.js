@@ -1,4 +1,4 @@
-import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/global.js';
+import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/main.js';
 
 export const LBXMessageIsValid = function(inputData) {
 	if (typeof inputData !== 'object' || inputData === null) {
