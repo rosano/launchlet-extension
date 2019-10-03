@@ -109,7 +109,7 @@ mod.LifecycleModuleWillMount();
 {/if}
 
 {#if mod._ValuePublicKey && !LBXPopoverPreloadDidPair}
-	<input class="LBXPopoverPublicKeyField" value={ mod.ValuePublicKey() } onclick="this.select()" />
+	<input class="LBXPopoverPublicKeyField" value={ mod.ValuePublicKey() } onclick="this.select()" autofocus />
 {/if}
 
 </div>
