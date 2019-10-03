@@ -125,6 +125,10 @@ const mod = {
   },
 
   CommandLaunch (event) {
+    if (!mod.ValueMemoryPayload()) {
+      return;
+    };
+
     api.RunDynamicScript(`(function () {
       ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
 
@@ -142,6 +146,10 @@ const mod = {
   },
 
   CommandRunTasks (event) {
+    if (!mod.ValueMemoryPayload()) {
+      return;
+    };
+    
     api.RunDynamicScript(`(function () {
       ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
       Launchlet.LRTTasksRun(${ mod.ValueMemoryPayload().LBXPayloadRecipes })
