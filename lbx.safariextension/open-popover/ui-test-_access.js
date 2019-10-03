@@ -36,9 +36,8 @@ describe('LBXPopoverUIAccess', function () {
 	
 	context('GenerateKey', function () {
 
-		before(async function () {
+		before(function () {
 			browser.click(LBXPopoverGenerateKeyButton);
-			await browser.wait({ element: LBXPopoverPublicKeyField });
 		});
 
 		it('hides LBXPopoverGenerateKeyButton', function() {

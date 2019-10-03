@@ -28,6 +28,7 @@ const mod = {
 	InterfaceGenerateKeyButtonDidClick () {
 		mod.CommandGenerateKeys();
 	},
+
 	InterfaceDeleteKeyButtonDidClick () {
 		mod.CommandDeleteKey();
 	},

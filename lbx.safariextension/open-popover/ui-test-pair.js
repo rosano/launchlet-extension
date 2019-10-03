@@ -28,7 +28,7 @@ describe('LBXPopoverUIPair', function () {
 			await browser.wait({ element: LBXPopoverPublicKeyField });
 		});
 
-		it('show LBXPopoverGenerateKeyButton', function() {
+		it('shows LBXPopoverGenerateKeyButton', function() {
 			browser.assert.elements(LBXPopoverGenerateKeyButton, 1);
 		});
 
@@ -52,7 +52,7 @@ describe('LBXPopoverUIPair', function () {
 			browser.assert.elements(LBXPopoverGenerateKeyButton, 0);
 		});
 
-		it('show LBXPopoverDeleteKeyButton', function() {
+		it('shows LBXPopoverDeleteKeyButton', function() {
 			browser.assert.elements(LBXPopoverDeleteKeyButton, 1);
 		});
 
@@ -76,7 +76,7 @@ describe('LBXPopoverUIPair', function () {
 			browser.assert.elements(LBXPopoverGenerateKeyButton, 0);
 		});
 
-		it('show LBXPopoverDeleteKeyButton', function() {
+		it('shows LBXPopoverDeleteKeyButton', function() {
 			browser.assert.elements(LBXPopoverDeleteKeyButton, 1);
 		});
 
