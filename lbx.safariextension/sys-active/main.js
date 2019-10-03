@@ -63,7 +63,7 @@ const mod = {
 		  },
 			DispatchActiveRunDynamicScript() {
 				if (window.top === window) {
-		  		eval(event.message);
+		  		(new Function(event.message))();
 				}
 		  },
 		}[event.name]();
