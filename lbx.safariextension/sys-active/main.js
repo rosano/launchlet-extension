@@ -34,10 +34,9 @@ const mod = {
 		  return;
 		}
 
-		// if (not launchlet.dev) {
-		//   return;
-		// }
-		console.warn('stub check event.origin');
+		if ('LBX_ACTIVE_MESSAGE_PAGE_ORIGIN_STRING'.indexOf(event.origin) === -1) {
+		  return console.warn('event.origin not match', event);
+		}
 
 		if (!LBXMessageIsValid(event.data)) {
 			return;
@@ -73,7 +72,7 @@ const mod = {
 		const signature = mod.ValueShortcutMap()[Object.keys(mod.ValueShortcutMap()).filter(function (e) {
 			return LBXShortcutValidation(e)(event);
 		}).shift()];
-
+		
 		if (!signature) {
 			return;
 		};

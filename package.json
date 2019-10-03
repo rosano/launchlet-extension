@@ -11,6 +11,7 @@
     "// SVELTE": null,
     "svelte": "3.9.0",
     "OLSKRollup": "olsk/OLSKRollup",
+    "OLSKRollupPluginSwap": "olsk/OLSKRollupPluginSwap",
 
     "// UI NORMALIZE": null,
     "normalize.css": "latest",
