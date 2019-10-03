@@ -16,8 +16,8 @@ const mod = {
 	},
 
 	_ValueShortcutMap: {
-		'Ctrl+Alt+Y': 'LBXShortcutDefault',
-		'Cmd+Alt+Y': 'LBXShortcutDefault',
+		'Ctrl+Shift+Y': 'LBXShortcutDefault',
+		'Cmd+Shift+Y': 'LBXShortcutDefault',
 		'Cmd+Shift+1': 'LBXShortcutPreviewFocusElements',
 	},
 	ValueShortcutMap (inputData) {
