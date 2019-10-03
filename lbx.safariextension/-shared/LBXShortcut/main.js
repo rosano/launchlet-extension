@@ -8,11 +8,17 @@ export const LBXShortcutValidation = function (inputData) {
 			throw new Error('LBXErrorInputInvalid');
 		}
 
-		if (typeof event.key !== 'string') {
+		if (typeof event.code !== 'string') {
 			throw new Error('LBXErrorInputInvalid');
 		};
 
-		if (event.key.toLowerCase() !== inputData.split('+').pop().toLowerCase()) {
+		const key = inputData.split('+').pop().toLowerCase();
+
+		if (key.match(/\[.\]/i) && event.key.toLowerCase() !== key.match(/\[(.)\]/i).pop()) {
+			return false;
+		};
+
+		if (!key.match(/\[.\]/i) && event.code.toLowerCase() !== key) {
 			return false;
 		};
 

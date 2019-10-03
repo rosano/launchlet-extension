@@ -22,29 +22,43 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 			}, /ErrorInputInvalid/);
 		});
 
-		it('throws if key not string', function () {
+		it('throws if code not string', function () {
 			throws(function () {
 				mainModule.LBXShortcutValidation('')({
-					key: null,
+					code: null,
 				})
 			}, /ErrorInputInvalid/);
 		});
 
 		it('returns false', function () {
 			deepEqual(mainModule.LBXShortcutValidation('')({
-				key: 'a',
+				code: 'a',
 			}), false);
 		});
 
-		it('returns true if key match same case', function () {
+		it('returns true if code match same case', function () {
 			deepEqual(mainModule.LBXShortcutValidation('a')({
+				code: 'a',
+			}), true);
+		});
+
+		it('returns true if code match different case', function () {
+			deepEqual(mainModule.LBXShortcutValidation('a')({
+				code: 'A',
+			}), true);
+		});
+
+		it('returns true if key match same case', function () {
+			deepEqual(mainModule.LBXShortcutValidation('[a]')({
 				key: 'a',
+				code: '',
 			}), true);
 		});
 
 		it('returns true if key match different case', function () {
-			deepEqual(mainModule.LBXShortcutValidation('a')({
+			deepEqual(mainModule.LBXShortcutValidation('[a]')({
 				key: 'A',
+				code: '',
 			}), true);
 		});
 
@@ -52,13 +66,13 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 
 			it('returns false if no shiftKey', function () {
 				deepEqual(mainModule.LBXShortcutValidation('Shift+A')({
-					key: 'a',
+					code: 'a',
 				}), false);
 			});
 
 			it('returns true', function () {
 				deepEqual(mainModule.LBXShortcutValidation('Shift+A')({
-					key: 'a',
+					code: 'a',
 					shiftKey: true,
 				}), true);
 			});
@@ -69,13 +83,13 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 
 			it('returns false if no ctrlKey', function () {
 				deepEqual(mainModule.LBXShortcutValidation('Ctrl+A')({
-					key: 'a',
+					code: 'a',
 				}), false);
 			});
 
 			it('returns true', function () {
 				deepEqual(mainModule.LBXShortcutValidation('Ctrl+A')({
-					key: 'a',
+					code: 'a',
 					ctrlKey: true,
 				}), true);
 			});
@@ -86,13 +100,13 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 
 			it('returns false if no altKey', function () {
 				deepEqual(mainModule.LBXShortcutValidation('Alt+A')({
-					key: 'a',
+					code: 'a',
 				}), false);
 			});
 
 			it('returns true', function () {
 				deepEqual(mainModule.LBXShortcutValidation('Alt+A')({
-					key: 'a',
+					code: 'a',
 					altKey: true,
 				}), true);
 			});
@@ -103,13 +117,13 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 
 			it('returns false if no metaKey', function () {
 				deepEqual(mainModule.LBXShortcutValidation('Cmd+A')({
-					key: 'a',
+					code: 'a',
 				}), false);
 			});
 
 			it('returns true', function () {
 				deepEqual(mainModule.LBXShortcutValidation('Cmd+A')({
-					key: 'a',
+					code: 'a',
 					metaKey: true,
 				}), true);
 			});
