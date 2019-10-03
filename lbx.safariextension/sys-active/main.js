@@ -1,5 +1,6 @@
 import api from './api.js';
 import { LBXMessageIsValid } from './logic.js';
+import { LBXShortcutValidation } from '../-shared/LBXShortcut/main.js';
 
 const mod = {
 
@@ -12,6 +13,18 @@ const mod = {
 	  }
 
 	  mod._ValueMessageSource = inputData;
+	},
+
+	_ValueShortcutMap: {
+		'Ctrl+Shift+P': 'LBXDefault',
+		'Cmd+Shift+P': 'LBXDefault',
+	},
+	ValueShortcutMap (inputData) {
+	  if (typeof inputData === 'undefined') {
+	    return mod._ValueShortcutMap;
+	  }
+
+	  mod._ValueShortcutMap = inputData;
 	},
 
 	// MESSAGE
@@ -57,17 +70,13 @@ const mod = {
 	},
 
 	MessageDidKeyDown (event) {
-		if (event.key.toLowerCase() !== 'y') {
-			return;
-		}
+		const signature = mod.ValueShortcutMap()[Object.keys(mod.ValueShortcutMap()).filter(function (e) {
+			return LBXShortcutValidation(e)(event);
+		}).shift()];
 
-		if (!event.shiftKey) {
+		if (!signature) {
 			return;
-		}
-
-		if (!event.metaKey && !event.ctrlKey) {
-			return;
-		}
+		};
 
 		event.stopPropagation();
 		event.preventDefault();
