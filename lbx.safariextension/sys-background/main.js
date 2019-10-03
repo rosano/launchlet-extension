@@ -99,6 +99,8 @@ const mod = {
 
   CommandPrivateKeyStore (inputData) {
     mod._CommandLocalDataSet('LBXPairPrivateKey', inputData);
+
+    mod.SetupValuePrivateKey();
   },
 
   CommandPublicKeyStore (inputData) {
