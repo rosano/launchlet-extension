@@ -24,9 +24,8 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 
 	context('GenerateKey', function testGenerateKey() {
 
-		before(async function () {
+		before(function () {
 			browser.click(LBXPopoverGenerateKeyButton)
-			await browser.wait({ element: LBXPopoverPublicKeyField })
 		});
 
 		it('localizes LBXPopoverDeleteKeyButton', function() {

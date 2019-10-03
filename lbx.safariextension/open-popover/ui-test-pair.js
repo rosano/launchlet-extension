@@ -10,9 +10,8 @@ describe('LBXPopoverUIPair', function () {
 
 	context('Startup', function testStartup() {
 
-		before(async function () {
+		before(function () {
 			browser.click(LBXPopoverGenerateKeyButton);
-			await browser.wait({ element: LBXPopoverPublicKeyField });
 		});
 
 		it('fills LBXPopoverPublicKeyField with public key', function() {
@@ -23,9 +22,8 @@ describe('LBXPopoverUIPair', function () {
 
 	context('DeleteKey', function testDeleteKey() {
 
-		before(async function () {
+		before(function () {
 			browser.click(LBXPopoverDeleteKeyButton);
-			await browser.wait({ element: LBXPopoverPublicKeyField });
 		});
 
 		it('shows LBXPopoverGenerateKeyButton', function() {
