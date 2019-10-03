@@ -16,8 +16,9 @@ const mod = {
 	},
 
 	_ValueShortcutMap: {
-		'Ctrl+Shift+P': 'LBXDefault',
-		'Cmd+Shift+P': 'LBXDefault',
+		'Ctrl+Alt+Y': 'LBXShortcutDefault',
+		'Cmd+Alt+Y': 'LBXShortcutDefault',
+		'Cmd+Shift+1': 'LBXShortcutPreviewFocusElements',
 	},
 	ValueShortcutMap (inputData) {
 	  if (typeof inputData === 'undefined') {
@@ -72,7 +73,7 @@ const mod = {
 		const signature = mod.ValueShortcutMap()[Object.keys(mod.ValueShortcutMap()).filter(function (e) {
 			return LBXShortcutValidation(e)(event);
 		}).shift()];
-		
+
 		if (!signature) {
 			return;
 		};
@@ -80,7 +81,7 @@ const mod = {
 		event.stopPropagation();
 		event.preventDefault();
 
-		api.MessageSendToBackground('DispatchBackgroundLaunch');
+		api.MessageSendToBackground('DispatchBackgroundRunSignature', signature);
 	},
 
 	// COMMAND

@@ -20,8 +20,8 @@ const mod = {
       DispatchBackgroundDeleteKeys() {
       	mod.CommandDeleteKeys();
       },
-      DispatchBackgroundLaunch() {
-        mod.CommandLaunch(event)
+      DispatchBackgroundRunSignature() {
+        mod.CommandRunSignature(event)
       },
       DispatchBackgroundRunTasks() {
         mod.CommandRunTasks(event)
@@ -126,25 +126,54 @@ const mod = {
     return JSON.parse(outputData);
   },
 
-  CommandLaunch (event) {
+  CommandRunSignature (event) {
     if (!mod.ValueMemoryPayload()) {
       return;
     };
 
-    api.RunDynamicScript(`(function () {
-      ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
+    const outputData = {
+      LBXShortcutDefault: `(function () {
+        ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
 
-      Launchlet.LRTTasksRun([{
-        LCHRecipeCallback () {},
-        LCHRecipeStyle: \`${ mod.ValueMemoryPayload().LBXPayloadPackageStyle }\`,
-        LCHRecipeURLFilter: '*',
-        LCHRecipeIsAutomatic: true,
-      }]);
+        Launchlet.LRTTasksRun([{
+          LCHRecipeCallback () {},
+          LCHRecipeStyle: \`${ mod.ValueMemoryPayload().LBXPayloadPackageStyle }\`,
+          LCHRecipeURLFilter: '*',
+          LCHRecipeIsAutomatic: true,
+        }]);
 
-      Launchlet.LRTSingletonCreate(Object.assign(${ JSON.stringify(mod.ValueMemoryPayload().LBXPayloadPackageOptions) }, {
-        LRTOptionRecipes: ${ mod.ValueMemoryPayload().LBXPayloadRecipes },
-      }));
-    })()`, event)
+        Launchlet.LRTSingletonCreate(Object.assign(${ JSON.stringify(mod.ValueMemoryPayload().LBXPayloadPackageOptions) }, {
+          LRTOptionRecipes: ${ mod.ValueMemoryPayload().LBXPayloadRecipes },
+        }));
+      })()`,
+      LBXShortcutPreviewFocusElements: `(function () {
+        ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
+
+        const callback = function (inputData) {
+          Launchlet.LRTSingletonCreate({
+            LRTOptionRecipes: inputData.map(function (e) {
+              return {
+                LCHRecipeName: e.LCHRecipeName,
+                LCHRecipeCallback () {
+                  e.LCHRecipeCallback().focus();
+                },
+              };
+            }),
+            LRTOptionMode: Launchlet.LRTModePreview,
+          });
+        };
+
+        Launchlet.LRTTasksRun([{
+          LCHRecipeCallback () {
+            callback(this.api.LCHActiveDocumentFocusElements())
+          },
+          LCHRecipeURLFilter: '*',
+          LCHRecipeIsAutomatic: true,
+        }]);
+      })()`,
+    }[event.message];
+
+    api.RunDynamicScript(outputData, event)
   },
 
   CommandRunTasks (event) {
