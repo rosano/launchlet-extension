@@ -26,7 +26,7 @@ export default {
 	},
 
 	LocalDataSet (param1, param2) {
-	  console.log('LocalDataSet', param1, param2);
+	  // console.log('LocalDataSet', param1, param2);
 	  if (typeof safari !== 'undefined') {
 	  	// @LocalDataSet:Safari
 	    return (safari.extension.settings[param1] = param2);
