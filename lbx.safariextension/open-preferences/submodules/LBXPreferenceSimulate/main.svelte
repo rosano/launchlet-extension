@@ -48,17 +48,21 @@ onMount(function () {
 
 <p class="LBXPreferenceSimulateBlurb">{@html OLSKLocalized('LBXPreferenceSimulateBlurbText') }</p>
 
-<label class="LBXPreferenceSimulateCodeStringFieldLabel">
-	<span>{ OLSKLocalized('LBXPreferenceSimulateCodeStringFieldLabelText') }</span>
-	<input class="LBXPreferenceSimulateCodeStringField" bind:value={ mod._ValueCodeString } on:click={ () => this.select() } />
-</label>
-<button class="LBXPreferenceSimulateCodeStringCopyButton" data-clipboard-target=".LBXPreferenceSimulateCodeStringField">{ OLSKLocalized('LBXPreferenceSimulateSharedCopyButtonText') }</button>
+<p>
+	<label class="LBXPreferenceSimulateCodeStringFieldLabel">
+		<span>{ OLSKLocalized('LBXPreferenceSimulateCodeStringFieldLabelText') }</span>
+		<input class="LBXPreferenceSimulateCodeStringField" bind:value={ mod._ValueCodeString } on:click={ () => this.select() } />
+	</label>
+	<button class="LBXPreferenceSimulateCodeStringCopyButton" data-clipboard-target=".LBXPreferenceSimulateCodeStringField">{ OLSKLocalized('LBXPreferenceSimulateSharedCopyButtonText') }</button>
+</p>
 
-<label class="LBXPreferenceSimulateKeyStringFieldLabel">
-	<span>{ OLSKLocalized('LBXPreferenceSimulateKeyStringFieldLabelText') }</span>
-	<input class="LBXPreferenceSimulateKeyStringField" bind:value={ mod._ValueKeyString } on:click={ () => this.select() } />
-</label>
-<button class="LBXPreferenceSimulateKeyStringCopyButton" data-clipboard-target=".LBXPreferenceSimulateKeyStringField">{ OLSKLocalized('LBXPreferenceSimulateSharedCopyButtonText') }</button>
+<p>
+	<label class="LBXPreferenceSimulateKeyStringFieldLabel">
+		<span>{ OLSKLocalized('LBXPreferenceSimulateKeyStringFieldLabelText') }</span>
+		<input class="LBXPreferenceSimulateKeyStringField" bind:value={ mod._ValueKeyString } on:click={ () => this.select() } />
+	</label>
+	<button class="LBXPreferenceSimulateKeyStringCopyButton" data-clipboard-target=".LBXPreferenceSimulateKeyStringField">{ OLSKLocalized('LBXPreferenceSimulateSharedCopyButtonText') }</button>
+</p>
 
 </div>
 

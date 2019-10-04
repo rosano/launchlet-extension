@@ -60,6 +60,7 @@ const mod = {
 mod.LifecycleModuleWillMount();
 
 import LBXPreferenceShortcuts from './submodules/LBXPreferenceShortcuts/main.svelte';
+import LBXPreferenceSimulate from './submodules/LBXPreferenceSimulate/main.svelte';
 </script>
 
 <div class="LBXPreferences">
@@ -71,6 +72,8 @@ import LBXPreferenceShortcuts from './submodules/LBXPreferenceShortcuts/main.sve
 <hr>
 
 <LBXPreferenceShortcuts LBXPreferenceShortcutsMap={ mod.LBXPreferenceShortcutsMap } on:LBXPreferenceShortcutsDispatchCreate={ mod.LBXPreferenceShortcutsDispatchCreate } on:LBXPreferenceShortcutsDispatchUpdate={ mod.LBXPreferenceShortcutsDispatchUpdate } />
+
+<LBXPreferenceSimulate />
 
 </div>
 

@@ -27,5 +27,9 @@ describe('LBXPreferencesUIAccess', function () {
 	it('shows LBXPreferenceShortcuts', function() {
 		browser.assert.elements('.LBXPreferenceShortcuts', 1);
 	});
+	
+	it('shows LBXPreferenceSimulate', function() {
+		browser.assert.elements('.LBXPreferenceSimulate', 1);
+	});
 
 });
