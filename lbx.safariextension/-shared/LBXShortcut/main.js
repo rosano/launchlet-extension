@@ -71,6 +71,10 @@ export const LBXShortcutString = function (param1, param2) {
 		return '';
 	};
 
+	if (param1.key === 'Tab') {
+		return '';
+	};
+
 	return [
 		param1.ctrlKey && 'Ctrl',
 		param1.metaKey && 'Cmd',

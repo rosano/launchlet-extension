@@ -167,7 +167,7 @@ describe('LBXShortcutString', function testLBXShortcutString() {
 		}), '');
 	});
 
-	it('ignores if only Ctrl', function () {
+	it('ignores if Ctrl', function () {
 		deepEqual(mainModule.LBXShortcutString({
 			code: 'alfa',
 			key: 'Control',
@@ -175,7 +175,7 @@ describe('LBXShortcutString', function testLBXShortcutString() {
 		}), '');
 	});
 
-	it('ignores if only Cmd', function () {
+	it('ignores if Cmd', function () {
 		deepEqual(mainModule.LBXShortcutString({
 			code: 'alfa',
 			key: 'Meta',
@@ -183,7 +183,7 @@ describe('LBXShortcutString', function testLBXShortcutString() {
 		}), '');
 	});
 
-	it('ignores if only Alt', function () {
+	it('ignores if Alt', function () {
 		deepEqual(mainModule.LBXShortcutString({
 			code: 'alfa',
 			key: 'Alt',
@@ -191,10 +191,18 @@ describe('LBXShortcutString', function testLBXShortcutString() {
 		}), '');
 	});
 
-	it('ignores if only Shift', function () {
+	it('ignores if Shift', function () {
 		deepEqual(mainModule.LBXShortcutString({
 			code: 'alfa',
 			key: 'Shift',
+			shiftKey: true,
+		}), '');
+	});
+
+	it('ignores if Tab', function () {
+		deepEqual(mainModule.LBXShortcutString({
+			code: 'Tab',
+			key: 'Tab',
 			shiftKey: true,
 		}), '');
 	});
