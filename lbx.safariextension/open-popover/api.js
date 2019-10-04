@@ -44,5 +44,17 @@ export default {
 	    });
 	  });
 	},
+
+	PreferencesPageProgrammaticLaunch () {
+		if (typeof safari !== 'undefined') {
+			// @PreferencesPageProgrammaticLaunch:Safari
+			return safari.application.activeBrowserWindow.openTab().url = safari.extension.baseURI + "open-preferences/ui-view.html";
+		}
+
+		if (typeof chrome !== 'undefined') {
+			// @PreferencesPageProgrammaticLaunch:Shared
+			return chrome.runtime.openOptionsPage();
+		}
+	},
 	
 };

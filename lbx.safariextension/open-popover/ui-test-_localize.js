@@ -14,12 +14,12 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 		return browser.visit(`${ languageCode }${ kDefaultRoute.OLSKRoutePath }`);
 	});
 
-	context('Startup', function testStartup() {
+	it('localizes LBXPopoverGenerateKeyButton', function() {
+		browser.assert.text(LBXPopoverGenerateKeyButton, uLocalized('LBXPopoverGenerateKeyButtonText'))
+	});
 
-		it('localizes LBXPopoverGenerateKeyButton', function() {
-			browser.assert.text(LBXPopoverGenerateKeyButton, uLocalized('LBXPopoverGenerateKeyButtonText'))
-		});
-		
+	it('localizes LBXPopoverShowPreferencesButton', function() {
+		browser.assert.text(LBXPopoverShowPreferencesButton, uLocalized('LBXPopoverShowPreferencesButtonText'))
 	});
 
 	context('GenerateKey', function testGenerateKey() {

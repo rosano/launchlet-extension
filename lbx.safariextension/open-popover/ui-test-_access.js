@@ -8,6 +8,8 @@ Object.entries({
 	LBXPopoverGenerateKeyButton: '.LBXPopoverGenerateKeyButton',
 	LBXPopoverDeleteKeyButton: '.LBXPopoverDeleteKeyButton',
 	LBXPopoverPublicKeyField: '.LBXPopoverPublicKeyField',
+
+	LBXPopoverShowPreferencesButton: '.LBXPopoverShowPreferencesButton',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
@@ -32,6 +34,10 @@ describe('LBXPopoverUIAccess', function () {
 
 	it('hides LBXPopoverPublicKeyField', function() {
 		browser.assert.elements(LBXPopoverPublicKeyField, 0);
+	});
+
+	it('shows LBXPopoverShowPreferencesButton', function () {
+		browser.assert.elements(LBXPopoverShowPreferencesButton, 1);
 	});
 	
 	context('GenerateKey', function () {

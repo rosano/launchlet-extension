@@ -37,6 +37,10 @@ const mod = {
 		mod.CommandDeleteKey();
 	},
 
+	InterfaceShowPreferencesButtonDidClick () {
+		mod.CommandShowPreferences();
+	},
+
 	// COMMAND
 	
 	async CommandGenerateKeys () {
@@ -74,6 +78,10 @@ const mod = {
 		LBXPopoverPreloadDidPair = false;
 		
 		api.CallBackgroundFunction('DispatchBackgroundDeleteKeys');
+	},
+
+	CommandShowPreferences () {
+		api.PreferencesPageProgrammaticLaunch();
 	},
 
 	// SETUP
@@ -115,6 +123,8 @@ mod.LifecycleModuleWillMount();
 {#if mod._ValuePublicKey && !LBXPopoverPreloadDidPair}
 	<input class="LBXPopoverPublicKeyField" value={ mod.ValuePublicKey() } onclick="this.select()" autofocus />
 {/if}
+
+<button class="LBXPopoverShowPreferencesButton" on:click={ mod.InterfaceShowPreferencesButtonDidClick }>{ OLSKLocalized('LBXPopoverShowPreferencesButtonText') }</button>
 
 </div>
 
