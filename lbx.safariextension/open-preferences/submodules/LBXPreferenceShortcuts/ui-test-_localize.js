@@ -20,6 +20,10 @@ describe(`LBXPreferenceShortcutsUILocalize-${ languageCode }`, function () {
 		browser.assert.text(LBXPreferenceShortcutsHeading, uLocalized('LBXPreferenceShortcutsHeadingText'));
 	});
 
+	it('localizes LBXPreferenceShortcutsCreateButton', function () {
+		browser.assert.text(LBXPreferenceShortcutsCreateButton, uLocalized('LBXPreferenceShortcutsCreateButtonText'));
+	});
+
 });
 
 });

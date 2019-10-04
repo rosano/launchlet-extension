@@ -6,6 +6,8 @@ Object.entries({
 	LBXPreferenceShortcuts: '.LBXPreferenceShortcuts',
 
 	LBXPreferenceShortcutsHeading: '.LBXPreferenceShortcutsHeading',
+	
+	LBXPreferenceShortcutsCreateButton: '.LBXPreferenceShortcutsCreateButton',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
@@ -22,6 +24,10 @@ describe('LBXPreferenceShortcutsUIAccess', function () {
 	
 	it('shows LBXPreferenceShortcutsHeading', function() {
 		browser.assert.elements(LBXPreferenceShortcutsHeading, 1);
+	});
+
+	it('shows LBXPreferenceShortcutsCreateButton', function () {
+		browser.assert.elements(LBXPreferenceShortcutsCreateButton, 1);
 	});
 
 });
