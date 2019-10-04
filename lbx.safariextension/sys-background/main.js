@@ -26,6 +26,12 @@ const mod = {
       DispatchBackgroundRunTasks() {
         mod.CommandRunTasks(event)
       },
+      DispatchBackgroundSendShortcutsMap () {
+        mod.CommandSendShortcutsMap(event);
+      },
+      DispatchBackgroundUpdateShortcutsMap () {
+        mod.CommandUpdateShortcutsMap(event.message);
+      },
     }[event.name]();
   },
 
@@ -184,6 +190,14 @@ const mod = {
 
       Launchlet.LCHTasksRun(${ mod.ValueMemoryPayload().LBXPayloadRecipes })
     })()`, event)
+  },
+
+  async CommandSendShortcutsMap (event) {
+    api.MessageSendToPage('DispatchPreferencesShortcutsMap', await mod._CommandLocalDataGet('LBXPairPublicKey'), event);
+  },
+
+  CommandUpdateShortcutsMap (inputData) {
+    mod._CommandLocalDataSet('LBXPairPublicKey', inputData);
   },
   
   // SETUP

@@ -1,12 +1,10 @@
 <script>
+import api from './api.js';
+
 import OLSKInternational from 'OLSKInternational';
 export const OLSKLocalized = function(translationConstant) {
 	return OLSKInternational.OLSKInternationalLocalizedString(translationConstant, JSON.parse(`{"OLSK_I18N_SEARCH_REPLACE":"OLSK_I18N_SEARCH_REPLACE"}`)[OLSKInternational.OLSKInternationalSimplifiedLanguageCode(navigator.language)]);
 };
-
-import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
-
-
 
 const mod = {
 
@@ -17,7 +15,19 @@ const mod = {
 	},
 
 	LBXPreferenceShortcutsDispatchUpdate (event) {
-		mod.LBXPreferenceShortcutsMap = event.detail;
+		api.MessageSendToBackground('DispatchBackgroundUpdateShortcutsMap', mod.LBXPreferenceShortcutsMap = event.detail)
+	},
+
+	MessageDidReceiveFromBackground (event) {
+		return {
+			DispatchPreferencesShortcutsMap() {
+				if (!event.message) {
+					return;
+				};
+				
+				mod.LBXPreferenceShortcutsMap = event.message;
+		  },
+		}[event.name]();
 	},
 
 	// VALUE
@@ -27,6 +37,16 @@ const mod = {
 	// SETUP
 
 	SetupEverything() {
+		mod.SetupMessageReceiveFromBackground();
+		mod.SetupValueShortcutsMap();
+	},
+	
+	SetupMessageReceiveFromBackground() {
+		api.MessageReceiveFromBackground(mod.MessageDidReceiveFromBackground);
+	},
+	
+	SetupValueShortcutsMap() {
+		api.MessageSendToBackground('DispatchBackgroundSendShortcutsMap');
 	},
 
 	// LIFECYCLE
