@@ -16,6 +16,10 @@ describe(`LBXPreferencesUILocalize-${ languageCode }`, function () {
 		}));
 	});
 
+	it('localizes LBXPreferencesGuideLink', function () {
+		browser.assert.text(LBXPreferencesGuideLink, uLocalized('LBXPreferencesGuideLinkText'));
+	});
+
 });
 
 });
