@@ -2,6 +2,10 @@ export default {
 
 	MessageSendToBackground (param1, param2) {
 		if (typeof safari !== 'undefined') {
+			if (typeof safari.self === 'undefined') {
+				return;
+			};
+			
 			// @MessageSendToBackground:Safari
 			return safari.self.tab.dispatchMessage(param1, param2);
 		}
@@ -17,6 +21,10 @@ export default {
 
 	MessageReceiveFromBackground (inputData) {
 		if (typeof safari !== 'undefined') {
+			if (typeof safari.self === 'undefined') {
+				return;
+			};
+			
 			// @MessageReceiveFromBackground:Safari
 			return safari.self.addEventListener('message', inputData, false);
 		}
