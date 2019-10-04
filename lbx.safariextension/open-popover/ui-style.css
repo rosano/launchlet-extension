@@ -1,28 +1,14 @@
-:root {
-	--OLSKCommonBackground: hsl(0, 0%, 97%);
-	--OLSKCommonForeground: hsl(0, 0%, 0%);
-	
-	--LBXPopoverPadding: 10px;
-}
-
 :global(html, body) {
-	width: 200px;
-	height: 200px;
+	width: calc(200px - var(--OLSKCommonContainerPadding) * 2);
+	height: calc(200px - var(--OLSKCommonContainerPadding) * 2);
 }
 
-:global(body) {
-	background: var(--OLSKCommonBackground);
-	color: var(--OLSKCommonForeground);
+.LBXPopover p:first-child {
+	margin-top: 0;
 }
 
-.LBXPopover {
-	padding: var(--LBXPopoverPadding)
-}
-
-.LBXPopover > * {
+.LBXPopover p > * {
 	width: 100%;
-
-	margin-bottom: var(--LBXPopoverPadding);
 }
 
 input {

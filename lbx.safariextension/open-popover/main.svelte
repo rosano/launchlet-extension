@@ -110,21 +110,29 @@ const mod = {
 mod.LifecycleModuleWillMount();
 </script>
 
-<div class="LBXPopover OLSKCommon"> 
+<div class="LBXPopover"> 
 
 {#if !mod._ValuePublicKey }
-	<button class="LBXPopoverGenerateKeyButton" on:click={ mod.InterfaceGenerateKeyButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateKeyButtonText') }</button>
+	<p>
+		<button class="LBXPopoverGenerateKeyButton" on:click={ mod.InterfaceGenerateKeyButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateKeyButtonText') }</button>
+	</p>
 {/if}
 
 {#if mod._ValuePublicKey}
-	<button class="LBXPopoverDeleteKeyButton" on:click={ mod.InterfaceDeleteKeyButtonDidClick }>{ OLSKLocalized('LBXPopoverDeleteKeyButtonText') }</button>
+	<p>
+		<button class="LBXPopoverDeleteKeyButton" on:click={ mod.InterfaceDeleteKeyButtonDidClick }>{ OLSKLocalized('LBXPopoverDeleteKeyButtonText') }</button>
+	</p>
 {/if}
 
 {#if mod._ValuePublicKey && !LBXPopoverPreloadDidPair}
-	<input class="LBXPopoverPublicKeyField" value={ mod.ValuePublicKey() } onclick="this.select()" autofocus />
+	<p>
+		<input class="LBXPopoverPublicKeyField" value={ mod.ValuePublicKey() } onclick="this.select()" autofocus />
+	</p>
 {/if}
 
-<button class="LBXPopoverShowPreferencesButton" on:click={ mod.InterfaceShowPreferencesButtonDidClick }>{ OLSKLocalized('LBXPopoverShowPreferencesButtonText') }</button>
+<p>
+	<button class="LBXPopoverShowPreferencesButton" on:click={ mod.InterfaceShowPreferencesButtonDidClick }>{ OLSKLocalized('LBXPopoverShowPreferencesButtonText') }</button>
+</p>
 
 </div>
 

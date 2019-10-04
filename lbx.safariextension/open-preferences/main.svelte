@@ -62,7 +62,7 @@ mod.LifecycleModuleWillMount();
 import LBXPreferenceShortcuts from './submodules/LBXPreferenceShortcuts/main.svelte';
 </script>
 
-<div class="LBXPreferences OLSKCommon"> 
+<div class="LBXPreferences"> 
 
 <LBXPreferenceShortcuts LBXPreferenceShortcutsMap={ mod.LBXPreferenceShortcutsMap } on:LBXPreferenceShortcutsDispatchCreate={ mod.LBXPreferenceShortcutsDispatchCreate } on:LBXPreferenceShortcutsDispatchUpdate={ mod.LBXPreferenceShortcutsDispatchUpdate } />
 
