@@ -39,6 +39,10 @@ context('LBXPreferenceShortcutsMap', function () {
 		it('sets value', function () {
 			browser.assert.input(LBXPreferenceShortcutsItemKeyField, 'alfa');
 		});
+		
+		it('sets autofocus', function () {
+			browser.assert.attribute(LBXPreferenceShortcutsItemKeyField, 'autofocus', '');
+		});
 	
 	});
 
