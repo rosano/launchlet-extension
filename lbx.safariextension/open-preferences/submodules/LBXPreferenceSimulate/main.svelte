@@ -21,6 +21,8 @@ const mod = {
 
 <h1 class="LBXPreferenceSimulateHeading">{ OLSKLocalized('LBXPreferenceSimulateHeadingText') }</h1>
 
+<p class="LBXPreferenceSimulateBlurb">{@html OLSKLocalized('LBXPreferenceSimulateBlurbText') }</p>
+
 </div>
 
 <style src="./ui-style.css"></style>

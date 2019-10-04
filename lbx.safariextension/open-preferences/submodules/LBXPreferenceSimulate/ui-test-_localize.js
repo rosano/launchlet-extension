@@ -20,6 +20,10 @@ describe(`LBXPreferenceSimulateUILocalize-${ languageCode }`, function () {
 		browser.assert.text(LBXPreferenceSimulateHeading, uLocalized('LBXPreferenceSimulateHeadingText'));
 	});
 
+	it('localizes LBXPreferenceSimulateBlurb', function () {
+		deepEqual(browser.query(LBXPreferenceSimulateBlurb).innerHTML, uLocalized('LBXPreferenceSimulateBlurbText'));
+	});
+
 });
 
 });

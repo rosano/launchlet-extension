@@ -6,6 +6,7 @@ Object.entries({
 	LBXPreferenceSimulate: '.LBXPreferenceSimulate',
 
 	LBXPreferenceSimulateHeading: '.LBXPreferenceSimulateHeading',
+	LBXPreferenceSimulateBlurb: '.LBXPreferenceSimulateBlurb',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
@@ -22,6 +23,10 @@ describe('LBXPreferenceSimulateUIAccess', function () {
 	
 	it('shows LBXPreferenceSimulateHeading', function() {
 		browser.assert.elements(LBXPreferenceSimulateHeading, 1);
+	});
+	
+	it('shows LBXPreferenceSimulateBlurb', function() {
+		browser.assert.elements(LBXPreferenceSimulateBlurb, 1);
 	});
 
 });
