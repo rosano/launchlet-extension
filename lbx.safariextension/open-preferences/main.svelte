@@ -6,7 +6,23 @@ export const OLSKLocalized = function(translationConstant) {
 
 import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
 
+
+
 const mod = {
+
+	// MESSAGE
+
+	LBXPreferenceShortcutsDispatchCreate () {
+		mod.LBXPreferenceShortcutsMap[''] = '';
+	},
+
+	LBXPreferenceShortcutsDispatchUpdate (event) {
+		mod.LBXPreferenceShortcutsMap = event.detail;
+	},
+
+	// VALUE
+
+	LBXPreferenceShortcutsMap: {},
 
 	// SETUP
 
@@ -22,9 +38,13 @@ const mod = {
 };
 
 mod.LifecycleModuleWillMount();
+
+import LBXPreferenceShortcuts from './submodules/LBXPreferenceShortcuts/main.svelte';
 </script>
 
 <div class="LBXPreferences"> 
+
+<LBXPreferenceShortcuts LBXPreferenceShortcutsMap={ mod.LBXPreferenceShortcutsMap } on:LBXPreferenceShortcutsDispatchCreate={ mod.LBXPreferenceShortcutsDispatchCreate } on:LBXPreferenceShortcutsDispatchUpdate={ mod.LBXPreferenceShortcutsDispatchUpdate } />
 
 </div>
 
