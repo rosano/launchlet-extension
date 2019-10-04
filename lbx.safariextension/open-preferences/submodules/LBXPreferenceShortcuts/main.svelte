@@ -19,6 +19,26 @@ const mod = {
 		dispatch('LBXPreferenceShortcutsDispatchCreate');
 	},
 
+	// COMMAND
+
+	CommandNotifyChange (original, key, value) {
+		dispatch('LBXPreferenceShortcutsDispatchUpdate', Object.keys(LBXPreferenceShortcutsMap).reduce(function (coll, item) {
+			if (item !== original) {
+				coll[item] = LBXPreferenceShortcutsMap[item];
+			};
+
+			if (item === original && typeof key !== 'undefined') {
+				coll[key] = LBXPreferenceShortcutsMap[item];
+			};
+
+			if (item === original && typeof value !== 'undefined') {
+				coll[item] = value;
+			};
+
+			return coll;
+		}, {}))
+	},
+
 };
 </script>
 
@@ -30,8 +50,8 @@ const mod = {
 
 {#each Object.keys(LBXPreferenceShortcutsMap) as item}
 	<div class="LBXPreferenceShortcutsItem">
-		<input class="LBXPreferenceShortcutsItemKeyField" placeholder={ OLSKLocalized('LBXPreferenceShortcutsItemKeyFieldPlaceholderText') } value={ item } />
-		<input class="LBXPreferenceShortcutsItemValueField" placeholder={ OLSKLocalized('LBXPreferenceShortcutsItemValueFieldPlaceholderText') } value={ LBXPreferenceShortcutsMap[item] } />
+		<input class="LBXPreferenceShortcutsItemKeyField" placeholder={ OLSKLocalized('LBXPreferenceShortcutsItemKeyFieldPlaceholderText') } value={ item } on:input={ (event) => mod.CommandNotifyChange(item, event.target.value, undefined) } />
+		<input class="LBXPreferenceShortcutsItemValueField" placeholder={ OLSKLocalized('LBXPreferenceShortcutsItemValueFieldPlaceholderText') } value={ LBXPreferenceShortcutsMap[item] } on:input={ (event) => mod.CommandNotifyChange(item, undefined, event.target.value) } />
 	</div>
 {/each}
 

@@ -29,7 +29,7 @@ context('LBXPreferenceShortcutsMap', function () {
 	before(function () {
 		return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
 			LBXPreferenceShortcutsMap: JSON.stringify({
-				'alfa': 'bravo',
+				alfa: 'bravo',
 			}),
 		}));
 	});
@@ -48,6 +48,68 @@ context('LBXPreferenceShortcutsMap', function () {
 			browser.assert.input(LBXPreferenceShortcutsItemValueField, 'bravo');
 		});
 	
+	});
+
+});
+
+context('LBXPreferenceShortcutsItemKeyField', function () {
+
+	before(function () {
+		return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+			LBXPreferenceShortcutsMap: JSON.stringify({
+				alfa: 'bravo',
+			}),
+		}));
+	});
+
+	before(function () {
+		browser.assert.text('#TestLBXPreferenceShortcutsDispatchUpdate', '0')
+		browser.assert.text('#TestLBXPreferenceShortcutsDispatchUpdateValue', 'undefined')
+	});
+
+	before(function () {
+		browser.fill(LBXPreferenceShortcutsItemKeyField, 'alfax');
+	});
+
+	it('sends LBXPreferenceShortcutsDispatchUpdate', function () {
+		browser.assert.text('#TestLBXPreferenceShortcutsDispatchUpdate', '1')
+	});
+
+	it('includes message', function () {
+		browser.assert.text('#TestLBXPreferenceShortcutsDispatchUpdateValue', JSON.stringify({
+			alfax: 'bravo',
+		}))
+	});
+
+});
+
+context('LBXPreferenceShortcutsItemValueField', function () {
+
+	before(function () {
+		return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+			LBXPreferenceShortcutsMap: JSON.stringify({
+				alfa: 'bravo',
+			}),
+		}));
+	});
+
+	before(function () {
+		browser.assert.text('#TestLBXPreferenceShortcutsDispatchUpdate', '0')
+		browser.assert.text('#TestLBXPreferenceShortcutsDispatchUpdateValue', 'undefined')
+	});
+
+	before(function () {
+		browser.fill(LBXPreferenceShortcutsItemValueField, 'bravox');
+	});
+
+	it('sends LBXPreferenceShortcutsDispatchUpdate', function () {
+		browser.assert.text('#TestLBXPreferenceShortcutsDispatchUpdate', '1')
+	});
+
+	it('includes message', function () {
+		browser.assert.text('#TestLBXPreferenceShortcutsDispatchUpdateValue', JSON.stringify({
+			alfa: 'bravox',
+		}))
 	});
 
 });
