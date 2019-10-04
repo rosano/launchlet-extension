@@ -28,6 +28,7 @@ describe(`LBXPreferenceShortcutsUILocalize-${ languageCode }`, function () {
 
 		before(function () {
 			return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+				OLSKRoutingLanguage: languageCode,
 				LBXPreferenceShortcutsMap: JSON.stringify({
 					'': '',
 				}),

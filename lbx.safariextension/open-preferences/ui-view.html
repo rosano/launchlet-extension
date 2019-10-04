@@ -7,6 +7,14 @@
 	<link rel="stylesheet" type="text/css" href="../-shared/__external/OLSKLayout/ui-style.css" />
 	<link rel="stylesheet" type="text/css" href="../-shared/_common/ui-style.css" />
 	<link rel="stylesheet" type="text/css" href="../open-preferences/__compiled/ui-style.css" />
+
+	<script type="text/javascript">
+		window.OLSKPublicConstants = function (inputData) {
+			return {
+				OLSKSharedPageCurrentLanguage: navigator.language,
+			}[inputData];
+		};
+	</script>
 </head>
 <body class="OLSKCommon">
 
