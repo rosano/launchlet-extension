@@ -31,7 +31,7 @@ const mod = {
 
 <label class="LBXPreferenceSimulateCodeStringFieldLabel">
 	<span>{ OLSKLocalized('LBXPreferenceSimulateCodeStringFieldLabelText') }</span>
-	<input class="LBXPreferenceSimulateCodeStringField" bind:value={ mod._ValueCodeString } />
+	<input class="LBXPreferenceSimulateCodeStringField" bind:value={ mod._ValueCodeString } on:click={ () => this.select() } />
 </label>
 
 </div>
