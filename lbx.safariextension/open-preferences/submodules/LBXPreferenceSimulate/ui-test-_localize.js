@@ -28,6 +28,10 @@ describe(`LBXPreferenceSimulateUILocalize-${ languageCode }`, function () {
 		browser.assert.text(LBXPreferenceSimulateCodeStringFieldLabel, uLocalized('LBXPreferenceSimulateCodeStringFieldLabelText'));
 	});
 
+	it('localizes LBXPreferenceSimulateCodeStringCopyButton', function () {
+		browser.assert.text(LBXPreferenceSimulateCodeStringCopyButton, uLocalized('LBXPreferenceSimulateSharedCopyButtonText'));
+	});
+
 	it('localizes LBXPreferenceSimulateKeyStringFieldLabel', function () {
 		browser.assert.text(LBXPreferenceSimulateKeyStringFieldLabel, uLocalized('LBXPreferenceSimulateKeyStringFieldLabelText'));
 	});

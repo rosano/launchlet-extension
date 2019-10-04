@@ -6,6 +6,8 @@ export const OLSKLocalized = function(translationConstant) {
 
 import { LBXShortcutString } from '../../../-shared/LBXShortcut/main.js';
 
+import Clipboard from 'clipboard';
+
 const mod = {
 
 	// VALUE
@@ -25,7 +27,16 @@ const mod = {
 		mod._ValueKeyString = LBXShortcutString(event, true);
 	},
 
+	LifecycleModuleDidMount () {
+		new Clipboard('.LBXPreferenceSimulateCodeStringCopyButton');
+	},
+
 };
+
+import { onMount } from 'svelte';
+onMount(function () {
+	mod.LifecycleModuleDidMount();
+});
 </script>
 
 <svelte:window on:keydown={ mod.InterfaceKeydownDidFire }/>
@@ -40,6 +51,7 @@ const mod = {
 	<span>{ OLSKLocalized('LBXPreferenceSimulateCodeStringFieldLabelText') }</span>
 	<input class="LBXPreferenceSimulateCodeStringField" bind:value={ mod._ValueCodeString } on:click={ () => this.select() } />
 </label>
+<button class="LBXPreferenceSimulateCodeStringCopyButton" data-clipboard-target=".LBXPreferenceSimulateCodeStringField">{ OLSKLocalized('LBXPreferenceSimulateSharedCopyButtonText') }</button>
 
 <label class="LBXPreferenceSimulateKeyStringFieldLabel">
 	<span>{ OLSKLocalized('LBXPreferenceSimulateKeyStringFieldLabelText') }</span>

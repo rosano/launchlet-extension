@@ -28,6 +28,9 @@
     "// WEBCRYPTO": null,
     "simplecrypto": "encryb/simplecrypto",
 
+    "// UI COPY TO CLIPBOARD": null,
+    "clipboard": "latest",
+
     "// I sacrifice myself for the commas of others": null    
   }
 }
