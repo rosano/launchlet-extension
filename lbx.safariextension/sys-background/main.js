@@ -137,20 +137,32 @@ const mod = {
       return;
     };
 
-    api.RunDynamicScript((function () {
-      let outputData = {
-        LBXShortcutDefault: `(function () {
-          Launchlet.LCHSingletonCreate(Object.assign(${ JSON.stringify(mod.ValueMemoryPayload().LBXPayloadPackageOptions) }, {
-            LCHOptionRecipes: ${ mod.ValueMemoryPayload().LBXPayloadRecipes },
-          }));
-        })()`,
-      }[event.message];
+    if (!event.message) {
+      return console.warn('LBXSignatureNotValid');
+    };
 
-      if (!outputData) {
-        outputData = `Launchlet.LCHTasksRun([{
+    api.RunDynamicScript((function () {
+      return `(function () {
+        ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
+
+        Launchlet.LCHTasksRun([{
+          LCHRecipeCallback () {},
+          LCHRecipeStyle: \`${ mod.ValueMemoryPayload().LBXPayloadPackageStyle }\`,
+          LCHRecipeURLFilter: '*',
+          LCHRecipeIsAutomatic: true,
+        }]);
+
+        Launchlet.LCHTasksRun([{
           LCHRecipeSignature: 'Launchlet',
           LCHRecipeCallback () {
             return Launchlet;
+          },
+        }, {
+          LCHRecipeSignature: 'LBXShortcutDefault',
+          LCHRecipeCallback () {
+            this.api.Launchlet().LCHSingletonCreate(Object.assign(${ JSON.stringify(mod.ValueMemoryPayload().LBXPayloadPackageOptions) }, {
+              LCHOptionRecipes: ${ mod.ValueMemoryPayload().LBXPayloadRecipes },
+            }));
           },
         }].concat(${ mod.ValueMemoryPayload().LBXPayloadRecipes }.map(function (e) {
           delete e.LCHRecipeIsAutomatic;
@@ -162,20 +174,7 @@ const mod = {
           },
           LCHRecipeURLFilter: '*',
           LCHRecipeIsAutomatic: true,
-        }));`;
-      };
-
-      return `(function () {
-        ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
-
-        Launchlet.LCHTasksRun([{
-          LCHRecipeCallback () {},
-          LCHRecipeStyle: \`${ mod.ValueMemoryPayload().LBXPayloadPackageStyle }\`,
-          LCHRecipeURLFilter: '*',
-          LCHRecipeIsAutomatic: true,
-        }]);
-
-        ${ outputData }
+        }));
       })()`
     })(), event)
   },
