@@ -7,7 +7,7 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 	it('throws if not string', function () {
 		throws(function () {
 			mainModule.LBXShortcutValidation(null)
-		}, /ErrorInputInvalid/);
+		}, /LBXErrorInputInvalid/);
 	});
 
 	it('returns function', function() {
@@ -19,7 +19,7 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 		it('throws if not object', function () {
 			throws(function () {
 				mainModule.LBXShortcutValidation('')(null)
-			}, /ErrorInputInvalid/);
+			}, /LBXErrorInputInvalid/);
 		});
 
 		it('throws if code not string', function () {
@@ -27,7 +27,7 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 				mainModule.LBXShortcutValidation('')({
 					code: null,
 				})
-			}, /ErrorInputInvalid/);
+			}, /LBXErrorInputInvalid/);
 		});
 
 		it('returns false', function () {
@@ -130,6 +130,110 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 		
 		});
 	
+	});
+
+});
+
+describe('LBXShortcutStringCode', function testLBXShortcutStringCode() {
+
+	it('throws if not object', function () {
+		throws(function () {
+			mainModule.LBXShortcutStringCode(null)
+		}, /LBXErrorInputInvalid/);
+	});
+
+	it('throws if code not string', function () {
+		throws(function () {
+			mainModule.LBXShortcutStringCode({
+				code: null,
+			})
+		}, /LBXErrorInputInvalid/);
+	});
+
+	it('returns string', function () {
+		deepEqual(mainModule.LBXShortcutStringCode({
+			code: 'alfa',
+		}), 'alfa');
+	});
+
+	it('prepends Ctrl', function () {
+		deepEqual(mainModule.LBXShortcutStringCode({
+			code: 'alfa',
+			ctrlKey: true,
+		}), 'Ctrl+alfa');
+	});
+
+	it('prepends Alt', function () {
+		deepEqual(mainModule.LBXShortcutStringCode({
+			code: 'alfa',
+			altKey: true,
+		}), 'Alt+alfa');
+	});
+
+	it('prepends Shift', function () {
+		deepEqual(mainModule.LBXShortcutStringCode({
+			code: 'alfa',
+			shiftKey: true,
+		}), 'Shift+alfa');
+	});
+
+	it('prepends Cmd', function () {
+		deepEqual(mainModule.LBXShortcutStringCode({
+			code: 'alfa',
+			metaKey: true,
+		}), 'Cmd+alfa');
+	});
+
+});
+
+describe('LBXShortcutStringKey', function testLBXShortcutStringKey() {
+
+	it('throws if not object', function () {
+		throws(function () {
+			mainModule.LBXShortcutStringKey(null)
+		}, /LBXErrorInputInvalid/);
+	});
+
+	it('throws if key not string', function () {
+		throws(function () {
+			mainModule.LBXShortcutStringKey({
+				key: null,
+			})
+		}, /LBXErrorInputInvalid/);
+	});
+
+	it('returns string', function () {
+		deepEqual(mainModule.LBXShortcutStringKey({
+			key: 'alfa',
+		}), '[alfa]');
+	});
+
+	it('prepends Ctrl', function () {
+		deepEqual(mainModule.LBXShortcutStringKey({
+			key: 'alfa',
+			ctrlKey: true,
+		}), 'Ctrl+[alfa]');
+	});
+
+	it('prepends Alt', function () {
+		deepEqual(mainModule.LBXShortcutStringKey({
+			key: 'alfa',
+			altKey: true,
+		}), 'Alt+[alfa]');
+	});
+
+	it('prepends Shift', function () {
+		deepEqual(mainModule.LBXShortcutStringKey({
+			key: 'alfa',
+			shiftKey: true,
+		}), 'Shift+[alfa]');
+	});
+
+	it('prepends Cmd', function () {
+		deepEqual(mainModule.LBXShortcutStringKey({
+			key: 'alfa',
+			metaKey: true,
+		}), 'Cmd+[alfa]');
 	});
 
 });

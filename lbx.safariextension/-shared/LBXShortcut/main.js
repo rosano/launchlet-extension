@@ -41,3 +41,43 @@ export const LBXShortcutValidation = function (inputData) {
 		return true;	
 	};
 };
+
+export const LBXShortcutStringCode = function (inputData) {
+	if (typeof inputData !== 'object' || inputData === null) {
+		throw new Error('LBXErrorInputInvalid');
+	}
+
+	if (typeof inputData.code !== 'string') {
+		throw new Error('LBXErrorInputInvalid');
+	};
+
+	return [
+		inputData.ctrlKey && 'Ctrl',
+		inputData.metaKey && 'Cmd',
+		inputData.altKey && 'Alt',
+		inputData.shiftKey && 'Shift',
+		inputData.code,
+		].filter(function (e) {
+			return !!e;
+		}).join('+');
+};
+
+export const LBXShortcutStringKey = function (inputData) {
+	if (typeof inputData !== 'object' || inputData === null) {
+		throw new Error('LBXErrorInputInvalid');
+	}
+
+	if (typeof inputData.key !== 'string') {
+		throw new Error('LBXErrorInputInvalid');
+	};
+
+	return [
+		inputData.ctrlKey && 'Ctrl',
+		inputData.metaKey && 'Cmd',
+		inputData.altKey && 'Alt',
+		inputData.shiftKey && 'Shift',
+		`[${ inputData.key }]`,
+		].filter(function (e) {
+			return !!e;
+		}).join('+');
+};
