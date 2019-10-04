@@ -12,7 +12,9 @@ const mod = {
 
 <Module
 	on:LBXPreferenceShortcutsDispatchCreate={ mod.TestLBXPreferenceShortcutsDispatchCreate }
-	{...Object.fromEntries((new window.URLSearchParams(window.location.search)).entries())}
+	{...Object.fromEntries(Array.from((new window.URLSearchParams(window.location.search)).entries()).map(function (e) {
+		return [e[0], JSON.parse(e[1])];
+	})) }
 />
 
 <p>

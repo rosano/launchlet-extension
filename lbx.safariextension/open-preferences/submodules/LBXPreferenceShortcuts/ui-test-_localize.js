@@ -22,6 +22,26 @@ describe(`LBXPreferenceShortcutsUILocalize-${ languageCode }`, function () {
 
 	it('localizes LBXPreferenceShortcutsCreateButton', function () {
 		browser.assert.text(LBXPreferenceShortcutsCreateButton, uLocalized('LBXPreferenceShortcutsCreateButtonText'));
+	});	
+
+	context('LBXPreferenceShortcutsMap', function () {
+
+		before(function () {
+			return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+				LBXPreferenceShortcutsMap: JSON.stringify({
+					'': '',
+				}),
+			}));
+		});
+		
+		it('localizes LBXPreferenceShortcutsItemKeyField', function () {
+			browser.assert.attribute(LBXPreferenceShortcutsItemKeyField, 'placeholder', uLocalized('LBXPreferenceShortcutsItemKeyFieldPlaceholderText'));
+		});
+		
+		it('localizes LBXPreferenceShortcutsItemValueField', function () {
+			browser.assert.attribute(LBXPreferenceShortcutsItemValueField, 'placeholder', uLocalized('LBXPreferenceShortcutsItemValueFieldPlaceholderText'));
+		});
+	
 	});
 
 });

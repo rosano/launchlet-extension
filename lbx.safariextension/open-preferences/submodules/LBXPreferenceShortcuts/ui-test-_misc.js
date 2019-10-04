@@ -24,4 +24,32 @@ describe('LBXPreferenceShortcutsCreateButton', function() {
 
 });
 
+context('LBXPreferenceShortcutsMap', function () {
+
+	before(function () {
+		return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+			LBXPreferenceShortcutsMap: JSON.stringify({
+				'alfa': 'bravo',
+			}),
+		}));
+	});
+
+	context('LBXPreferenceShortcutsItemKeyField', function () {
+		
+		it('sets value', function () {
+			browser.assert.input(LBXPreferenceShortcutsItemKeyField, 'alfa');
+		});
+	
+	});
+
+	context('LBXPreferenceShortcutsItemValueField', function () {
+		
+		it('sets value', function () {
+			browser.assert.input(LBXPreferenceShortcutsItemValueField, 'bravo');
+		});
+	
+	});
+
+});
+
 });

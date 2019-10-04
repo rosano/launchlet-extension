@@ -28,6 +28,13 @@ const mod = {
 
 <button class="LBXPreferenceShortcutsCreateButton" on:click={ mod.InterfaceCreateButtonDidClick }>{ OLSKLocalized('LBXPreferenceShortcutsCreateButtonText') }</button>
 
+{#each Object.keys(LBXPreferenceShortcutsMap) as item}
+	<div class="LBXPreferenceShortcutsItem">
+		<input class="LBXPreferenceShortcutsItemKeyField" placeholder={ OLSKLocalized('LBXPreferenceShortcutsItemKeyFieldPlaceholderText') } value={ item } />
+		<input class="LBXPreferenceShortcutsItemValueField" placeholder={ OLSKLocalized('LBXPreferenceShortcutsItemValueFieldPlaceholderText') } value={ LBXPreferenceShortcutsMap[item] } />
+	</div>
+{/each}
+
 </div>
 
 <style src="./ui-style.css"></style>
