@@ -110,7 +110,7 @@ const mod = {
 mod.LifecycleModuleWillMount();
 </script>
 
-<div class="LBXPopover"> 
+<div class="LBXPopover OLSKCommon"> 
 
 {#if !mod._ValuePublicKey }
 	<button class="LBXPopoverGenerateKeyButton" on:click={ mod.InterfaceGenerateKeyButtonDidClick }>{ OLSKLocalized('LBXPopoverGenerateKeyButtonText') }</button>
