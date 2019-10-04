@@ -40,6 +40,14 @@
     
     // @ToolbarButtonContextMenu
     "default_popup": "/open-popover/ui-view.html"
-  }
+  },
+
+  // @PreferencesPage:Firefox
+  "options_ui": {
+    "page": "open-preferences/ui-view.html",
+    "browser_style": true
+  },
+  // @PreferencesPage:Chrome
+  "options_page": "open-preferences/ui-view.html"
 
 }
