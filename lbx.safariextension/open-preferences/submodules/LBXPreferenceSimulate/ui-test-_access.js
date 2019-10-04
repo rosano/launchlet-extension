@@ -14,6 +14,7 @@ Object.entries({
 
 	LBXPreferenceSimulateKeyStringFieldLabel: '.LBXPreferenceSimulateKeyStringFieldLabel',
 	LBXPreferenceSimulateKeyStringField: '.LBXPreferenceSimulateKeyStringField',
+	LBXPreferenceSimulateKeyStringCopyButton: '.LBXPreferenceSimulateKeyStringCopyButton',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
@@ -54,6 +55,10 @@ describe('LBXPreferenceSimulateUIAccess', function () {
 	
 	it('shows LBXPreferenceSimulateKeyStringField', function() {
 		browser.assert.elements(LBXPreferenceSimulateKeyStringField, 1);
+	});
+	
+	it('shows LBXPreferenceSimulateKeyStringCopyButton', function() {
+		browser.assert.elements(LBXPreferenceSimulateKeyStringCopyButton, 1);
 	});
 
 });

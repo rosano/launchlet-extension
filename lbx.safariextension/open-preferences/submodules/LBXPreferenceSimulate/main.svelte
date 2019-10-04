@@ -29,6 +29,7 @@ const mod = {
 
 	LifecycleModuleDidMount () {
 		new Clipboard('.LBXPreferenceSimulateCodeStringCopyButton');
+		new Clipboard('.LBXPreferenceSimulateKeyStringCopyButton');
 	},
 
 };
@@ -57,6 +58,7 @@ onMount(function () {
 	<span>{ OLSKLocalized('LBXPreferenceSimulateKeyStringFieldLabelText') }</span>
 	<input class="LBXPreferenceSimulateKeyStringField" bind:value={ mod._ValueKeyString } on:click={ () => this.select() } />
 </label>
+<button class="LBXPreferenceSimulateKeyStringCopyButton" data-clipboard-target=".LBXPreferenceSimulateKeyStringField">{ OLSKLocalized('LBXPreferenceSimulateSharedCopyButtonText') }</button>
 
 </div>
 
