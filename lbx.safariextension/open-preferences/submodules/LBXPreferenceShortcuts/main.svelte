@@ -24,7 +24,9 @@ const mod = {
 mod.LifecycleModuleWillMount();
 </script>
 
-<div class="LBXPreferences"> 
+<div class="LBXPreferenceShortcuts"> 
+
+<h1 class="LBXPreferenceShortcutsHeading">{ OLSKLocalized('LBXPreferenceShortcutsHeadingText') }</h1>
 
 </div>
 
