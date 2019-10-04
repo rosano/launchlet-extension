@@ -24,6 +24,10 @@ describe(`LBXPreferenceSimulateUILocalize-${ languageCode }`, function () {
 		deepEqual(browser.query(LBXPreferenceSimulateBlurb).innerHTML, uLocalized('LBXPreferenceSimulateBlurbText'));
 	});
 
+	it('localizes LBXPreferenceSimulateCodeStringFieldLabel', function () {
+		browser.assert.text(LBXPreferenceSimulateCodeStringFieldLabel, uLocalized('LBXPreferenceSimulateCodeStringFieldLabelText'));
+	});
+
 });
 
 });

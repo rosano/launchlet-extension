@@ -23,6 +23,11 @@ const mod = {
 
 <p class="LBXPreferenceSimulateBlurb">{@html OLSKLocalized('LBXPreferenceSimulateBlurbText') }</p>
 
+<label class="LBXPreferenceSimulateCodeStringFieldLabel">
+	<span>{ OLSKLocalized('LBXPreferenceSimulateCodeStringFieldLabelText') }</span>
+	<input class="LBXPreferenceSimulateCodeStringField" />
+</label>
+
 </div>
 
 <style src="./ui-style.css"></style>
