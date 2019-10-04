@@ -46,7 +46,9 @@ const mod = {
 
 <h1 class="LBXPreferenceShortcutsHeading">{ OLSKLocalized('LBXPreferenceShortcutsHeadingText') }</h1>
 
-<button class="LBXPreferenceShortcutsCreateButton" on:click={ mod.InterfaceCreateButtonDidClick }>{ OLSKLocalized('LBXPreferenceShortcutsCreateButtonText') }</button>
+<p>
+	<button class="LBXPreferenceShortcutsCreateButton" on:click={ mod.InterfaceCreateButtonDidClick }>{ OLSKLocalized('LBXPreferenceShortcutsCreateButtonText') }</button>
+</p>
 
 {#each Object.keys(LBXPreferenceShortcutsMap) as item}
 	<div class="LBXPreferenceShortcutsItem">

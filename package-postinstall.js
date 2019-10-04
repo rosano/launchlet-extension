@@ -21,6 +21,7 @@
 
 	OLSKAssets.OLSKAssetsCopyAssetsFromTo([
 		'normalize.css',
+		'OLSKLayout',
 		'simplecrypto',
 	], pathPackage.join(__dirname, 'node_modules'), pathPackage.join(__dirname, 'lbx.safariextension/-shared/__external'));
 })();
