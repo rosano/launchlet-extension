@@ -12,6 +12,7 @@ describe('keydown', function() {
 	
 	before(function () {
 		browser.assert.input(LBXPreferenceSimulateCodeStringField, '');
+		browser.assert.input(LBXPreferenceSimulateKeyStringField, '');
 	});
 
 	before(function () {
@@ -23,6 +24,10 @@ describe('keydown', function() {
 
 	it('sets LBXPreferenceSimulateCodeStringField', function () {
 		browser.assert.input(LBXPreferenceSimulateCodeStringField, 'Ctrl+KeyA');
+	});
+
+	it('sets LBXPreferenceSimulateKeyStringField', function () {
+		browser.assert.input(LBXPreferenceSimulateKeyStringField, 'Ctrl+[a]');
 	});
 
 });

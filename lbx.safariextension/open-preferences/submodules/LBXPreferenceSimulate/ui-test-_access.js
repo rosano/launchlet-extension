@@ -10,6 +10,9 @@ Object.entries({
 
 	LBXPreferenceSimulateCodeStringFieldLabel: '.LBXPreferenceSimulateCodeStringFieldLabel',
 	LBXPreferenceSimulateCodeStringField: '.LBXPreferenceSimulateCodeStringField',
+
+	LBXPreferenceSimulateKeyStringFieldLabel: '.LBXPreferenceSimulateKeyStringFieldLabel',
+	LBXPreferenceSimulateKeyStringField: '.LBXPreferenceSimulateKeyStringField',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
@@ -38,6 +41,14 @@ describe('LBXPreferenceSimulateUIAccess', function () {
 	
 	it('shows LBXPreferenceSimulateCodeStringField', function() {
 		browser.assert.elements(LBXPreferenceSimulateCodeStringField, 1);
+	});
+	
+	it('shows LBXPreferenceSimulateKeyStringFieldLabel', function() {
+		browser.assert.elements(LBXPreferenceSimulateKeyStringFieldLabel, 1);
+	});
+	
+	it('shows LBXPreferenceSimulateKeyStringField', function() {
+		browser.assert.elements(LBXPreferenceSimulateKeyStringField, 1);
 	});
 
 });

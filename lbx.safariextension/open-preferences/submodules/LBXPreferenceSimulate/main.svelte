@@ -12,10 +12,13 @@ const mod = {
 
 	_ValueCodeString: '',
 
+	_ValueKeyString: '',
+
 	// INTERFACE
 
 	InterfaceKeydownDidFire (event) {
 		mod._ValueCodeString = LBXShortcutStringCode(event);
+		mod._ValueKeyString = LBXShortcutStringKey(event);
 	},
 
 };
@@ -32,6 +35,11 @@ const mod = {
 <label class="LBXPreferenceSimulateCodeStringFieldLabel">
 	<span>{ OLSKLocalized('LBXPreferenceSimulateCodeStringFieldLabelText') }</span>
 	<input class="LBXPreferenceSimulateCodeStringField" bind:value={ mod._ValueCodeString } on:click={ () => this.select() } />
+</label>
+
+<label class="LBXPreferenceSimulateKeyStringFieldLabel">
+	<span>{ OLSKLocalized('LBXPreferenceSimulateKeyStringFieldLabelText') }</span>
+	<input class="LBXPreferenceSimulateKeyStringField" bind:value={ mod._ValueKeyString } on:click={ () => this.select() } />
 </label>
 
 </div>
