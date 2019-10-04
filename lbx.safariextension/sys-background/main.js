@@ -134,14 +134,14 @@ const mod = {
     api.RunDynamicScript((function () {
       let outputData = {
         LBXShortcutDefault: `(function () {
-          Launchlet.LRTSingletonCreate(Object.assign(${ JSON.stringify(mod.ValueMemoryPayload().LBXPayloadPackageOptions) }, {
-            LRTOptionRecipes: ${ mod.ValueMemoryPayload().LBXPayloadRecipes },
+          Launchlet.LCHSingletonCreate(Object.assign(${ JSON.stringify(mod.ValueMemoryPayload().LBXPayloadPackageOptions) }, {
+            LCHOptionRecipes: ${ mod.ValueMemoryPayload().LBXPayloadRecipes },
           }));
         })()`,
       }[event.message];
 
       if (!outputData) {
-        outputData = `Launchlet.LRTTasksRun([{
+        outputData = `Launchlet.LCHTasksRun([{
           LCHRecipeSignature: 'Launchlet',
           LCHRecipeCallback () {
             return Launchlet;
@@ -162,7 +162,7 @@ const mod = {
       return `(function () {
         ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
 
-        Launchlet.LRTTasksRun([{
+        Launchlet.LCHTasksRun([{
           LCHRecipeCallback () {},
           LCHRecipeStyle: \`${ mod.ValueMemoryPayload().LBXPayloadPackageStyle }\`,
           LCHRecipeURLFilter: '*',
@@ -182,7 +182,7 @@ const mod = {
     api.RunDynamicScript(`(function () {
       ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
 
-      Launchlet.LRTTasksRun(${ mod.ValueMemoryPayload().LBXPayloadRecipes })
+      Launchlet.LCHTasksRun(${ mod.ValueMemoryPayload().LBXPayloadRecipes })
     })()`, event)
   },
   
