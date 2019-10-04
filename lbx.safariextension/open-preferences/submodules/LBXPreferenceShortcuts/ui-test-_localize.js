@@ -41,6 +41,10 @@ describe(`LBXPreferenceShortcutsUILocalize-${ languageCode }`, function () {
 		it('localizes LBXPreferenceShortcutsItemValueField', function () {
 			browser.assert.attribute(LBXPreferenceShortcutsItemValueField, 'placeholder', uLocalized('LBXPreferenceShortcutsItemValueFieldPlaceholderText'));
 		});
+		
+		it('localizes LBXPreferenceShortcutsItemDeleteButton', function () {
+			browser.assert.text(LBXPreferenceShortcutsItemDeleteButton, uLocalized('LBXPreferenceShortcutsItemDeleteButtonText'));
+		});
 	
 	});
 

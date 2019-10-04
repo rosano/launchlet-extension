@@ -12,6 +12,7 @@ Object.entries({
 	LBXPreferenceShortcutsItem: '.LBXPreferenceShortcutsItem',
 	LBXPreferenceShortcutsItemKeyField: '.LBXPreferenceShortcutsItemKeyField',
 	LBXPreferenceShortcutsItemValueField: '.LBXPreferenceShortcutsItemValueField',
+	LBXPreferenceShortcutsItemDeleteButton: '.LBXPreferenceShortcutsItemDeleteButton',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
@@ -58,6 +59,10 @@ describe('LBXPreferenceShortcutsUIAccess', function () {
 		
 		it('shows LBXPreferenceShortcutsItemValueField', function () {
 			browser.assert.elements(LBXPreferenceShortcutsItemValueField, 1);
+		});
+		
+		it('shows LBXPreferenceShortcutsItemDeleteButton', function () {
+			browser.assert.elements(LBXPreferenceShortcutsItemDeleteButton, 1);
 		});
 	
 	});

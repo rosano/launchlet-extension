@@ -51,7 +51,10 @@ const mod = {
 {#each Object.keys(LBXPreferenceShortcutsMap) as item}
 	<div class="LBXPreferenceShortcutsItem">
 		<input class="LBXPreferenceShortcutsItemKeyField" placeholder={ OLSKLocalized('LBXPreferenceShortcutsItemKeyFieldPlaceholderText') } value={ item } on:input={ (event) => mod.CommandNotifyChange(item, event.target.value, undefined) } />
+		
 		<input class="LBXPreferenceShortcutsItemValueField" placeholder={ OLSKLocalized('LBXPreferenceShortcutsItemValueFieldPlaceholderText') } value={ LBXPreferenceShortcutsMap[item] } on:input={ (event) => mod.CommandNotifyChange(item, undefined, event.target.value) } />
+
+		<button class="LBXPreferenceShortcutsItemDeleteButton" on:click={ (event) => mod.CommandNotifyChange(item, undefined, undefined) }>{ OLSKLocalized('LBXPreferenceShortcutsItemDeleteButtonText') }</button>
 	</div>
 {/each}
 
