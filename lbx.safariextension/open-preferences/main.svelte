@@ -73,7 +73,11 @@ import LBXPreferenceSimulate from './submodules/LBXPreferenceSimulate/main.svelt
 
 <LBXPreferenceShortcuts LBXPreferenceShortcutsMap={ mod.LBXPreferenceShortcutsMap } on:LBXPreferenceShortcutsDispatchCreate={ mod.LBXPreferenceShortcutsDispatchCreate } on:LBXPreferenceShortcutsDispatchUpdate={ mod.LBXPreferenceShortcutsDispatchUpdate } />
 
+<hr>
+
 <LBXPreferenceSimulate />
+
+<hr>
 
 </div>
 
