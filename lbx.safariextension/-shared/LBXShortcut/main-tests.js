@@ -134,106 +134,113 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 
 });
 
-describe('LBXShortcutStringCode', function testLBXShortcutStringCode() {
+describe('LBXShortcutString', function testLBXShortcutString() {
 
 	it('throws if not object', function () {
 		throws(function () {
-			mainModule.LBXShortcutStringCode(null)
+			mainModule.LBXShortcutString(null)
 		}, /LBXErrorInputInvalid/);
 	});
 
 	it('throws if code not string', function () {
 		throws(function () {
-			mainModule.LBXShortcutStringCode({
+			mainModule.LBXShortcutString({
 				code: null,
+				key: 'alfa',
 			})
-		}, /LBXErrorInputInvalid/);
-	});
-
-	it('returns string', function () {
-		deepEqual(mainModule.LBXShortcutStringCode({
-			code: 'alfa',
-		}), 'alfa');
-	});
-
-	it('prepends Ctrl', function () {
-		deepEqual(mainModule.LBXShortcutStringCode({
-			code: 'alfa',
-			ctrlKey: true,
-		}), 'Ctrl+alfa');
-	});
-
-	it('prepends Alt', function () {
-		deepEqual(mainModule.LBXShortcutStringCode({
-			code: 'alfa',
-			altKey: true,
-		}), 'Alt+alfa');
-	});
-
-	it('prepends Shift', function () {
-		deepEqual(mainModule.LBXShortcutStringCode({
-			code: 'alfa',
-			shiftKey: true,
-		}), 'Shift+alfa');
-	});
-
-	it('prepends Cmd', function () {
-		deepEqual(mainModule.LBXShortcutStringCode({
-			code: 'alfa',
-			metaKey: true,
-		}), 'Cmd+alfa');
-	});
-
-});
-
-describe('LBXShortcutStringKey', function testLBXShortcutStringKey() {
-
-	it('throws if not object', function () {
-		throws(function () {
-			mainModule.LBXShortcutStringKey(null)
 		}, /LBXErrorInputInvalid/);
 	});
 
 	it('throws if key not string', function () {
 		throws(function () {
-			mainModule.LBXShortcutStringKey({
+			mainModule.LBXShortcutString({
+				code: 'alfa',
 				key: null,
 			})
 		}, /LBXErrorInputInvalid/);
 	});
 
 	it('returns string', function () {
-		deepEqual(mainModule.LBXShortcutStringKey({
-			key: 'alfa',
-		}), '[alfa]');
+		deepEqual(mainModule.LBXShortcutString({
+			code: 'alfa',
+			key: 'bravo',
+		}), '');
+	});
+
+	it('ignores if only Ctrl', function () {
+		deepEqual(mainModule.LBXShortcutString({
+			code: 'alfa',
+			key: 'Control',
+			ctrlKey: true,
+		}), '');
+	});
+
+	it('ignores if only Cmd', function () {
+		deepEqual(mainModule.LBXShortcutString({
+			code: 'alfa',
+			key: 'Meta',
+			metaKey: true,
+		}), '');
+	});
+
+	it('ignores if only Alt', function () {
+		deepEqual(mainModule.LBXShortcutString({
+			code: 'alfa',
+			key: 'Alt',
+			altKey: true,
+		}), '');
+	});
+
+	it('ignores if only Shift', function () {
+		deepEqual(mainModule.LBXShortcutString({
+			code: 'alfa',
+			key: 'Shift',
+			shiftKey: true,
+		}), '');
 	});
 
 	it('prepends Ctrl', function () {
-		deepEqual(mainModule.LBXShortcutStringKey({
-			key: 'alfa',
+		deepEqual(mainModule.LBXShortcutString({
+			code: 'alfa',
+			key: 'bravo',
 			ctrlKey: true,
-		}), 'Ctrl+[alfa]');
+		}), 'Ctrl+alfa');
 	});
 
 	it('prepends Alt', function () {
-		deepEqual(mainModule.LBXShortcutStringKey({
-			key: 'alfa',
+		deepEqual(mainModule.LBXShortcutString({
+			code: 'alfa',
+			key: 'bravo',
 			altKey: true,
-		}), 'Alt+[alfa]');
+		}), 'Alt+alfa');
 	});
 
 	it('prepends Shift', function () {
-		deepEqual(mainModule.LBXShortcutStringKey({
-			key: 'alfa',
+		deepEqual(mainModule.LBXShortcutString({
+			code: 'alfa',
+			key: 'bravo',
 			shiftKey: true,
-		}), 'Shift+[alfa]');
+		}), 'Shift+alfa');
 	});
 
 	it('prepends Cmd', function () {
-		deepEqual(mainModule.LBXShortcutStringKey({
-			key: 'alfa',
+		deepEqual(mainModule.LBXShortcutString({
+			code: 'alfa',
+			key: 'bravo',
 			metaKey: true,
-		}), 'Cmd+[alfa]');
+		}), 'Cmd+alfa');
+	});
+
+	context('param2', function () {
+
+		it('uses key', function () {
+			deepEqual(mainModule.LBXShortcutString({
+				code: 'alfa',
+				key: 'bravo',
+				metaKey: true,
+			}, true), 'Cmd+[bravo]');
+		});
+	
 	});
 
 });

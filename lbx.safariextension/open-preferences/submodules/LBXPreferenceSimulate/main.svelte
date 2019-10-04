@@ -4,7 +4,7 @@ export const OLSKLocalized = function(translationConstant) {
 	return OLSKInternational.OLSKInternationalLocalizedString(translationConstant, JSON.parse(`{"OLSK_I18N_SEARCH_REPLACE":"OLSK_I18N_SEARCH_REPLACE"}`)[OLSKInternational.OLSKInternationalSimplifiedLanguageCode(window.OLSKPublicConstants('OLSKSharedPageCurrentLanguage'))]);
 };
 
-import { LBXShortcutStringCode, LBXShortcutStringKey } from '../../../-shared/LBXShortcut/main.js';
+import { LBXShortcutString } from '../../../-shared/LBXShortcut/main.js';
 
 const mod = {
 
@@ -17,8 +17,12 @@ const mod = {
 	// INTERFACE
 
 	InterfaceKeydownDidFire (event) {
-		mod._ValueCodeString = LBXShortcutStringCode(event);
-		mod._ValueKeyString = LBXShortcutStringKey(event);
+		if (!LBXShortcutString(event)) {
+			return;
+		};
+
+		mod._ValueCodeString = LBXShortcutString(event);
+		mod._ValueKeyString = LBXShortcutString(event, true);
 	},
 
 };

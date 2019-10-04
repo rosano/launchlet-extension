@@ -42,41 +42,41 @@ export const LBXShortcutValidation = function (inputData) {
 	};
 };
 
-export const LBXShortcutStringCode = function (inputData) {
-	if (typeof inputData !== 'object' || inputData === null) {
+export const LBXShortcutString = function (param1, param2) {
+	if (typeof param1 !== 'object' || param1 === null) {
 		throw new Error('LBXErrorInputInvalid');
 	}
 
-	if (typeof inputData.code !== 'string') {
+	if (typeof param1.code !== 'string') {
 		throw new Error('LBXErrorInputInvalid');
 	};
 
-	return [
-		inputData.ctrlKey && 'Ctrl',
-		inputData.metaKey && 'Cmd',
-		inputData.altKey && 'Alt',
-		inputData.shiftKey && 'Shift',
-		inputData.code,
-		].filter(function (e) {
-			return !!e;
-		}).join('+');
-};
-
-export const LBXShortcutStringKey = function (inputData) {
-	if (typeof inputData !== 'object' || inputData === null) {
-		throw new Error('LBXErrorInputInvalid');
-	}
-
-	if (typeof inputData.key !== 'string') {
+	if (typeof param1.key !== 'string') {
 		throw new Error('LBXErrorInputInvalid');
 	};
 
+	if (param1.key === 'Control') {
+		return '';
+	};
+
+	if (param1.key === 'Meta') {
+		return '';
+	};
+
+	if (param1.key === 'Alt') {
+		return '';
+	};
+
+	if (param1.key === 'Shift') {
+		return '';
+	};
+
 	return [
-		inputData.ctrlKey && 'Ctrl',
-		inputData.metaKey && 'Cmd',
-		inputData.altKey && 'Alt',
-		inputData.shiftKey && 'Shift',
-		`[${ inputData.key }]`,
+		param1.ctrlKey && 'Ctrl',
+		param1.metaKey && 'Cmd',
+		param1.altKey && 'Alt',
+		param1.shiftKey && 'Shift',
+		(param1.ctrlKey || param1.metaKey || param1.altKey || param1.shiftKey) && (param2 ? `[${ param1.key }]` : param1.code),
 		].filter(function (e) {
 			return !!e;
 		}).join('+');
