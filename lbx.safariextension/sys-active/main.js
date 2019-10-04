@@ -15,19 +15,7 @@ const mod = {
 	  mod._ValueMessageSource = inputData;
 	},
 
-	_ValueShortcutMap: {
-		'Alt+Shift+Digit1': 'LBXShortcutDefault',
-		'Alt+Shift+Digit2': 'XYZShortcutPreviewFocusElements',
-		'Alt+Shift+Digit3': 'XYZAlfa',
-		'Alt+Shift+[`]': 'XYZBravo',
-	},
-	ValueShortcutMap (inputData) {
-	  if (typeof inputData === 'undefined') {
-	    return mod._ValueShortcutMap;
-	  }
-
-	  mod._ValueShortcutMap = inputData;
-	},
+	_ValueShortcutMap: {},
 
 	// MESSAGE
 
@@ -67,11 +55,14 @@ const mod = {
 		  		(new Function(event.message))();
 				}
 		  },
+		  DispatchSharedShortcutsMap() {
+		  	mod._ValueShortcutMap = event.message;
+		  },
 		}[event.name]();
 	},
 
 	MessageDidKeyDown (event) {
-		const signature = mod.ValueShortcutMap()[Object.keys(mod.ValueShortcutMap()).filter(function (e) {
+		const signature = mod._ValueShortcutMap[Object.keys(mod._ValueShortcutMap).filter(function (e) {
 			return LBXShortcutValidation(e)(event);
 		}).shift()];
 
@@ -97,6 +88,7 @@ const mod = {
 		mod.SetupMessageReceiveFromPage();
 		mod.SetupMessageReceiveFromBackground();
 		mod.SetupKeyboardShortcuts();
+		mod.SetupValueKeyboardShortcutsMap();
 		mod.SetupRunTasks();
 	},
 
@@ -111,6 +103,10 @@ const mod = {
 	SetupKeyboardShortcuts() {
 		// @KeyboardShortcuts
 		window.addEventListener('keydown', mod.MessageDidKeyDown, false);
+	},
+	
+	SetupValueKeyboardShortcutsMap() {
+		api.MessageSendToBackground('DispatchBackgroundSendShortcutsMap');
 	},
 	
 	SetupRunTasks() {

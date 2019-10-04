@@ -193,11 +193,18 @@ const mod = {
   },
 
   async CommandSendShortcutsMap (event) {
-    api.MessageSendToPage('DispatchPreferencesShortcutsMap', await mod._CommandLocalDataGet('LBXPairPublicKey'), event);
+    const result = await mod._CommandLocalDataGet('LBXShortcutsMap');
+
+    api.MessageSendToPage('DispatchSharedShortcutsMap', result || {
+      'Alt+Shift+Digit1': 'LBXShortcutDefault',
+      'Alt+Shift+Digit2': 'XYZAlfa',
+      'Alt+Shift+Digit3': 'XYZBravo',
+      'Alt+Shift+[`]': 'XYZCharlie',
+    }, event);
   },
 
   CommandUpdateShortcutsMap (inputData) {
-    mod._CommandLocalDataSet('LBXPairPublicKey', inputData);
+    mod._CommandLocalDataSet('LBXShortcutsMap', inputData);
   },
   
   // SETUP

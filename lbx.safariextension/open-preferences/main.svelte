@@ -20,7 +20,7 @@ const mod = {
 
 	MessageDidReceiveFromBackground (event) {
 		return {
-			DispatchPreferencesShortcutsMap() {
+			DispatchSharedShortcutsMap() {
 				if (!event.message) {
 					return;
 				};
