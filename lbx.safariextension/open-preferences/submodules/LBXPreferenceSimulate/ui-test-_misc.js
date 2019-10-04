@@ -15,19 +15,38 @@ describe('keydown', function() {
 		browser.assert.input(LBXPreferenceSimulateKeyStringField, '');
 	});
 
-	before(function () {
-		browser.OLSKFireKeyboardEvent(browser.window, 'a', {
-			code: 'KeyA',
-			ctrlKey: true,
+	context('with modifier key', function () {
+
+		before(function () {
+			browser.OLSKFireKeyboardEvent(browser.window, 'a', {
+				code: 'KeyA',
+				ctrlKey: true,
+			});
 		});
+
+		it('sets LBXPreferenceSimulateCodeStringField', function () {
+			browser.assert.input(LBXPreferenceSimulateCodeStringField, 'Ctrl+KeyA');
+		});
+
+		it('sets LBXPreferenceSimulateKeyStringField', function () {
+			browser.assert.input(LBXPreferenceSimulateKeyStringField, 'Ctrl+[a]');
+		});
+	
 	});
 
-	it('sets LBXPreferenceSimulateCodeStringField', function () {
-		browser.assert.input(LBXPreferenceSimulateCodeStringField, 'Ctrl+KeyA');
-	});
+	context('with no modifier key', function () {
 
-	it('sets LBXPreferenceSimulateKeyStringField', function () {
-		browser.assert.input(LBXPreferenceSimulateKeyStringField, 'Ctrl+[a]');
+		before(function () {
+			browser.OLSKFireKeyboardEvent(browser.window, 'b', {
+				code: 'KeyB',
+			});
+		});
+
+		it('does nothing', function () {
+			browser.assert.input(LBXPreferenceSimulateCodeStringField, 'Ctrl+KeyA');
+			browser.assert.input(LBXPreferenceSimulateKeyStringField, 'Ctrl+[a]');
+		});
+	
 	});
 
 });
