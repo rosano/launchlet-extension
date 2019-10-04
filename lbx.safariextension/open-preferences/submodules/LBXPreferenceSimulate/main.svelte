@@ -4,12 +4,18 @@ export const OLSKLocalized = function(translationConstant) {
 	return OLSKInternational.OLSKInternationalLocalizedString(translationConstant, JSON.parse(`{"OLSK_I18N_SEARCH_REPLACE":"OLSK_I18N_SEARCH_REPLACE"}`)[OLSKInternational.OLSKInternationalSimplifiedLanguageCode(window.OLSKPublicConstants('OLSKSharedPageCurrentLanguage'))]);
 };
 
+import { LBXShortcutStringCode, LBXShortcutStringKey } from '../../../-shared/LBXShortcut/main.js';
+
 const mod = {
+
+	// VALUE
+
+	_ValueCodeString: '',
 
 	// INTERFACE
 
 	InterfaceKeydownDidFire (event) {
-		console.log(event);
+		mod._ValueCodeString = LBXShortcutStringCode(event);
 	},
 
 };
@@ -25,7 +31,7 @@ const mod = {
 
 <label class="LBXPreferenceSimulateCodeStringFieldLabel">
 	<span>{ OLSKLocalized('LBXPreferenceSimulateCodeStringFieldLabelText') }</span>
-	<input class="LBXPreferenceSimulateCodeStringField" />
+	<input class="LBXPreferenceSimulateCodeStringField" bind:value={ mod._ValueCodeString } />
 </label>
 
 </div>
