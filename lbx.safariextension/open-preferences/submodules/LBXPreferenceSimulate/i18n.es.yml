@@ -1,0 +1,5 @@
+LBXPreferenceSimulateHeadingText: Simulación del teclado
+LBXPreferenceSimulateBlurbText: Intenta cualquier combinación que incluye <code>Ctrl</code>, <code>Cmd</code>, <code>Alt</code>, o <code>Shift</code> y el atajo equivalente debería aparecer en bajo. Si no te veas lo que concorde, tal vez significa que es reservada por el navegador.
+LBXPreferenceSimulateCodeStringFieldLabelText: Por event.code
+LBXPreferenceSimulateKeyStringFieldLabelText: Por event.key
+LBXPreferenceSimulateSharedCopyButtonText: Copiar
