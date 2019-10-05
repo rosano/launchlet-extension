@@ -141,42 +141,40 @@ const mod = {
       return console.warn('LBXSignatureNotValid');
     };
 
-    api.RunDynamicScript((function () {
-      return `(function () {
-        ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
+    api.RunDynamicScript(`(function () {
+      ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
 
-        Launchlet.LCHTasksRun([{
-          LCHRecipeCallback () {},
-          LCHRecipeStyle: \`${ mod.ValueMemoryPayload().LBXPayloadPackageStyle }\`,
-          LCHRecipeURLFilter: '*',
-          LCHRecipeIsAutomatic: true,
-        }]);
+      Launchlet.LCHTasksRun([{
+        LCHRecipeCallback () {},
+        LCHRecipeStyle: \`${ mod.ValueMemoryPayload().LBXPayloadPackageStyle }\`,
+        LCHRecipeURLFilter: '*',
+        LCHRecipeIsAutomatic: true,
+      }]);
 
-        Launchlet.LCHTasksRun([{
-          LCHRecipeSignature: 'Launchlet',
-          LCHRecipeCallback () {
-            return Launchlet;
-          },
-        }, {
-          LCHRecipeSignature: 'LBXShortcutDefault',
-          LCHRecipeCallback () {
-            this.api.Launchlet().LCHSingletonCreate(Object.assign(${ JSON.stringify(mod.ValueMemoryPayload().LBXPayloadPackageOptions) }, {
-              LCHOptionRecipes: ${ mod.ValueMemoryPayload().LBXPayloadRecipes },
-            }));
-          },
-        }].concat(${ mod.ValueMemoryPayload().LBXPayloadRecipes }.map(function (e) {
-          delete e.LCHRecipeIsAutomatic;
+      Launchlet.LCHTasksRun([{
+        LCHRecipeSignature: 'Launchlet',
+        LCHRecipeCallback () {
+          return Launchlet;
+        },
+      }, {
+        LCHRecipeSignature: 'LBXShortcutDefault',
+        LCHRecipeCallback () {
+          this.api.Launchlet().LCHSingletonCreate(Object.assign(${ JSON.stringify(mod.ValueMemoryPayload().LBXPayloadPackageOptions) }, {
+            LCHOptionRecipes: ${ mod.ValueMemoryPayload().LBXPayloadRecipes },
+          }));
+        },
+      }].concat(${ mod.ValueMemoryPayload().LBXPayloadRecipes }.map(function (e) {
+        delete e.LCHRecipeIsAutomatic;
 
-          return e;
-        })).concat({
-          LCHRecipeCallback () {
-            this.api['${ event.message }']();
-          },
-          LCHRecipeURLFilter: '*',
-          LCHRecipeIsAutomatic: true,
-        }));
-      })()`
-    })(), event)
+        return e;
+      })).concat({
+        LCHRecipeCallback () {
+          this.api['${ event.message }']();
+        },
+        LCHRecipeURLFilter: '*',
+        LCHRecipeIsAutomatic: true,
+      }));
+    })()`, event)
   },
 
   CommandRunTasks (event) {
