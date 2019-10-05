@@ -8,8 +8,14 @@
 	height: calc(200px - var(--OLSKCommonContainerPadding) * 2);
 }
 
-.LBXPopover p:first-child {
+.LBXPopover button {
+	/* OLSKCommon */
+	margin-top: unset;
+}
+
+.LBXPopover p {
 	margin-top: 0;
+	margin-bottom: var(--OLSKCommonContainerPadding);
 }
 
 .LBXPopover p > * {
@@ -20,6 +26,8 @@ input {
 	padding: 5px;
 	border: 1px solid var(--OLSKCommonForeground);
 	border-radius: 5px;
+	
+	margin-bottom: var(--OLSKCommonContainerPadding);
 }
 
 button {
