@@ -8,6 +8,7 @@ Object.entries({
 	LBXPopoverGenerateKeyButton: '.LBXPopoverGenerateKeyButton',
 	LBXPopoverDeleteKeyButton: '.LBXPopoverDeleteKeyButton',
 	LBXPopoverPublicKeyField: '.LBXPopoverPublicKeyField',
+	LBXPopoverPublicKeyCopyButton: '.LBXPopoverPublicKeyCopyButton',
 
 	LBXPopoverShowPreferencesButton: '.LBXPopoverShowPreferencesButton',
 }).map(function (e) {
@@ -36,6 +37,10 @@ describe('LBXPopoverUIAccess', function () {
 		browser.assert.elements(LBXPopoverPublicKeyField, 0);
 	});
 
+	it('hides LBXPopoverPublicKeyCopyButton', function() {
+		browser.assert.elements(LBXPopoverPublicKeyCopyButton, 0);
+	});
+
 	it('shows LBXPopoverShowPreferencesButton', function () {
 		browser.assert.elements(LBXPopoverShowPreferencesButton, 1);
 	});
@@ -56,6 +61,10 @@ describe('LBXPopoverUIAccess', function () {
 
 		it('shows LBXPopoverPublicKeyField', function() {
 			browser.assert.elements(LBXPopoverPublicKeyField, 1);
+		});
+
+		it('shows LBXPopoverPublicKeyCopyButton', function() {
+			browser.assert.elements(LBXPopoverPublicKeyCopyButton, 1);
 		});
 		
 	});

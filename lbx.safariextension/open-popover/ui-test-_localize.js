@@ -28,6 +28,10 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 			browser.click(LBXPopoverGenerateKeyButton)
 		});
 
+		it('localizes LBXPopoverPublicKeyCopyButton', function() {
+			browser.assert.text(LBXPopoverPublicKeyCopyButton, uLocalized('LBXPopoverPublicKeyCopyButtonText'))
+		});
+
 		it('localizes LBXPopoverDeleteKeyButton', function() {
 			browser.assert.text(LBXPopoverDeleteKeyButton, uLocalized('LBXPopoverDeleteKeyButtonText'))
 		});

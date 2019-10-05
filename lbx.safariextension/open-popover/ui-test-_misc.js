@@ -29,4 +29,12 @@ describe('LBXPopoverUIMisc', function () {
 		
 	});
 
+	describe('LBXPopoverPublicKeyCopyButton', function() {
+
+		it('sets data-clipboard-target', function () {
+			browser.assert.attribute(LBXPopoverPublicKeyCopyButton, 'data-clipboard-target', LBXPopoverPublicKeyField);
+		});
+		
+	});
+
 });

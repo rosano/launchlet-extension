@@ -6,6 +6,7 @@ export const OLSKLocalized = function(translationConstant) {
 	return OLSKInternational.OLSKInternationalLocalizedString(translationConstant, JSON.parse(`{"OLSK_I18N_SEARCH_REPLACE":"OLSK_I18N_SEARCH_REPLACE"}`)[OLSKInternational.OLSKInternationalSimplifiedLanguageCode(window.OLSKPublicConstants('OLSKSharedPageCurrentLanguage'))]);
 };
 
+import Clipboard from 'clipboard';
 import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
 
 import { LBXPopoverRandomSeed } from './ui-logic.js';
@@ -105,9 +106,16 @@ const mod = {
 		mod.SetupEverything();
 	},
 
+	LifecycleModuleDidMount () {
+		new Clipboard('.LBXPopoverPublicKeyCopyButton');
+	},
+
 };
 
 mod.LifecycleModuleWillMount();
+
+import { onMount } from 'svelte';
+onMount(mod.LifecycleModuleDidMount);
 </script>
 
 <div class="LBXPopover"> 
@@ -127,6 +135,7 @@ mod.LifecycleModuleWillMount();
 {#if mod._ValuePublicKey && !LBXPopoverPreloadDidPair}
 	<p>
 		<input class="LBXPopoverPublicKeyField" value={ mod.ValuePublicKey() } onclick="this.select()" autofocus />
+		<button class="LBXPopoverPublicKeyCopyButton" data-clipboard-target=".LBXPopoverPublicKeyField">{ OLSKLocalized('LBXPopoverPublicKeyCopyButtonText') }</button>
 	</p>
 {/if}
 
