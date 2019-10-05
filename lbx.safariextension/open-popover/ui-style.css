@@ -20,11 +20,6 @@ input {
 	padding: 5px;
 	border: 1px solid var(--OLSKCommonForeground);
 	border-radius: 5px;
-	
-	/* browser quirks https://davidwalsh.name/textarea-width */
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 }
 
 button {
