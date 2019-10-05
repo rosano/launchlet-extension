@@ -51,4 +51,20 @@ describe('keydown', function() {
 
 });
 
+describe('LBXPreferenceSimulateCodeStringCopyButton', function() {
+
+	it('sets data-clipboard-target', function () {
+		browser.assert.attribute(LBXPreferenceSimulateCodeStringCopyButton, 'data-clipboard-target', LBXPreferenceSimulateCodeStringField);
+	});
+	
+});
+
+describe('LBXPreferenceSimulateKeyStringCopyButton', function() {
+
+	it('sets data-clipboard-target', function () {
+		browser.assert.attribute(LBXPreferenceSimulateKeyStringCopyButton, 'data-clipboard-target', LBXPreferenceSimulateKeyStringField);
+	});
+	
+});
+
 });

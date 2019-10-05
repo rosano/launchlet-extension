@@ -35,9 +35,7 @@ const mod = {
 };
 
 import { onMount } from 'svelte';
-onMount(function () {
-	mod.LifecycleModuleDidMount();
-});
+onMount(mod.LifecycleModuleDidMount);
 </script>
 
 <svelte:window on:keydown={ mod.InterfaceKeydownDidFire }/>
