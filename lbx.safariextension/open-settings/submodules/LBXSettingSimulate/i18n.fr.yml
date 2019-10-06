@@ -1,0 +1,5 @@
+LBXSettingSimulateHeadingText: Simulation de clavier
+LBXSettingSimulateBlurbText: Essayez n'importe quelle combinaison qui inclue <code>Ctrl</code>, <code>Cmd</code>, <code>Alt</code>, ou <code>Shift</code> et le raccourci équivalent devrait apparaître en bas. Si vous ne voyez pas celle qui concorde, ça pourrait dire que c'est réservé par le navigateur.
+LBXSettingSimulateCodeStringFieldLabelText: Par event.code
+LBXSettingSimulateKeyStringFieldLabelText: Par event.key
+LBXSettingSimulateSharedCopyButtonText: Copier

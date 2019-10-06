@@ -13,7 +13,7 @@ Object.entries({
 	LBXPopoverRunAutomaticRecipesField: '.LBXPopoverRunAutomaticRecipesField',
 	LBXPopoverRunAutomaticRecipesFieldLabel: '.LBXPopoverRunAutomaticRecipesFieldLabel',
 
-	LBXPopoverShowPreferencesButton: '.LBXPopoverShowPreferencesButton',
+	LBXPopoverShowSettingsButton: '.LBXPopoverShowSettingsButton',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
 });
@@ -52,8 +52,8 @@ describe('LBXPopoverUIAccess', function () {
 		browser.assert.elements(LBXPopoverRunAutomaticRecipesFieldLabel, 0);
 	});
 
-	it('hides LBXPopoverShowPreferencesButton', function () {
-		browser.assert.elements(LBXPopoverShowPreferencesButton, 0);
+	it('hides LBXPopoverShowSettingsButton', function () {
+		browser.assert.elements(LBXPopoverShowSettingsButton, 0);
 	});
 	
 	context('GenerateKey', function testGenerateKey() {
@@ -86,8 +86,8 @@ describe('LBXPopoverUIAccess', function () {
 			browser.assert.elements(LBXPopoverRunAutomaticRecipesFieldLabel, 0);
 		});
 
-		it('hides LBXPopoverShowPreferencesButton', function () {
-			browser.assert.elements(LBXPopoverShowPreferencesButton, 0);
+		it('hides LBXPopoverShowSettingsButton', function () {
+			browser.assert.elements(LBXPopoverShowSettingsButton, 0);
 		});
 		
 	});
@@ -118,8 +118,8 @@ describe('LBXPopoverUIAccess', function () {
 			browser.assert.elements(LBXPopoverRunAutomaticRecipesFieldLabel, 1);
 		});
 
-		it('shows LBXPopoverShowPreferencesButton', function () {
-			browser.assert.elements(LBXPopoverShowPreferencesButton, 1);
+		it('shows LBXPopoverShowSettingsButton', function () {
+			browser.assert.elements(LBXPopoverShowSettingsButton, 1);
 		});
 
 	});
