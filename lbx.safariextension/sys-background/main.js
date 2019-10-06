@@ -8,14 +8,14 @@ const mod = {
 
 	MessageDidReceiveFromActive (event) {
     return {
-      DispatchBackgroundStorePrivateKey () {
-        mod.CommandPrivateKeyStore(event.message)
+      DispatchBackgroundPrivateKeySave () {
+        mod.CommandPrivateKeySave(event.message)
+      },
+      DispatchBackgroundPrivateKeyForget() {
+        mod.CommandPrivateKeyForget();
       },
       DispatchBackgroundStorePayloadEncryptedData () {
         mod.CommandHandleEventStorePayloadEncryptedData(event)
-      },
-      DispatchBackgroundDeleteKeys() {
-      	mod.CommandDeleteKeys();
       },
       DispatchBackgroundRunSignature() {
         mod.CommandRunSignature(event)
@@ -34,13 +34,13 @@ const mod = {
 
   // VALUE
 
-  _ValuePrivateKey: undefined,
+  _ValueMemoryPrivateKey: undefined,
   ValuePrivateKey (inputData) {
     if (typeof inputData === 'undefined') {
-      return mod._ValuePrivateKey;
+      return mod._ValueMemoryPrivateKey;
     };
 
-    mod._ValuePrivateKey = inputData
+    mod._ValueMemoryPrivateKey = inputData
   },
 
   _ValueMemoryPayload: undefined,
@@ -100,17 +100,17 @@ const mod = {
     })
   },
 
-  CommandPrivateKeyStore (inputData) {
+  CommandPrivateKeySave (inputData) {
     mod._CommandLocalDataSet('LBXPairPrivateKey', inputData);
 
-    mod.SetupValuePrivateKey();
+    mod.SetupValueMemoryPrivateKey();
   },
 
-  CommandDeleteKeys () {
+  CommandPrivateKeyForget () {
     mod._CommandLocalDataSet('LBXPairPrivateKey', null);
     mod._CommandLocalDataSet('LBXPayload', null);
 
-    delete mod._ValuePrivateKey;
+    delete mod._ValueMemoryPrivateKey;
     delete mod._ValueMemoryPayload;
   },
 
@@ -206,11 +206,11 @@ const mod = {
   // SETUP
 
   SetupEverything () {
-		mod.SetupValuePrivateKey();
+		mod.SetupValueMemoryPrivateKey();
     mod.SetupValueMemoryPayload();
 		mod.SetupMessageReceiveFromActive();
 	},
-	async SetupValuePrivateKey() {
+	async SetupValueMemoryPrivateKey() {
 	  mod.ValuePrivateKey(await (async function (inputData) {
       if (!inputData) {
         return Promise.resolve(inputData)
@@ -239,6 +239,6 @@ const mod = {
 mod.LifecycleExtensionDidLoad();
 
 window.LBXBackgroundModule = {
-  DispatchBackgroundStorePrivateKey: mod.CommandPrivateKeyStore,
-  DispatchBackgroundDeleteKeys: mod.CommandDeleteKeys,
+  DispatchBackgroundPrivateKeySave: mod.CommandPrivateKeySave,
+  DispatchBackgroundPrivateKeyForget: mod.CommandPrivateKeyForget,
 };

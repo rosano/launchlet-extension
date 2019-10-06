@@ -69,7 +69,7 @@ const mod = {
 			return;
 		}
 		
-		api.CallBackgroundFunction('DispatchBackgroundStorePrivateKey', inputData);
+		api.CallBackgroundFunction('DispatchBackgroundPrivateKeySave', inputData);
 	},
 	_CommandStorePublicKey (inputData) {
 		mod.ValuePublicKey(inputData);
@@ -86,7 +86,7 @@ const mod = {
 
 		LBXPopoverPreloadDidPair = false;
 		
-		api.CallBackgroundFunction('DispatchBackgroundDeleteKeys');
+		api.CallBackgroundFunction('DispatchBackgroundPrivateKeyForget');
 	},
 
 	CommandShowPreferences () {
