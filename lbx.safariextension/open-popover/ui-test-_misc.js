@@ -1,22 +1,26 @@
 import { deepEqual } from 'assert';
 
-const kDefaultRoutePath = require('./controller.js').OLSKControllerRoutes().LBXPopoverRoute.OLSKRoutePath;
+const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().LBXPopoverRoute;
 
 describe('LBXPopoverUIMisc', function () {
 
 	before(function() {
-		return browser.visit(kDefaultRoutePath);
+		return browser.visit(kDefaultRoute.OLSKRoutePath);
 	});
-	
-	context('LBXPopoverPublicKeyField', function () {
+
+	context('LBXPopoverGenerateKeyButton', function testLBXPopoverGenerateKeyButton() {
 
 		before(function () {
 			browser.click(LBXPopoverGenerateKeyButton);
 		});
 
-		it('sets value', function() {
+		it('fills LBXPopoverPublicKeyField with public key', function() {
 			browser.assert.input(LBXPopoverPublicKeyField, '"LBX_TESTING_PUBLIC_KEY"');
 		});
+
+	});
+	
+	context('LBXPopoverPublicKeyField', function () {
 
 		it('sets autofocus', function() {
 			browser.assert.attribute(LBXPopoverPublicKeyField, 'autofocus', '');
@@ -38,6 +42,10 @@ describe('LBXPopoverUIMisc', function () {
 	});
 
 	describe('LBXPopoverRunAutomaticRecipesField', function() {
+
+		before(function () {
+			return browser.visit(`${ kDefaultRoute.OLSKRoutePath }?LBXPopoverPreloadPrivateKey=alfa&LBXPopoverPreloadPublicKey=bravo&LBXPopoverPreloadDidPair=true`);
+		});
 
 		it('sets type', function () {
 			browser.assert.attribute(LBXPopoverRunAutomaticRecipesField, 'type', 'checkbox');

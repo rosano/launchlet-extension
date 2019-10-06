@@ -18,14 +18,6 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 		browser.assert.text(LBXPopoverGenerateKeyButton, uLocalized('LBXPopoverGenerateKeyButtonText'))
 	});
 
-	it('localizes LBXPopoverRunAutomaticRecipesFieldLabel', function() {
-		browser.assert.text(LBXPopoverRunAutomaticRecipesFieldLabel, uLocalized('LBXPopoverRunAutomaticRecipesFieldLabelText'))
-	});
-
-	it('localizes LBXPopoverShowPreferencesButton', function() {
-		browser.assert.text(LBXPopoverShowPreferencesButton, uLocalized('LBXPopoverShowPreferencesButtonText'))
-	});
-
 	context('GenerateKey', function testGenerateKey() {
 
 		before(function () {
@@ -38,6 +30,22 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 
 		it('localizes LBXPopoverDeleteKeyButton', function() {
 			browser.assert.text(LBXPopoverDeleteKeyButton, uLocalized('LBXPopoverDeleteKeyButtonText'))
+		});
+
+	});
+
+	context('DidPair', function testDidPair() {
+
+		before(function () {
+			return browser.visit(`${ languageCode }${ kDefaultRoute.OLSKRoutePath }?LBXPopoverPreloadPrivateKey=alfa&LBXPopoverPreloadPublicKey=bravo&LBXPopoverPreloadDidPair=true`);
+		});
+
+		it('localizes LBXPopoverRunAutomaticRecipesFieldLabel', function() {
+			browser.assert.text(LBXPopoverRunAutomaticRecipesFieldLabel, uLocalized('LBXPopoverRunAutomaticRecipesFieldLabelText'))
+		});
+
+		it('localizes LBXPopoverShowPreferencesButton', function() {
+			browser.assert.text(LBXPopoverShowPreferencesButton, uLocalized('LBXPopoverShowPreferencesButtonText'))
 		});
 
 	});

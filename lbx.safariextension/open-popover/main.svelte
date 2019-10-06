@@ -187,16 +187,18 @@ onMount(mod.LifecycleModuleDidMount);
 	</p>
 {/if}
 
-<p>
-	<label>
-		<span class="LBXPopoverRunAutomaticRecipesFieldLabel">{ OLSKLocalized('LBXPopoverRunAutomaticRecipesFieldLabelText') }</span>
-		<input class="LBXPopoverRunAutomaticRecipesField" type="checkbox" checked={ mod._ValueRunAutomaticRecipes } on:input={ mod.InterfaceRunAutomaticRecipesFieldDidInput } />
-	</label>
-</p>
+{#if mod._ValuePublicKey && LBXPopoverPreloadDidPair}
+	<p>
+		<label>
+			<span class="LBXPopoverRunAutomaticRecipesFieldLabel">{ OLSKLocalized('LBXPopoverRunAutomaticRecipesFieldLabelText') }</span>
+			<input class="LBXPopoverRunAutomaticRecipesField" type="checkbox" checked={ mod._ValueRunAutomaticRecipes } on:input={ mod.InterfaceRunAutomaticRecipesFieldDidInput } />
+		</label>
+	</p>
 
-<p>
-	<button class="LBXPopoverShowPreferencesButton" on:click={ mod.InterfaceShowPreferencesButtonDidClick }>{ OLSKLocalized('LBXPopoverShowPreferencesButtonText') }</button>
-</p>
+	<p>
+		<button class="LBXPopoverShowPreferencesButton" on:click={ mod.InterfaceShowPreferencesButtonDidClick }>{ OLSKLocalized('LBXPopoverShowPreferencesButtonText') }</button>
+	</p>
+{/if}
 
 </div>
 
