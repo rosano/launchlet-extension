@@ -46,8 +46,8 @@
   "options_ui": {
     "page": "open-preferences/ui-view.html",
     "browser_style": true
-  },
+  }
   // @PreferencesPage:Chrome
-  "options_page": "open-preferences/ui-view.html"
+  // "options_page": "open-preferences/ui-view.html"
 
 }
