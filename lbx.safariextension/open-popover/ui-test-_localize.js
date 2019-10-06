@@ -44,8 +44,8 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 			browser.assert.text(LBXPopoverRunAutomaticRecipesFieldLabel, uLocalized('LBXPopoverRunAutomaticRecipesFieldLabelText'))
 		});
 
-		it('localizes LBXPopoverShowPreferencesButton', function() {
-			browser.assert.text(LBXPopoverShowPreferencesButton, uLocalized('LBXPopoverShowPreferencesButtonText'))
+		it('localizes LBXPopoverShowSettingsButton', function() {
+			browser.assert.text(LBXPopoverShowSettingsButton, uLocalized('LBXPopoverShowSettingsButtonText'))
 		});
 
 	});

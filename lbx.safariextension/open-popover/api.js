@@ -56,14 +56,14 @@ export default {
 	  });
 	},
 
-	PreferencesPageProgrammaticLaunch () {
+	SettingsPageProgrammaticLaunch () {
 		if (typeof safari !== 'undefined') {
-			// @PreferencesPageProgrammaticLaunch:Safari
+			// @SettingsPageProgrammaticLaunch:Safari
 			return safari.application.activeBrowserWindow.openTab().url = safari.extension.baseURI + "open-preferences/ui-view.html";
 		}
 
 		if (typeof chrome !== 'undefined') {
-			// @PreferencesPageProgrammaticLaunch:Shared
+			// @SettingsPageProgrammaticLaunch:Shared
 			return chrome.runtime.openOptionsPage();
 		}
 	},

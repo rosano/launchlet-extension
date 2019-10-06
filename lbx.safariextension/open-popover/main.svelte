@@ -44,8 +44,8 @@ const mod = {
 		mod.CommandLocalDataStore('LBXSettingRunAutomaticRecipes', this.checked);
 	},
 
-	InterfaceShowPreferencesButtonDidClick () {
-		mod.CommandShowPreferences();
+	InterfaceShowSettingsButtonDidClick () {
+		mod.CommandShowSettings();
 	},
 
 	// COMMAND
@@ -89,8 +89,8 @@ const mod = {
 		api.CallBackgroundFunction('DispatchBackgroundPrivateKeyForget');
 	},
 
-	CommandShowPreferences () {
-		api.PreferencesPageProgrammaticLaunch();
+	CommandShowSettings () {
+		api.SettingsPageProgrammaticLaunch();
 	},
 
 	CommandLocalDataStore (key, inputData) {
@@ -204,7 +204,7 @@ if (typeof safari !== 'undefined') {
 	</p>
 
 	<p>
-		<button class="LBXPopoverShowPreferencesButton" on:click={ mod.InterfaceShowPreferencesButtonDidClick }>{ OLSKLocalized('LBXPopoverShowPreferencesButtonText') }</button>
+		<button class="LBXPopoverShowSettingsButton" on:click={ mod.InterfaceShowSettingsButtonDidClick }>{ OLSKLocalized('LBXPopoverShowSettingsButtonText') }</button>
 	</p>
 {/if}
 

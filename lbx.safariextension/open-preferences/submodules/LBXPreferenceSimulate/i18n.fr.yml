@@ -1,5 +1,0 @@
-LBXPreferenceSimulateHeadingText: Simulation de clavier
-LBXPreferenceSimulateBlurbText: Essayez n'importe quelle combinaison qui inclue <code>Ctrl</code>, <code>Cmd</code>, <code>Alt</code>, ou <code>Shift</code> et le raccourci équivalent devrait apparaître en bas. Si vous ne voyez pas celle qui concorde, ça pourrait dire que c'est réservé par le navigateur.
-LBXPreferenceSimulateCodeStringFieldLabelText: Par event.code
-LBXPreferenceSimulateKeyStringFieldLabelText: Par event.key
-LBXPreferenceSimulateSharedCopyButtonText: Copier

@@ -42,12 +42,12 @@
     "default_popup": "/open-popover/ui-view.html"
   },
 
-  // @PreferencesPage:Firefox
+  // @SettingsPage:Firefox
   "options_ui": {
     "page": "open-preferences/ui-view.html",
     "browser_style": true
   }
-  // @PreferencesPage:Chrome
+  // @SettingsPage:Chrome
   // "options_page": "open-preferences/ui-view.html"
 
 }
