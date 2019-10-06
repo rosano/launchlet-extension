@@ -60,7 +60,7 @@ const mod = {
 		});
 	},
 	_CommandStorePrivateKey (inputData) {
-		if (!api.IsExtensionContext()) {
+		if (OLSK_TESTING_BEHAVIOUR()) {
 			return;
 		}
 		
@@ -69,7 +69,7 @@ const mod = {
 	_CommandStorePublicKey (inputData) {
 		mod.ValuePublicKey(inputData);
 
-		if (!api.IsExtensionContext()) {
+		if (OLSK_TESTING_BEHAVIOUR()) {
 			return;
 		}
 		
@@ -88,16 +88,29 @@ const mod = {
 
 	// SETUP
 
-	async SetupEverything() {
+	SetupEverything() {
+		mod.SetupPublicKey();
+
+		mod.SetupDidPair();
+	},
+
+	async SetupPublicKey() {
 		if (LBXPopoverPreloadPublicKey) {
 			mod.ValuePublicKey(LBXPopoverPreloadPublicKey);
 		}
 
-		if (!api.IsExtensionContext()) {
+		if (OLSK_TESTING_BEHAVIOUR()) {
 			return;
 		}
 
 	  mod.ValuePublicKey(await api.LocalDataGet('LBXPairPublicKey'));
+	},
+
+	async SetupDidPair() {
+		if (OLSK_TESTING_BEHAVIOUR()) {
+			return;
+		}
+
 	  LBXPopoverPreloadDidPair = !!(await api.LocalDataGet('LBXPayload'));
 	},
 
