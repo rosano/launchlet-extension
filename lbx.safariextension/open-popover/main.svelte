@@ -92,7 +92,7 @@ const mod = {
 	},
 
 	CommandLocalDataStore (key, inputData) {
-	  api.LocalDataSet(key, JSON.stringify(inputData));
+	  api.LocalDataStore(key, JSON.stringify(inputData));
 	},
 
 	async CommandLocalDataRetrieve (inputData) {
