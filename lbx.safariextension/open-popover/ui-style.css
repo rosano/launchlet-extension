@@ -13,7 +13,7 @@
 	margin-top: unset;
 }
 
-.LBXPopover p {
+.LBXPopover > * {
 	margin-top: 0;
 	margin-bottom: var(--OLSKCommonContainerPadding);
 }
@@ -26,8 +26,6 @@ input {
 	padding: 5px;
 	border: 1px solid var(--OLSKCommonForeground);
 	border-radius: 5px;
-	
-	margin-bottom: var(--OLSKCommonContainerPadding);
 }
 
 button {
