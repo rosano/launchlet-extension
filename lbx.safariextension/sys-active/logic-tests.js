@@ -4,35 +4,35 @@ import * as mainModule from './logic.js';
 
 import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/main.js';
 
-describe('LBXMessageIsValid', function testLBXMessageIsValid() {
+describe('LBXRequestIsValid', function testLBXRequestIsValid() {
 
 	const uStubItem = function () {
 		return {
-			LBXMessageName: '',
-			LBXMessageEncryptedData: '',
+			LBXRequestName: '',
+			LBXRequestEncryptedData: '',
 		};
 	};
 
 	it('throws error if not object', function() {
 		throws(function() {
-			mainModule.LBXMessageIsValid(null);
+			mainModule.LBXRequestIsValid(null);
 		}, /LBXErrorInputNotValid/);
 	});
 
-	it('returns false if LBXMessageName not string', function() {
-		deepEqual(mainModule.LBXMessageIsValid(Object.assign(uStubItem(), {
-			LBXMessageName: null,
+	it('returns false if LBXRequestName not string', function() {
+		deepEqual(mainModule.LBXRequestIsValid(Object.assign(uStubItem(), {
+			LBXRequestName: null,
 		})), false);
 	});
 
-	it('returns false if LBXMessageEncryptedData not string', function() {
-		deepEqual(mainModule.LBXMessageIsValid(Object.assign(uStubItem(), {
-			LBXMessageEncryptedData: null,
+	it('returns false if LBXRequestEncryptedData not string', function() {
+		deepEqual(mainModule.LBXRequestIsValid(Object.assign(uStubItem(), {
+			LBXRequestEncryptedData: null,
 		})), false);
 	});
 
 	it('returns true', function() {
-		deepEqual(mainModule.LBXMessageIsValid(uStubItem()), true);
+		deepEqual(mainModule.LBXRequestIsValid(uStubItem()), true);
 	});	
 
 });

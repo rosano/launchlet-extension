@@ -1,5 +1,5 @@
 import api from './api.js';
-import { LBXMessageIsValid } from './logic.js';
+import { LBXRequestIsValid } from './logic.js';
 import { LBXShortcutValidation } from '../-shared/LBXShortcut/main.js';
 
 const mod = {
@@ -29,7 +29,7 @@ const mod = {
 		  // return console.warn('event.origin not match', event);
 		}
 
-		if (!LBXMessageIsValid(event.data)) {
+		if (!LBXRequestIsValid(event.data)) {
 			return;
 		}
 
@@ -37,9 +37,9 @@ const mod = {
 			DispatchRequestStorePayload() {
 		  	mod.ValueMessageSource(event.source);
 
-		  	mod.CommandStorePayloadEncryptedData(event.data.LBXMessageEncryptedData);
+		  	mod.CommandStorePayloadEncryptedData(event.data.LBXRequestEncryptedData);
 		  },
-		}[event.data.LBXMessageName]();
+		}[event.data.LBXRequestName]();
 	},
 
 	MessageDidReceiveFromBackground (event) {
