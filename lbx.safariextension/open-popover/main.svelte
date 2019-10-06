@@ -155,12 +155,20 @@ const mod = {
 		new Clipboard('.LBXPopoverPublicKeyCopyButton');
 	},
 
+	LifecycleSafariPopoverWillAppear() {
+		mod.SetupEverything();
+	},
+
 };
 
 mod.LifecycleModuleWillMount();
 
 import { onMount } from 'svelte';
 onMount(mod.LifecycleModuleDidMount);
+
+if (typeof safari !== 'undefined') {
+	safari.application.addEventListener('popover', mod.LifecycleSafariPopoverWillAppear, true);
+};
 </script>
 
 <div class="LBXPopover"> 
