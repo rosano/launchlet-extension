@@ -6,15 +6,6 @@ const mod = {
 
 	// VALUE
 
-	_ValueMessageSource: undefined,
-	ValueMessageSource (inputData) {
-	  if (typeof inputData === 'undefined') {
-	    return mod._ValueMessageSource;
-	  }
-
-	  mod._ValueMessageSource = inputData;
-	},
-
 	_ValueShortcutMap: {},
 
 	// MESSAGE
@@ -35,8 +26,6 @@ const mod = {
 
 		return {
 			DispatchRequestStorePayload() {
-		  	mod.ValueMessageSource(event.source);
-
 		  	mod.CommandStorePayloadEncryptedData(event.data.LBXRequestEncryptedData);
 		  },
 		}[event.data.LBXRequestName]();
