@@ -177,8 +177,12 @@ const mod = {
     })()`, event)
   },
 
-  CommandRunTasks (event) {
+  async CommandRunTasks (event) {
     if (!mod.ValueMemoryPayload()) {
+      return;
+    };
+    
+    if (!(await mod._CommandLocalDataGet('LBXSettingRunAutomaticRecipes'))) {
       return;
     };
     
