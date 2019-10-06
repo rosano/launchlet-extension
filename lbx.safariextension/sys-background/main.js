@@ -64,7 +64,7 @@ const mod = {
 
       mod.ValueMemoryPayload(decryptedPayload);
 
-      mod._CommandLocalDataSet('LBXPreferencePayload', decryptedPayload);
+      mod._CommandLocalDataSet('kLBXPreferencePayload', decryptedPayload);
 
       api.MessageSendToPage('DispatchActivePayloadSuccess', mod.ValueMemoryPayload().LBXPayloadConfirmation, event);
   	} catch (e) {
@@ -101,14 +101,14 @@ const mod = {
   },
 
   CommandPrivateKeySave (inputData) {
-    mod._CommandLocalDataSet('LBXPreferencePrivateKey', inputData);
+    mod._CommandLocalDataSet('kLBXPreferencePrivateKey', inputData);
 
     mod.SetupValueMemoryPrivateKey();
   },
 
   CommandPrivateKeyForget () {
-    mod._CommandLocalDataSet('LBXPreferencePrivateKey', null);
-    mod._CommandLocalDataSet('LBXPreferencePayload', null);
+    mod._CommandLocalDataSet('kLBXPreferencePrivateKey', null);
+    mod._CommandLocalDataSet('kLBXPreferencePayload', null);
 
     delete mod._ValueMemoryPrivateKey;
     delete mod._ValueMemoryPayload;
@@ -189,7 +189,7 @@ const mod = {
   },
 
   async CommandSendShortcutsMap (event) {
-    const result = await mod._CommandLocalDataGet('LBXPreferenceShortcutsMap');
+    const result = await mod._CommandLocalDataGet('kLBXPreferenceShortcutsMap');
 
     api.MessageSendToPage('DispatchSharedShortcutsMap', result || {
       'Alt+Shift+Digit1': 'LBXShortcutDefault',
@@ -200,7 +200,7 @@ const mod = {
   },
 
   CommandUpdateShortcutsMap (inputData) {
-    mod._CommandLocalDataSet('LBXPreferenceShortcutsMap', inputData);
+    mod._CommandLocalDataSet('kLBXPreferenceShortcutsMap', inputData);
   },
   
   // SETUP
@@ -219,10 +219,10 @@ const mod = {
       return new Promise(function (resolve, reject) {
         return simpleCrypto.asym.importEncryptPrivateKey(inputData, reject, resolve);
       })
-		})(await mod._CommandLocalDataGet('LBXPreferencePrivateKey')))
+		})(await mod._CommandLocalDataGet('kLBXPreferencePrivateKey')))
 	},
   async SetupValueMemoryPayload() {
-    mod.ValueMemoryPayload(await mod._CommandLocalDataGet('LBXPreferencePayload'))
+    mod.ValueMemoryPayload(await mod._CommandLocalDataGet('kLBXPreferencePayload'))
   },
 	SetupMessageReceiveFromActive() {
 		api.MessageReceiveFromActive(mod.MessageDidReceiveFromActive)
