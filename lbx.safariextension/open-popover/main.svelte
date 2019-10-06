@@ -78,10 +78,12 @@ const mod = {
 			return;
 		}
 		
-		api.CallBackgroundFunction('DispatchBackgroundStorePublicKey', mod.ValuePublicKey());
+		mod.CommandLocalDataStore('LBXPairPublicKey', mod.ValuePublicKey());
 	},
+
 	CommandDeleteKey () {
-		mod.ValuePublicKey(null);
+		mod._CommandStorePublicKey(null)
+
 		LBXPopoverPreloadDidPair = false;
 		
 		api.CallBackgroundFunction('DispatchBackgroundDeleteKeys');

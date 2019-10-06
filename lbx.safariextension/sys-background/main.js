@@ -11,9 +11,6 @@ const mod = {
       DispatchBackgroundStorePrivateKey () {
         mod.CommandPrivateKeyStore(event.message)
       },
-      DispatchBackgroundStorePublicKey () {
-        mod.CommandPublicKeyStore(event.message)
-      },
       DispatchBackgroundStorePayloadEncryptedData () {
         mod.CommandHandleEventStorePayloadEncryptedData(event)
       },
@@ -109,13 +106,8 @@ const mod = {
     mod.SetupValuePrivateKey();
   },
 
-  CommandPublicKeyStore (inputData) {
-    mod._CommandLocalDataSet('LBXPairPublicKey', inputData);
-  },
-
   CommandDeleteKeys () {
     mod._CommandLocalDataSet('LBXPairPrivateKey', null);
-    mod._CommandLocalDataSet('LBXPairPublicKey', null);
     mod._CommandLocalDataSet('LBXPayload', null);
 
     delete mod._ValuePrivateKey;
@@ -248,6 +240,5 @@ mod.LifecycleExtensionDidLoad();
 
 window.LBXBackgroundModule = {
   DispatchBackgroundStorePrivateKey: mod.CommandPrivateKeyStore,
-  DispatchBackgroundStorePublicKey: mod.CommandPublicKeyStore,
   DispatchBackgroundDeleteKeys: mod.CommandDeleteKeys,
 };
