@@ -8,16 +8,12 @@ describe('LBXPopoverUIPair', function () {
 		return browser.visit(kDefaultRoute.OLSKRoutePath);
 	});
 
-	context('Startup', function testStartup() {
+	before(function () {
+		browser.click(LBXPopoverGenerateKeyButton);
+	});
 
-		before(function () {
-			browser.click(LBXPopoverGenerateKeyButton);
-		});
-
-		it('fills LBXPopoverPublicKeyField with public key', function() {
-			browser.assert.input(LBXPopoverPublicKeyField, '"LBX_TESTING_PUBLIC_KEY"');
-		});
-
+	it('fills LBXPopoverPublicKeyField with public key', function() {
+		browser.assert.input(LBXPopoverPublicKeyField, '"LBX_TESTING_PUBLIC_KEY"');
 	});
 
 	context('DeleteKey', function testDeleteKey() {
