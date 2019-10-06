@@ -42,10 +42,6 @@ describe('LBXPopoverUIMisc', function () {
 		it('sets type', function () {
 			browser.assert.attribute(LBXPopoverRunAutomaticRecipesField, 'type', 'checkbox');
 		});
-		
-		it('sets value', function () {
-			browser.assert.input(LBXPopoverRunAutomaticRecipesField, 'false');
-		});
 
 	});
 
