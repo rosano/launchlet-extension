@@ -33,9 +33,13 @@ const mod = {
 			return;
 		}
 
-		mod.ValueMessageSource(event.source);
+		return {
+			DispatchRequestStorePayload() {
+		  	mod.ValueMessageSource(event.source);
 
-		mod.CommandStorePayloadEncryptedData(event.data.LBXMessageEncryptedData);
+		  	mod.CommandStorePayloadEncryptedData(event.data.LBXMessageEncryptedData);
+		  },
+		}[event.data.LBXMessageName]();
 	},
 
 	MessageDidReceiveFromBackground (event) {
