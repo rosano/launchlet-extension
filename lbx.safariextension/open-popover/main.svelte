@@ -178,6 +178,9 @@ onMount(mod.LifecycleModuleDidMount);
 {#if mod._ValuePublicKey && !LBXPopoverPreloadDidPair}
 	<p>
 		<input class="LBXPopoverPublicKeyField" value={ mod.ValuePublicKey() } onclick="this.select()" autofocus />
+	</p>
+
+	<p>
 		<button class="LBXPopoverPublicKeyCopyButton" data-clipboard-target=".LBXPopoverPublicKeyField">{ OLSKLocalized('LBXPopoverPublicKeyCopyButtonText') }</button>
 	</p>
 {/if}
