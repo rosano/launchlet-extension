@@ -13,10 +13,8 @@ describe('LBXRequestIsValid', function testLBXRequestIsValid() {
 		};
 	};
 
-	it('throws error if not object', function() {
-		throws(function() {
-			mainModule.LBXRequestIsValid(null);
-		}, /LBXErrorInputNotValid/);
+	it('returns false if not object', function() {
+		deepEqual(mainModule.LBXRequestIsValid(null), false);
 	});
 
 	it('returns false if LBXRequestName not string', function() {
