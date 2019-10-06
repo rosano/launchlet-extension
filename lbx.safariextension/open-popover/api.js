@@ -27,16 +27,13 @@ export default {
 		}
 	},
 
-	LocalDataSet (param1, param2) {
-		this._LocalDataSet(param1, JSON.stringify(param2));
-	},
-	_LocalDataSet (param1, param2) {
+	LocalDataStore (param1, param2) {
 	  if (typeof safari !== 'undefined') {
-	  	// @LocalDataSet:Safari
+	  	// @LocalDataStore:Safari
 	    return (safari.extension.settings[param1] = param2);
 	  }
 
-	  // @LocalDataSet:Shared
+	  // @LocalDataStore:Shared
 	  chrome.storage.local.set([param1].reduce(function (coll, item) {
 	    coll[item] = param2;
 
@@ -44,16 +41,13 @@ export default {
 	  }, {}));
 	},
 
-	async LocalDataGet (inputData) {
-	  return JSON.parse((await this._LocalDataGet(inputData)) || 'null');
-	},
-	async _LocalDataGet (inputData) {
+	async LocalDataRetrieve (inputData) {
 	  if (typeof safari !== 'undefined') {
-	  	// @LocalDataGet:Safari
+	  	// @LocalDataRetrieve:Safari
 	    return Promise.resolve(safari.extension.settings[inputData]);
 	  }
 
-	  // @LocalDataGet:Shared
+	  // @LocalDataRetrieve:Shared
 	  // return Promise.resolve(localStorage.getItem(inputData));
 	  return new Promise(function (resolve, reject) {
 	    return chrome.storage.local.get([inputData], function (result) {

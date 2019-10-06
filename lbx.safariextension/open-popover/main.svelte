@@ -41,7 +41,7 @@ const mod = {
 	},
 
 	InterfaceRunAutomaticRecipesFieldDidInput () {
-		api.LocalDataSet('LBXSettingRunAutomaticRecipes', this.checked);
+		mod.CommandLocalDataStore('LBXSettingRunAutomaticRecipes', this.checked);
 	},
 
 	InterfaceShowPreferencesButtonDidClick () {
@@ -91,6 +91,20 @@ const mod = {
 		api.PreferencesPageProgrammaticLaunch();
 	},
 
+	CommandLocalDataStore (key, inputData) {
+	  api.LocalDataSet(key, JSON.stringify(inputData));
+	},
+
+	async CommandLocalDataRetrieve (inputData) {
+	  const outputData = await api.LocalDataRetrieve(inputData);
+	  
+	  if (typeof outputData === 'undefined') {
+	    return outputData;
+	  };
+
+	  return JSON.parse(outputData);
+	},
+
 	// SETUP
 
 	SetupEverything() {
@@ -110,7 +124,7 @@ const mod = {
 			return;
 		}
 
-	  mod.ValuePublicKey(await api.LocalDataGet('LBXPairPublicKey'));
+	  mod.ValuePublicKey(await mod.CommandLocalDataRetrieve('LBXPairPublicKey'));
 	},
 
 	async SetupDidPair() {
@@ -118,7 +132,7 @@ const mod = {
 			return;
 		}
 
-	  LBXPopoverPreloadDidPair = !!(await api.LocalDataGet('LBXPayload'));
+	  LBXPopoverPreloadDidPair = !!(await mod.CommandLocalDataRetrieve('LBXPayload'));
 	},
 
 	async SetupRunAutomaticRecipes() {
@@ -126,7 +140,7 @@ const mod = {
 			return;
 		}
 
-	  mod._ValueRunAutomaticRecipes = !!(await api.LocalDataGet('LBXSettingRunAutomaticRecipes'));
+	  mod._ValueRunAutomaticRecipes = !!(await mod.CommandLocalDataRetrieve('LBXSettingRunAutomaticRecipes'));
 	},
 
 	// LIFECYCLE
