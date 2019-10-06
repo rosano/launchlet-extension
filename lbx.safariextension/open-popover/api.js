@@ -28,7 +28,7 @@ export default {
 	},
 
 	LocalDataSet (param1, param2) {
-		_LocalDataSet(param1, JSON.stringify(param2));
+		this._LocalDataSet(param1, JSON.stringify(param2));
 	},
 	_LocalDataSet (param1, param2) {
 	  if (typeof safari !== 'undefined') {

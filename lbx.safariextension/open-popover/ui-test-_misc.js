@@ -47,20 +47,6 @@ describe('LBXPopoverUIMisc', function () {
 			browser.assert.input(LBXPopoverRunAutomaticRecipesField, 'false');
 		});
 
-		context('LBXPopoverRunAutomaticRecipes', function () {
-			
-			before(function() {
-				return browser.visit(OLSKTestingCanonicalFor(kDefaultRoutePath, {
-					LBXPopoverRunAutomaticRecipes: true,
-				}));
-			});
-			
-			it('sets value', function () {
-				browser.assert.input(LBXPopoverRunAutomaticRecipesField, 'true');
-			});
-		
-		});
-
 	});
 
 });

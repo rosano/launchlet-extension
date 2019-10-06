@@ -14,7 +14,6 @@ import { LBXPopoverRandomSeed } from './ui-logic.js';
 export let LBXPopoverPreloadPrivateKey = null;
 export let LBXPopoverPreloadPublicKey = null;
 export let LBXPopoverPreloadDidPair = false;
-export let LBXPopoverRunAutomaticRecipes = false;
 
 const mod = {
 
@@ -28,6 +27,8 @@ const mod = {
 
 		mod._ValuePublicKey = inputData;
 	},
+
+	_ValueRunAutomaticRecipes: false,
 	
 	// INTERFACE
 
@@ -37,6 +38,10 @@ const mod = {
 
 	InterfaceDeleteKeyButtonDidClick () {
 		mod.CommandDeleteKey();
+	},
+
+	InterfaceRunAutomaticRecipesFieldDidInput () {
+		api.LocalDataSet('LBXSettingRunAutomaticRecipes', this.checked);
 	},
 
 	InterfaceShowPreferencesButtonDidClick () {
@@ -92,6 +97,8 @@ const mod = {
 		mod.SetupPublicKey();
 
 		mod.SetupDidPair();
+
+		mod.SetupRunAutomaticRecipes();
 	},
 
 	async SetupPublicKey() {
@@ -99,7 +106,7 @@ const mod = {
 			mod.ValuePublicKey(LBXPopoverPreloadPublicKey);
 		}
 
-		if (OLSK_TESTING_BEHAVIOUR()) {
+		if (OLSK_TESTING_BEHAVIOUR() || !api.IsExtensionContext()) {
 			return;
 		}
 
@@ -107,11 +114,19 @@ const mod = {
 	},
 
 	async SetupDidPair() {
-		if (OLSK_TESTING_BEHAVIOUR()) {
+		if (OLSK_TESTING_BEHAVIOUR() || !api.IsExtensionContext()) {
 			return;
 		}
 
 	  LBXPopoverPreloadDidPair = !!(await api.LocalDataGet('LBXPayload'));
+	},
+
+	async SetupRunAutomaticRecipes() {
+		if (OLSK_TESTING_BEHAVIOUR() || !api.IsExtensionContext()) {
+			return;
+		}
+
+	  mod._ValueRunAutomaticRecipes = !!(await api.LocalDataGet('LBXSettingRunAutomaticRecipes'));
 	},
 
 	// LIFECYCLE
@@ -156,7 +171,7 @@ onMount(mod.LifecycleModuleDidMount);
 <p>
 	<label>
 		<span class="LBXPopoverRunAutomaticRecipesFieldLabel">{ OLSKLocalized('LBXPopoverRunAutomaticRecipesFieldLabelText') }</span>
-		<input class="LBXPopoverRunAutomaticRecipesField" type="checkbox" bind:value={ LBXPopoverRunAutomaticRecipes } />
+		<input class="LBXPopoverRunAutomaticRecipesField" type="checkbox" checked={ mod._ValueRunAutomaticRecipes } on:input={ mod.InterfaceRunAutomaticRecipesFieldDidInput } />
 	</label>
 </p>
 
