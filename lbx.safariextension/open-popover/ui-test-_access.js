@@ -10,6 +10,9 @@ Object.entries({
 	LBXPopoverPublicKeyField: '.LBXPopoverPublicKeyField',
 	LBXPopoverPublicKeyCopyButton: '.LBXPopoverPublicKeyCopyButton',
 
+	LBXPopoverRunAutomaticRecipesField: '.LBXPopoverRunAutomaticRecipesField',
+	LBXPopoverRunAutomaticRecipesFieldLabel: '.LBXPopoverRunAutomaticRecipesFieldLabel',
+
 	LBXPopoverShowPreferencesButton: '.LBXPopoverShowPreferencesButton',
 }).map(function (e) {
 	return global[e.shift()]  = e.pop();
@@ -39,6 +42,14 @@ describe('LBXPopoverUIAccess', function () {
 
 	it('hides LBXPopoverPublicKeyCopyButton', function() {
 		browser.assert.elements(LBXPopoverPublicKeyCopyButton, 0);
+	});
+
+	it('shows LBXPopoverRunAutomaticRecipesField', function () {
+		browser.assert.elements(LBXPopoverRunAutomaticRecipesField, 1);
+	});
+
+	it('shows LBXPopoverRunAutomaticRecipesFieldLabel', function () {
+		browser.assert.elements(LBXPopoverRunAutomaticRecipesFieldLabel, 1);
 	});
 
 	it('shows LBXPopoverShowPreferencesButton', function () {

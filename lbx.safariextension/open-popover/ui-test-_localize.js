@@ -18,6 +18,10 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 		browser.assert.text(LBXPopoverGenerateKeyButton, uLocalized('LBXPopoverGenerateKeyButtonText'))
 	});
 
+	it('localizes LBXPopoverRunAutomaticRecipesFieldLabel', function() {
+		browser.assert.text(LBXPopoverRunAutomaticRecipesFieldLabel, uLocalized('LBXPopoverRunAutomaticRecipesFieldLabelText'))
+	});
+
 	it('localizes LBXPopoverShowPreferencesButton', function() {
 		browser.assert.text(LBXPopoverShowPreferencesButton, uLocalized('LBXPopoverShowPreferencesButtonText'))
 	});

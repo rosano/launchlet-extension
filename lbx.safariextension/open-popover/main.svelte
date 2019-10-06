@@ -14,6 +14,7 @@ import { LBXPopoverRandomSeed } from './ui-logic.js';
 export let LBXPopoverPreloadPrivateKey = null;
 export let LBXPopoverPreloadPublicKey = null;
 export let LBXPopoverPreloadDidPair = false;
+export let LBXPopoverRunAutomaticRecipes = false;
 
 const mod = {
 
@@ -138,6 +139,13 @@ onMount(mod.LifecycleModuleDidMount);
 		<button class="LBXPopoverPublicKeyCopyButton" data-clipboard-target=".LBXPopoverPublicKeyField">{ OLSKLocalized('LBXPopoverPublicKeyCopyButtonText') }</button>
 	</p>
 {/if}
+
+<p>
+	<label>
+		<span class="LBXPopoverRunAutomaticRecipesFieldLabel">{ OLSKLocalized('LBXPopoverRunAutomaticRecipesFieldLabelText') }</span>
+		<input class="LBXPopoverRunAutomaticRecipesField" type="checkbox" bind:value={ LBXPopoverRunAutomaticRecipes } />
+	</label>
+</p>
 
 <p>
 	<button class="LBXPopoverShowPreferencesButton" on:click={ mod.InterfaceShowPreferencesButtonDidClick }>{ OLSKLocalized('LBXPopoverShowPreferencesButtonText') }</button>
