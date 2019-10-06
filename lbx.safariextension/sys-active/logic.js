@@ -5,6 +5,10 @@ export const LBXMessageIsValid = function(inputData) {
 		throw new Error('LBXErrorInputNotValid');
 	}
 
+	if (typeof inputData.LBXMessageName !== 'string') {
+		return false;
+	}
+
 	if (_LBX_DISABLE_ENCRYPTION()) {
 		return typeof inputData.LBXMessageEncryptedData === 'string';
 	}
