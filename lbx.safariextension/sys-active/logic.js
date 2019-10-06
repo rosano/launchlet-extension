@@ -9,10 +9,6 @@ export const LBXRequestIsValid = function(inputData) {
 		return false;
 	}
 
-	if (_LBX_DISABLE_ENCRYPTION()) {
-		return typeof inputData.LBXRequestEncryptedData === 'string';
-	}
-
 	if (typeof inputData.LBXRequestEncryptedData !== 'string') {
 		return false;
 	}
