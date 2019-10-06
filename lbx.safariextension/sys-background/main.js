@@ -117,6 +117,9 @@ const mod = {
     mod._CommandLocalDataSet('LBXPairPrivateKey', null);
     mod._CommandLocalDataSet('LBXPairPublicKey', null);
     mod._CommandLocalDataSet('LBXPayload', null);
+
+    delete mod._ValuePrivateKey;
+    delete mod._ValueMemoryPayload;
   },
 
   _CommandLocalDataSet (key, inputData) {
