@@ -27,6 +27,23 @@ export default {
 		}
 	},
 
+	LocalDataSet (param1, param2) {
+		_LocalDataSet(param1, JSON.stringify(param2));
+	},
+	_LocalDataSet (param1, param2) {
+	  if (typeof safari !== 'undefined') {
+	  	// @LocalDataSet:Safari
+	    return (safari.extension.settings[param1] = param2);
+	  }
+
+	  // @LocalDataSet:Shared
+	  chrome.storage.local.set([param1].reduce(function (coll, item) {
+	    coll[item] = param2;
+
+	    return coll;
+	  }, {}));
+	},
+
 	async LocalDataGet (inputData) {
 	  return JSON.parse((await this._LocalDataGet(inputData)) || 'null');
 	},
