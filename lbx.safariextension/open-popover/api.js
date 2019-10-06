@@ -59,7 +59,7 @@ export default {
 	SettingsPageProgrammaticLaunch () {
 		if (typeof safari !== 'undefined') {
 			// @SettingsPageProgrammaticLaunch:Safari
-			return safari.application.activeBrowserWindow.openTab().url = safari.extension.baseURI + "open-preferences/ui-view.html";
+			return safari.application.activeBrowserWindow.openTab().url = safari.extension.baseURI + "open-settings/ui-view.html";
 		}
 
 		if (typeof chrome !== 'undefined') {

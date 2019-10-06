@@ -44,10 +44,10 @@
 
   // @SettingsPage:Firefox
   "options_ui": {
-    "page": "open-preferences/ui-view.html",
+    "page": "open-settings/ui-view.html",
     "browser_style": true
   }
   // @SettingsPage:Chrome
-  // "options_page": "open-preferences/ui-view.html"
+  // "options_page": "open-settings/ui-view.html"
 
 }
