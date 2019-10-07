@@ -177,7 +177,7 @@ const mod = {
       return;
     };
     
-    if (!(await mod._CommandLocalDataGet('LBXSettingRunAutomaticRecipes'))) {
+    if (!(await mod._CommandLocalDataGet('kLBXPreferenceRunAutomaticRecipes'))) {
       return;
     };
     
