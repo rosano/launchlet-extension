@@ -27,9 +27,7 @@ https://addons.mozilla.org/addon/launchlet/
 1) Click the *Generate Key* button in the extension context menu and then copy the key
 2) Click the *Pair extension* button in the Composer and enter the key
 
-If successfully paired, the extension context menu should display a settings button and the Composer should not have any messages.
-
-If not successful, the extension context menu will continue to show the key and the Composer might say 'Waiting' or 'Failed'.
+If successfully paired, the extension context menu should display a settings button and the Composer should not have any messages. If not successful, the extension context menu will continue to show the key and the Composer might say 'Waiting' or 'Failed'.
 
 After pairing, all changes should transfer to the extension automatically.
 
@@ -49,4 +47,4 @@ To simplify writing this out, in the extension Settings page there is a simulati
 
 The extension makes it possible to set shortcuts using the *Signature* for any *Recipe* saved in the Composer.
 
-For example, by default there is a shortcut of `Alt+Shift+2` for the signature 'XYZAlfa' - this means that a *Recipe* with the *Signature* 'XYZAlfa' should run with the key combination `Alt+Shift+2` – replace 'XYZAlfa' with the *Signature* from your own *Recipe* to customize the shortcut.
+For example, by default there is a shortcut of `Alt+Shift+2` for the signature `XYZAlfa`. This means that a *Recipe* with the *Signature* `XYZAlfa` should run with the key combination `Alt+Shift+2` — replace `XYZAlfa` with the *Signature* from your own *Recipe* to customize the shortcut.
