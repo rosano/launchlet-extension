@@ -10,3 +10,6 @@ package-lock.json
 
 # TEMP
 lbx.safariextension/-shared/images/*
+
+# PUBLISH
+lbx.safariextension/.web-extension-id
