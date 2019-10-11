@@ -14,6 +14,8 @@ There are two parts to running the extension: *Install* in the browser, and then
 
 ## Install
 
+The simplest way to install is from the extension platforms, but there are other options in the [releases](https://github.com/launchlet/launchlet-extension/releases).
+
 ### Firefox
 
 https://addons.mozilla.org/addon/launchlet/
@@ -21,6 +23,24 @@ https://addons.mozilla.org/addon/launchlet/
 ### Chrome
 
 ### Safari
+
+Safari 13 no longer supports the common web extension format so it is currently only possible to install on Safari 12 or earlier.
+
+The extension can't run on the 'Empty Page' but you can set the Homepage to 'about:blank' and then open new tabs with Homepage.
+
+#### Safari 12
+
+1. Download and unzip the '_shared/unpacked' [release](https://github.com/launchlet/launchlet-extension/releases)
+2. Show the Develop menu: Safari > Preferences > Advanced > Show Develop menu in menu bar
+3. Show the Extension Builder: Develop > Show Extension Builder
+4. Install the unpacked extension: + > Add Extension > [select the lbx.safariextension folder]
+5. Enter your password
+
+Quitting Safari will reset extension data and require re-entering your password to run the extension.
+
+#### Safari 11
+
+Download the 'safari-signed' [release](https://github.com/launchlet/launchlet-extension/releases) and open with Safari
 
 ## Pair
 
