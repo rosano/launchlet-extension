@@ -35,23 +35,23 @@ context('LBXSettingShortcutsMap', function () {
 	});
 
 	context('LBXSettingShortcutsItemKeyField', function () {
-		
+
 		it('sets value', function () {
 			browser.assert.input(LBXSettingShortcutsItemKeyField, 'alfa');
 		});
-		
+
 		it('sets autofocus', function () {
 			browser.assert.attribute(LBXSettingShortcutsItemKeyField, 'autofocus', '');
 		});
-	
+
 	});
 
 	context('LBXSettingShortcutsItemValueField', function () {
-		
+
 		it('sets value', function () {
 			browser.assert.input(LBXSettingShortcutsItemValueField, 'bravo');
 		});
-	
+
 	});
 
 });

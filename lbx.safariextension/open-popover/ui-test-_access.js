@@ -23,11 +23,11 @@ describe('LBXPopoverUIAccess', function () {
 	before(function() {
 		return browser.visit(kDefaultRoute.OLSKRoutePath);
 	});
-	
+
 	it('shows LBXPopover', function() {
 		browser.assert.elements(LBXPopover, 1);
 	});
-	
+
 	it('shows LBXPopoverGenerateKeyButton', function() {
 		browser.assert.elements(LBXPopoverGenerateKeyButton, 1);
 	});
@@ -55,7 +55,7 @@ describe('LBXPopoverUIAccess', function () {
 	it('hides LBXPopoverShowSettingsButton', function () {
 		browser.assert.elements(LBXPopoverShowSettingsButton, 0);
 	});
-	
+
 	context('GenerateKey', function testGenerateKey() {
 
 		before(function () {
@@ -89,7 +89,7 @@ describe('LBXPopoverUIAccess', function () {
 		it('hides LBXPopoverShowSettingsButton', function () {
 			browser.assert.elements(LBXPopoverShowSettingsButton, 0);
 		});
-		
+
 	});
 
 	context('DidPair', function testDidPair() {

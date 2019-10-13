@@ -67,5 +67,5 @@ export default {
 			return chrome.runtime.openOptionsPage();
 		}
 	},
-	
+
 };

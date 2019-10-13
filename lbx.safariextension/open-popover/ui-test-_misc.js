@@ -19,7 +19,7 @@ describe('LBXPopoverUIMisc', function () {
 		});
 
 	});
-	
+
 	context('LBXPopoverPublicKeyField', function () {
 
 		it('sets autofocus', function() {
@@ -30,7 +30,7 @@ describe('LBXPopoverUIMisc', function () {
 			browser.assert.hasFocus(LBXPopoverPublicKeyField)
 			deepEqual(browser.activeElement, browser.query(LBXPopoverPublicKeyField));
 		});
-		
+
 	});
 
 	describe('LBXPopoverPublicKeyCopyButton', function() {
@@ -38,7 +38,7 @@ describe('LBXPopoverUIMisc', function () {
 		it('sets data-clipboard-target', function () {
 			browser.assert.attribute(LBXPopoverPublicKeyCopyButton, 'data-clipboard-target', LBXPopoverPublicKeyField);
 		});
-		
+
 	});
 
 	describe('LBXPopoverRunAutomaticRecipesField', function() {

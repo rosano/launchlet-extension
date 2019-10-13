@@ -31,6 +31,6 @@ describe('LBXRequestIsValid', function testLBXRequestIsValid() {
 
 	it('returns true', function() {
 		deepEqual(mainModule.LBXRequestIsValid(uStubItem()), true);
-	});	
+	});
 
 });

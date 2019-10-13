@@ -15,7 +15,7 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 	});
 
 	context('function', function () {
-		
+
 		it('throws if not object', function () {
 			throws(function () {
 				mainModule.LBXShortcutValidation('')(null)
@@ -76,7 +76,7 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 					shiftKey: true,
 				}), true);
 			});
-		
+
 		});
 
 		context('Ctrl', function () {
@@ -93,7 +93,7 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 					ctrlKey: true,
 				}), true);
 			});
-		
+
 		});
 
 		context('Alt', function () {
@@ -110,7 +110,7 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 					altKey: true,
 				}), true);
 			});
-		
+
 		});
 
 		context('Cmd', function () {
@@ -127,9 +127,9 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 					metaKey: true,
 				}), true);
 			});
-		
+
 		});
-	
+
 	});
 
 });
@@ -248,7 +248,7 @@ describe('LBXShortcutString', function testLBXShortcutString() {
 				metaKey: true,
 			}, true), 'Cmd+[bravo]');
 		});
-	
+
 	});
 
 });

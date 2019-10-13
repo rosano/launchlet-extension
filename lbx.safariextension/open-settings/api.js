@@ -5,7 +5,7 @@ export default {
 			if (typeof safari.self === 'undefined') {
 				return;
 			};
-			
+
 			// @MessageSendToBackground:Safari
 			return safari.self.tab.dispatchMessage(param1, param2);
 		}
@@ -24,7 +24,7 @@ export default {
 			if (typeof safari.self === 'undefined') {
 				return;
 			};
-			
+
 			// @MessageReceiveFromBackground:Safari
 			return safari.self.addEventListener('message', inputData, false);
 		}
@@ -35,10 +35,10 @@ export default {
 				if (sender.tab) { // from a content script
 					return;
 				}
-			  
+
 			  inputData(request);
 			});
 		}
 	},
-	
+
 };

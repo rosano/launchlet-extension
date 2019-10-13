@@ -40,7 +40,7 @@ onMount(mod.LifecycleModuleDidMount);
 
 <svelte:window on:keydown={ mod.InterfaceKeydownDidFire }/>
 
-<div class="LBXSettingSimulate"> 
+<div class="LBXSettingSimulate">
 
 <h1 class="LBXSettingSimulateHeading">{ OLSKLocalized('LBXSettingSimulateHeadingText') }</h1>
 

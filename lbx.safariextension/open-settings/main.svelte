@@ -24,7 +24,7 @@ const mod = {
 				if (!event.message) {
 					return;
 				};
-				
+
 				mod.LBXSettingShortcutsMap = event.message;
 		  },
 		}[event.name]();
@@ -40,11 +40,11 @@ const mod = {
 		mod.SetupMessageReceiveFromBackground();
 		mod.SetupValueShortcutsMap();
 	},
-	
+
 	SetupMessageReceiveFromBackground() {
 		api.MessageReceiveFromBackground(mod.MessageDidReceiveFromBackground);
 	},
-	
+
 	SetupValueShortcutsMap() {
 		api.MessageSendToBackground('DispatchBackgroundSendShortcutsMap');
 	},

@@ -89,20 +89,20 @@ const mod = {
 	SetupMessageReceiveFromPage() {
 		api.MessageReceiveFromPage(mod.MessageDidReceiveFromPage);
 	},
-	
+
 	SetupMessageReceiveFromBackground() {
 		api.MessageReceiveFromBackground(mod.MessageDidReceiveFromBackground);
 	},
-	
+
 	SetupKeyboardShortcuts() {
 		// @KeyboardShortcuts
 		window.addEventListener('keydown', mod.MessageDidKeyDown, false);
 	},
-	
+
 	SetupValueKeyboardShortcutsMap() {
 		api.MessageSendToBackground('DispatchBackgroundSendShortcutsMap');
 	},
-	
+
 	SetupRunTasks() {
 		api.MessageSendToBackground('DispatchBackgroundRunTasks');
 	},

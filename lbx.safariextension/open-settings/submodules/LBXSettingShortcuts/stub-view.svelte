@@ -2,16 +2,16 @@
 import Module from './main.svelte';
 
 const mod = {
-	
+
 	TestLBXSettingShortcutsDispatchCreate(inputData) {
 		window.TestLBXSettingShortcutsDispatchCreate.innerHTML = parseInt(window.TestLBXSettingShortcutsDispatchCreate.innerHTML) + 1;
 	},
-	
+
 	TestLBXSettingShortcutsDispatchUpdate(inputData) {
 		window.TestLBXSettingShortcutsDispatchUpdate.innerHTML = parseInt(window.TestLBXSettingShortcutsDispatchUpdate.innerHTML) + 1;
 		window.TestLBXSettingShortcutsDispatchUpdateValue.innerHTML = JSON.stringify(inputData.detail);
 	},
-	
+
 };
 </script>
 

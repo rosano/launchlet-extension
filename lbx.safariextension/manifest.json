@@ -37,7 +37,7 @@
 
     // @ToolbarButtonIcon
     "default_icon": "/-shared/images/Icon-128.png",
-    
+
     // @ToolbarButtonContextMenu
     "default_popup": "/open-popover/ui-view.html"
   },

@@ -9,7 +9,7 @@ before(function() {
 });
 
 describe('LBXSettingsGuideLink', function () {
-	
+
 	it('sets href', function () {
 		browser.assert.attribute(LBXSettingsGuideLink, 'href', 'https://launchlet.dev/guide');
 	});

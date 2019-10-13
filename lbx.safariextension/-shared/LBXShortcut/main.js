@@ -38,7 +38,7 @@ export const LBXShortcutValidation = function (inputData) {
 			return false;
 		};
 
-		return true;	
+		return true;
 	};
 };
 

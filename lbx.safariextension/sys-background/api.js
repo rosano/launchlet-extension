@@ -75,5 +75,5 @@ export default {
 		  console.log(chrome.runtime.lastError);
 		});
 	}
-	
+
 };

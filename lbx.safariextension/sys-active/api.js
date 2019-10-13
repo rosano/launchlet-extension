@@ -29,9 +29,9 @@ export default {
 			if (sender.tab) { // from a content script
 				return;
 			}
-		  
+
 		  inputData(request);
 		});
 	},
-	
+
 };

@@ -10,7 +10,7 @@ As a complement to the [main project](https://github.com/launchlet/launchlet), t
 
 # Setup
 
-There are two parts to running the extension: *Install* in the browser, and then *Pair* with the [Composer](https://launchlet.dev/compose). 
+There are two parts to running the extension: *Install* in the browser, and then *Pair* with the [Composer](https://launchlet.dev/compose).
 
 ## Install
 

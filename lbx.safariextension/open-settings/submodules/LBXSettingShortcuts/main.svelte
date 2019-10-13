@@ -42,7 +42,7 @@ const mod = {
 };
 </script>
 
-<div class="LBXSettingShortcuts"> 
+<div class="LBXSettingShortcuts">
 
 <h1 class="LBXSettingShortcutsHeading">{ OLSKLocalized('LBXSettingShortcutsHeadingText') }</h1>
 
@@ -53,7 +53,7 @@ const mod = {
 {#each Object.keys(LBXSettingShortcutsMap) as item}
 	<p class="LBXSettingShortcutsItem">
 		<input class="LBXSettingShortcutsItemKeyField" placeholder={ OLSKLocalized('LBXSettingShortcutsItemKeyFieldPlaceholderText') } value={ item } autofocus on:input={ (event) => mod.CommandNotifyChange(item, event.target.value, undefined) } />
-		
+
 		<input class="LBXSettingShortcutsItemValueField" placeholder={ OLSKLocalized('LBXSettingShortcutsItemValueFieldPlaceholderText') } value={ LBXSettingShortcutsMap[item] } on:input={ (event) => mod.CommandNotifyChange(item, undefined, event.target.value) } />
 
 		<button class="LBXSettingShortcutsItemDeleteButton" on:click={ (event) => mod.CommandNotifyChange(item, undefined, undefined) }>{ OLSKLocalized('LBXSettingShortcutsItemDeleteButtonText') }</button>

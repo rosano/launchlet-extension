@@ -119,7 +119,7 @@ const mod = {
   },
   async _CommandLocalDataGet (inputData) {
     const outputData = await api.LocalDataGet(inputData);;
-    
+
     if (typeof outputData === 'undefined') {
       return outputData;
     };
@@ -176,11 +176,11 @@ const mod = {
     if (!mod.ValueMemoryPayload()) {
       return;
     };
-    
+
     if (!(await mod._CommandLocalDataGet('kLBXPreferenceRunAutomaticRecipes'))) {
       return;
     };
-    
+
     api.RunDynamicScript(`(function () {
       ${ mod.ValueMemoryPayload().LBXPayloadPackageScript };
 
@@ -202,7 +202,7 @@ const mod = {
   CommandUpdateShortcutsMap (inputData) {
     mod._CommandLocalDataSet('kLBXPreferenceShortcutsMap', inputData);
   },
-  
+
   // SETUP
 
   SetupEverything () {
@@ -215,7 +215,7 @@ const mod = {
       if (!inputData) {
         return Promise.resolve(inputData)
       };
-	  	
+
       return new Promise(function (resolve, reject) {
         return simpleCrypto.asym.importEncryptPrivateKey(inputData, reject, resolve);
       })
@@ -227,7 +227,7 @@ const mod = {
 	SetupMessageReceiveFromActive() {
 		api.MessageReceiveFromActive(mod.MessageDidReceiveFromActive)
 	},
-  
+
   // LIFECYCLE
 
   LifecycleExtensionDidLoad () {

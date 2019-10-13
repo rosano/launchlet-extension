@@ -3,7 +3,7 @@
     "postinstall": "node ./package-postinstall.js",
 
     "start": "olsk-app lbx.safariextension",
-    
+
     "build": "rollup -c rollup-config.js",
     "build-watch": "rollup -w -c rollup-config.js"
   },
@@ -31,6 +31,6 @@
     "// UI COPY TO CLIPBOARD": null,
     "clipboard": "latest",
 
-    "// I sacrifice myself for the commas of others": null    
+    "// I sacrifice myself for the commas of others": null
   }
 }

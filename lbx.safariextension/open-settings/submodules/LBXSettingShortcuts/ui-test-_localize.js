@@ -22,7 +22,7 @@ describe(`LBXSettingShortcutsUILocalize-${ languageCode }`, function () {
 
 	it('localizes LBXSettingShortcutsCreateButton', function () {
 		browser.assert.text(LBXSettingShortcutsCreateButton, uLocalized('LBXSettingShortcutsCreateButtonText'));
-	});	
+	});
 
 	context('LBXSettingShortcutsMap', function () {
 
@@ -34,19 +34,19 @@ describe(`LBXSettingShortcutsUILocalize-${ languageCode }`, function () {
 				}),
 			}));
 		});
-		
+
 		it('localizes LBXSettingShortcutsItemKeyField', function () {
 			browser.assert.attribute(LBXSettingShortcutsItemKeyField, 'placeholder', uLocalized('LBXSettingShortcutsItemKeyFieldPlaceholderText'));
 		});
-		
+
 		it('localizes LBXSettingShortcutsItemValueField', function () {
 			browser.assert.attribute(LBXSettingShortcutsItemValueField, 'placeholder', uLocalized('LBXSettingShortcutsItemValueFieldPlaceholderText'));
 		});
-		
+
 		it('localizes LBXSettingShortcutsItemDeleteButton', function () {
 			browser.assert.text(LBXSettingShortcutsItemDeleteButton, uLocalized('LBXSettingShortcutsItemDeleteButtonText'));
 		});
-	
+
 	});
 
 });

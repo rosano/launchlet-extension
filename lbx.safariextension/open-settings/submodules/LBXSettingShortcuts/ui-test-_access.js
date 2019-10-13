@@ -6,9 +6,9 @@ Object.entries({
 	LBXSettingShortcuts: '.LBXSettingShortcuts',
 
 	LBXSettingShortcutsHeading: '.LBXSettingShortcutsHeading',
-	
+
 	LBXSettingShortcutsCreateButton: '.LBXSettingShortcutsCreateButton',
-	
+
 	LBXSettingShortcutsItem: '.LBXSettingShortcutsItem',
 	LBXSettingShortcutsItemKeyField: '.LBXSettingShortcutsItemKeyField',
 	LBXSettingShortcutsItemValueField: '.LBXSettingShortcutsItemValueField',
@@ -22,11 +22,11 @@ describe('LBXSettingShortcutsUIAccess', function () {
 	before(function() {
 		return browser.visit(kDefaultRoute.OLSKRoutePath);
 	});
-	
+
 	it('shows LBXSettingShortcuts', function() {
 		browser.assert.elements(LBXSettingShortcuts, 1);
 	});
-	
+
 	it('shows LBXSettingShortcutsHeading', function() {
 		browser.assert.elements(LBXSettingShortcutsHeading, 1);
 	});
@@ -48,23 +48,23 @@ describe('LBXSettingShortcutsUIAccess', function () {
 				}),
 			}));
 		});
-		
+
 		it('shows LBXSettingShortcutsItem', function () {
 			browser.assert.elements(LBXSettingShortcutsItem, 1);
 		});
-		
+
 		it('shows LBXSettingShortcutsItemKeyField', function () {
 			browser.assert.elements(LBXSettingShortcutsItemKeyField, 1);
 		});
-		
+
 		it('shows LBXSettingShortcutsItemValueField', function () {
 			browser.assert.elements(LBXSettingShortcutsItemValueField, 1);
 		});
-		
+
 		it('shows LBXSettingShortcutsItemDeleteButton', function () {
 			browser.assert.elements(LBXSettingShortcutsItemDeleteButton, 1);
 		});
-	
+
 	});
 
 });

@@ -29,7 +29,7 @@ const mod = {
 	},
 
 	_ValueRunAutomaticRecipes: false,
-	
+
 	// INTERFACE
 
 	InterfaceGenerateKeyButtonDidClick () {
@@ -49,7 +49,7 @@ const mod = {
 	},
 
 	// COMMAND
-	
+
 	async CommandGenerateKeys () {
 		let item = OLSK_TESTING_BEHAVIOUR() ? {
 			privateJwk: 'LBX_TESTING_PRIVATE_KEY',
@@ -68,7 +68,7 @@ const mod = {
 		if (OLSK_TESTING_BEHAVIOUR()) {
 			return;
 		}
-		
+
 		api.CallBackgroundFunction('DispatchBackgroundPrivateKeySave', inputData);
 	},
 	_CommandStorePublicKey (inputData) {
@@ -77,7 +77,7 @@ const mod = {
 		if (OLSK_TESTING_BEHAVIOUR()) {
 			return;
 		}
-		
+
 		mod.CommandLocalDataStore('kLBXPreferencePublicKey', mod.ValuePublicKey());
 	},
 
@@ -85,7 +85,7 @@ const mod = {
 		mod._CommandStorePublicKey(null)
 
 		LBXPopoverPreloadDidPair = false;
-		
+
 		api.CallBackgroundFunction('DispatchBackgroundPrivateKeyForget');
 	},
 
@@ -99,7 +99,7 @@ const mod = {
 
 	async CommandLocalDataRetrieve (inputData) {
 	  const outputData = await api.LocalDataRetrieve(inputData);
-	  
+
 	  if (typeof outputData === 'undefined') {
 	    return outputData;
 	  };
@@ -171,7 +171,7 @@ if (typeof safari !== 'undefined') {
 };
 </script>
 
-<div class="LBXPopover"> 
+<div class="LBXPopover">
 
 {#if !mod._ValuePublicKey }
 	<p>

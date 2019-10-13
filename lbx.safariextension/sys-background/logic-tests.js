@@ -38,6 +38,6 @@ describe('LBXPayloadIsValid', function testLBXPayloadIsValid() {
 
 	it('returns true', function() {
 		deepEqual(mainModule.LBXPayloadIsValid(uStubItem()), true);
-	});	
+	});
 
 });
