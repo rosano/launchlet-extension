@@ -22,6 +22,8 @@ https://addons.mozilla.org/addon/launchlet/
 
 ### Chrome
 
+https://chrome.google.com/webstore/detail/launchlet/gmgfdkajnjplpjmodjmmmkfkpjdjgnlf
+
 ### Safari
 
 Safari 13 no longer supports the common web extension format so it is currently only possible to install on Safari 12 or earlier.
