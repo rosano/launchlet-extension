@@ -1,6 +1,6 @@
 import { throws, doesNotThrow, deepEqual } from 'assert';
 
-import * as mainModule from './rollup-config-custom.js';
+const mainModule = require('./rollup-config-custom.js');
 
 describe('LBXActiveRollupConfigCustom', function testLBXActiveRollupConfigCustom() {
 
