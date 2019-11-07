@@ -3,6 +3,8 @@
     "postinstall": "node ./package-postinstall.js",
 
     "start": "olsk-app lbx.safariextension",
+
+    "test": "OLSK_APP_FOLDER=lbx.safariextension olsk-spec",
     
     "build": "rollup -c rollup-config.js",
     "build-watch": "rollup -w -c rollup-config.js"
@@ -21,6 +23,9 @@
 
     "// UI TESTS": null,
     "zombie": "latest",
+
+    "// SPEC": null,
+    "OLSKSpec": "olsk/OLSKSpec",
 
     "// SERVE UI TEST STUBS": null,
     "OLSKApp": "olsk/OLSKApp",
