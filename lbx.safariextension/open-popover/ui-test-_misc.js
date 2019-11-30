@@ -5,7 +5,7 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().LBXPopov
 describe('LBXPopoverUIMisc', function () {
 
 	before(function() {
-		return browser.visit(kDefaultRoute.OLSKRoutePath);
+		return browser.OLSKVisit(kDefaultRoute);
 	});
 
 	context('LBXPopoverGenerateKeyButton', function testLBXPopoverGenerateKeyButton() {
@@ -44,7 +44,11 @@ describe('LBXPopoverUIMisc', function () {
 	describe('LBXPopoverRunAutomaticRecipesField', function() {
 
 		before(function () {
-			return browser.visit(`${ kDefaultRoute.OLSKRoutePath }?LBXPopoverPreloadPrivateKey=alfa&LBXPopoverPreloadPublicKey=bravo&LBXPopoverPreloadDidPair=true`);
+			return browser.OLSKVisit(kDefaultRoute, {
+				LBXPopoverPreloadPrivateKey: 'alfa',
+				LBXPopoverPreloadPublicKey: 'bravo',
+				LBXPopoverPreloadDidPair: 'true',
+			});
 		});
 
 		it('sets type', function () {

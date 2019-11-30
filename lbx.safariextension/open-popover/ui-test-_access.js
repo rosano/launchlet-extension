@@ -21,7 +21,7 @@ Object.entries({
 describe('LBXPopoverUIAccess', function () {
 
 	before(function() {
-		return browser.visit(kDefaultRoute.OLSKRoutePath);
+		return browser.OLSKVisit(kDefaultRoute);
 	});
 	
 	it('shows LBXPopover', function() {
@@ -95,7 +95,11 @@ describe('LBXPopoverUIAccess', function () {
 	context('DidPair', function testDidPair() {
 
 		before(function () {
-			return browser.visit(`${ kDefaultRoute.OLSKRoutePath }?LBXPopoverPreloadPrivateKey=alfa&LBXPopoverPreloadPublicKey=bravo&LBXPopoverPreloadDidPair=true`);
+			return browser.OLSKVisit(kDefaultRoute, {
+				LBXPopoverPreloadPrivateKey: 'alfa',
+				LBXPopoverPreloadPublicKey: 'bravo',
+				LBXPopoverPreloadDidPair: 'true',
+			});
 		});
 
 		it('hides LBXPopoverPublicKeyField', function() {

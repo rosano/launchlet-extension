@@ -20,7 +20,7 @@ Object.entries({
 describe('LBXSettingShortcutsUIAccess', function () {
 
 	before(function() {
-		return browser.visit(kDefaultRoute.OLSKRoutePath);
+		return browser.OLSKVisit(kDefaultRoute);
 	});
 	
 	it('shows LBXSettingShortcuts', function() {
@@ -42,11 +42,11 @@ describe('LBXSettingShortcutsUIAccess', function () {
 	context('LBXSettingShortcutsMap', function () {
 
 		before(function () {
-			return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+			return browser.OLSKVisit(kDefaultRoute, {
 				LBXSettingShortcutsMap: JSON.stringify({
 					'': '',
 				}),
-			}));
+			});
 		});
 		
 		it('shows LBXSettingShortcutsItem', function () {

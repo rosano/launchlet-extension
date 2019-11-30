@@ -22,7 +22,7 @@ Object.entries({
 describe('LBXSettingSimulateUIAccess', function () {
 
 	before(function() {
-		return browser.visit(kDefaultRoute.OLSKRoutePath);
+		return browser.OLSKVisit(kDefaultRoute);
 	});
 	
 	it('shows LBXSettingSimulate', function() {

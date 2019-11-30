@@ -5,7 +5,7 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().LBXSetti
 describe('LBXSettingShortcutsUIMisc', function () {
 
 before(function() {
-	return browser.visit(kDefaultRoute.OLSKRoutePath);
+	return browser.OLSKVisit(kDefaultRoute);
 });
 
 describe('LBXSettingShortcutsCreateButton', function() {
@@ -27,11 +27,11 @@ describe('LBXSettingShortcutsCreateButton', function() {
 context('LBXSettingShortcutsMap', function () {
 
 	before(function () {
-		return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+		return browser(kDefaultRoute, {
 			LBXSettingShortcutsMap: JSON.stringify({
 				alfa: 'bravo',
 			}),
-		}));
+		});
 	});
 
 	context('LBXSettingShortcutsItemKeyField', function () {
@@ -59,11 +59,11 @@ context('LBXSettingShortcutsMap', function () {
 context('LBXSettingShortcutsItemKeyField', function () {
 
 	before(function () {
-		return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+		return browser(kDefaultRoute, {
 			LBXSettingShortcutsMap: JSON.stringify({
 				alfa: 'bravo',
 			}),
-		}));
+		});
 	});
 
 	before(function () {
@@ -90,11 +90,11 @@ context('LBXSettingShortcutsItemKeyField', function () {
 context('LBXSettingShortcutsItemValueField', function () {
 
 	before(function () {
-		return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+		return browser(kDefaultRoute, {
 			LBXSettingShortcutsMap: JSON.stringify({
 				alfa: 'bravo',
 			}),
-		}));
+		});
 	});
 
 	before(function () {
@@ -121,11 +121,11 @@ context('LBXSettingShortcutsItemValueField', function () {
 context('LBXSettingShortcutsItemDeleteButton', function () {
 
 	before(function () {
-		return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+		return browser(kDefaultRoute, {
 			LBXSettingShortcutsMap: JSON.stringify({
 				alfa: 'bravo',
 			}),
-		}));
+		});
 	});
 
 	before(function () {

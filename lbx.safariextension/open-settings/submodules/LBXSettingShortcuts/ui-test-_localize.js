@@ -11,9 +11,9 @@ const uLocalized = function (inputData) {
 describe(`LBXSettingShortcutsUILocalize-${ languageCode }`, function () {
 
 	before(function() {
-		return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+		return browser.OLSKVisit(kDefaultRoute, {
 			OLSKRoutingLanguage: languageCode,
-		}));
+		});
 	});
 
 	it('localizes LBXSettingShortcutsHeading', function () {
@@ -27,12 +27,12 @@ describe(`LBXSettingShortcutsUILocalize-${ languageCode }`, function () {
 	context('LBXSettingShortcutsMap', function () {
 
 		before(function () {
-			return browser.visit(OLSKTestingCanonicalFor(kDefaultRoute.OLSKRoutePath, {
+			return browser.OLSKVisit(kDefaultRoute, {
 				OLSKRoutingLanguage: languageCode,
 				LBXSettingShortcutsMap: JSON.stringify({
 					'': '',
 				}),
-			}));
+			});
 		});
 		
 		it('localizes LBXSettingShortcutsItemKeyField', function () {

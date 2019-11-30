@@ -13,7 +13,7 @@ Object.entries({
 describe('LBXSettingsUIAccess', function () {
 
 	before(function() {
-		return browser.visit(kDefaultRoute.OLSKRoutePath);
+		return browser.OLSKVisit(kDefaultRoute);
 	});
 	
 	it('shows LBXSettings', function() {

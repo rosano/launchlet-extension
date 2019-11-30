@@ -11,7 +11,10 @@ const uLocalized = function (inputData) {
 describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 
 	before(function() {
-		return browser.visit(`${ languageCode }${ kDefaultRoute.OLSKRoutePath }`);
+		return browser.OLSKVisit(kDefaultRoute, {
+			OLSKRoutingLanguage: languageCode,
+		}});
+
 	});
 
 	it('localizes LBXPopoverGenerateKeyButton', function() {
@@ -37,7 +40,12 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 	context('DidPair', function testDidPair() {
 
 		before(function () {
-			return browser.visit(`${ languageCode }${ kDefaultRoute.OLSKRoutePath }?LBXPopoverPreloadPrivateKey=alfa&LBXPopoverPreloadPublicKey=bravo&LBXPopoverPreloadDidPair=true`);
+			return browser.OLSKVisit(kDefaultRoute, {
+				OLSKRoutingLanguage: languageCode,
+				LBXPopoverPreloadPrivateKey: 'alfa',
+				LBXPopoverPreloadPublicKey: 'bravo',
+				LBXPopoverPreloadDidPair: 'true',
+			});
 		});
 
 		it('localizes LBXPopoverRunAutomaticRecipesFieldLabel', function() {

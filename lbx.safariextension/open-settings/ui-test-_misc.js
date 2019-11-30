@@ -5,7 +5,7 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().LBXSetti
 describe('LBXSettingsUIMisc', function () {
 
 before(function() {
-	return browser.visit(kDefaultRoute.OLSKRoutePath);
+	return browser.OLSKVisit(kDefaultRoute);
 });
 
 describe('LBXSettingsGuideLink', function () {
