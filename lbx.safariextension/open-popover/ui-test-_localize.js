@@ -13,7 +13,7 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
 			OLSKRoutingLanguage: languageCode,
-		}});
+		});
 
 	});
 

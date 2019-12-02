@@ -27,7 +27,7 @@ describe('LBXSettingShortcutsCreateButton', function() {
 context('LBXSettingShortcutsMap', function () {
 
 	before(function () {
-		return browser(kDefaultRoute, {
+		return browser.OLSKVisit(kDefaultRoute, {
 			LBXSettingShortcutsMap: JSON.stringify({
 				alfa: 'bravo',
 			}),
@@ -59,7 +59,7 @@ context('LBXSettingShortcutsMap', function () {
 context('LBXSettingShortcutsItemKeyField', function () {
 
 	before(function () {
-		return browser(kDefaultRoute, {
+		return browser.OLSKVisit(kDefaultRoute, {
 			LBXSettingShortcutsMap: JSON.stringify({
 				alfa: 'bravo',
 			}),
@@ -90,7 +90,7 @@ context('LBXSettingShortcutsItemKeyField', function () {
 context('LBXSettingShortcutsItemValueField', function () {
 
 	before(function () {
-		return browser(kDefaultRoute, {
+		return browser.OLSKVisit(kDefaultRoute, {
 			LBXSettingShortcutsMap: JSON.stringify({
 				alfa: 'bravo',
 			}),
@@ -121,7 +121,7 @@ context('LBXSettingShortcutsItemValueField', function () {
 context('LBXSettingShortcutsItemDeleteButton', function () {
 
 	before(function () {
-		return browser(kDefaultRoute, {
+		return browser.OLSKVisit(kDefaultRoute, {
 			LBXSettingShortcutsMap: JSON.stringify({
 				alfa: 'bravo',
 			}),
