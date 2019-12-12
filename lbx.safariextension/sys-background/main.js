@@ -9,25 +9,25 @@ const mod = {
 	MessageDidReceiveFromActive (event) {
     return {
       DispatchBackgroundPrivateKeySave () {
-        mod.CommandPrivateKeySave(event.message)
+        mod.ControlPrivateKeySave(event.message)
       },
       DispatchBackgroundPrivateKeyForget() {
-        mod.CommandPrivateKeyForget();
+        mod.ControlPrivateKeyForget();
       },
       DispatchBackgroundStorePayloadEncryptedData () {
-        mod.CommandHandleEventStorePayloadEncryptedData(event)
+        mod.ControlHandleEventStorePayloadEncryptedData(event)
       },
       DispatchBackgroundRunSignature() {
-        mod.CommandRunSignature(event)
+        mod.ControlRunSignature(event)
       },
       DispatchBackgroundRunTasks() {
-        mod.CommandRunTasks(event)
+        mod.ControlRunTasks(event)
       },
       DispatchBackgroundSendShortcutsMap () {
-        mod.CommandSendShortcutsMap(event);
+        mod.ControlSendShortcutsMap(event);
       },
       DispatchBackgroundUpdateShortcutsMap () {
-        mod.CommandUpdateShortcutsMap(event.message);
+        mod.ControlUpdateShortcutsMap(event.message);
       },
     }[event.name]();
   },
@@ -52,11 +52,11 @@ const mod = {
     mod._ValueMemoryPayload = inputData
   },
 
-  // COMMAND
+  // CONTROL
 
-  async CommandHandleEventStorePayloadEncryptedData (event) {
+  async ControlHandleEventStorePayloadEncryptedData (event) {
   	try {
-      const decryptedPayload = JSON.parse(await mod._CommandDecrypt(event.message, mod.ValuePrivateKey()));
+      const decryptedPayload = JSON.parse(await mod._ControlDecrypt(event.message, mod.ValuePrivateKey()));
 
       if (!LBXPayloadIsValid(decryptedPayload)) {
         throw new Error('LBXPayloadNotValid');
@@ -64,14 +64,14 @@ const mod = {
 
       mod.ValueMemoryPayload(decryptedPayload);
 
-      mod._CommandLocalDataSet('kLBXPreferencePayload', decryptedPayload);
+      mod._ControlLocalDataSet('kLBXPreferencePayload', decryptedPayload);
 
       api.MessageSendToPage('DispatchActivePayloadSuccess', mod.ValueMemoryPayload().LBXPayloadConfirmation, event);
   	} catch (e) {
   		api.MessageSendToPage('DispatchActivePayloadError', e, event);
   	}
   },
-  async _CommandDecrypt (param1, param2) {
+  async _ControlDecrypt (param1, param2) {
     if (_LBX_DISABLE_ENCRYPTION()) {
       return Promise.resolve(param1);
     };
@@ -100,24 +100,24 @@ const mod = {
     })
   },
 
-  CommandPrivateKeySave (inputData) {
-    mod._CommandLocalDataSet('kLBXPreferencePrivateKey', inputData);
+  ControlPrivateKeySave (inputData) {
+    mod._ControlLocalDataSet('kLBXPreferencePrivateKey', inputData);
 
     mod.SetupValueMemoryPrivateKey();
   },
 
-  CommandPrivateKeyForget () {
-    mod._CommandLocalDataSet('kLBXPreferencePrivateKey', null);
-    mod._CommandLocalDataSet('kLBXPreferencePayload', null);
+  ControlPrivateKeyForget () {
+    mod._ControlLocalDataSet('kLBXPreferencePrivateKey', null);
+    mod._ControlLocalDataSet('kLBXPreferencePayload', null);
 
     delete mod._ValueMemoryPrivateKey;
     delete mod._ValueMemoryPayload;
   },
 
-  _CommandLocalDataSet (key, inputData) {
+  _ControlLocalDataSet (key, inputData) {
     api.LocalDataSet(key, JSON.stringify(inputData));
   },
-  async _CommandLocalDataGet (inputData) {
+  async _ControlLocalDataGet (inputData) {
     const outputData = await api.LocalDataGet(inputData);;
     
     if (typeof outputData === 'undefined') {
@@ -127,7 +127,7 @@ const mod = {
     return JSON.parse(outputData);
   },
 
-  CommandRunSignature (event) {
+  ControlRunSignature (event) {
     if (!mod.ValueMemoryPayload()) {
       return;
     };
@@ -172,12 +172,12 @@ const mod = {
     })()`, event)
   },
 
-  async CommandRunTasks (event) {
+  async ControlRunTasks (event) {
     if (!mod.ValueMemoryPayload()) {
       return;
     };
     
-    if (!(await mod._CommandLocalDataGet('kLBXPreferenceRunAutomaticRecipes'))) {
+    if (!(await mod._ControlLocalDataGet('kLBXPreferenceRunAutomaticRecipes'))) {
       return;
     };
     
@@ -188,8 +188,8 @@ const mod = {
     })()`, event)
   },
 
-  async CommandSendShortcutsMap (event) {
-    const result = await mod._CommandLocalDataGet('kLBXPreferenceShortcutsMap');
+  async ControlSendShortcutsMap (event) {
+    const result = await mod._ControlLocalDataGet('kLBXPreferenceShortcutsMap');
 
     api.MessageSendToPage('DispatchSharedShortcutsMap', result || {
       'Alt+Shift+Digit1': 'LBXShortcutDefault',
@@ -199,8 +199,8 @@ const mod = {
     }, event);
   },
 
-  CommandUpdateShortcutsMap (inputData) {
-    mod._CommandLocalDataSet('kLBXPreferenceShortcutsMap', inputData);
+  ControlUpdateShortcutsMap (inputData) {
+    mod._ControlLocalDataSet('kLBXPreferenceShortcutsMap', inputData);
   },
   
   // SETUP
@@ -219,10 +219,10 @@ const mod = {
       return new Promise(function (resolve, reject) {
         return simpleCrypto.asym.importEncryptPrivateKey(inputData, reject, resolve);
       })
-		})(await mod._CommandLocalDataGet('kLBXPreferencePrivateKey')))
+		})(await mod._ControlLocalDataGet('kLBXPreferencePrivateKey')))
 	},
   async SetupValueMemoryPayload() {
-    mod.ValueMemoryPayload(await mod._CommandLocalDataGet('kLBXPreferencePayload'))
+    mod.ValueMemoryPayload(await mod._ControlLocalDataGet('kLBXPreferencePayload'))
   },
 	SetupMessageReceiveFromActive() {
 		api.MessageReceiveFromActive(mod.MessageDidReceiveFromActive)
@@ -239,6 +239,6 @@ const mod = {
 mod.LifecycleExtensionDidLoad();
 
 window.LBXBackgroundModule = {
-  DispatchBackgroundPrivateKeySave: mod.CommandPrivateKeySave,
-  DispatchBackgroundPrivateKeyForget: mod.CommandPrivateKeyForget,
+  DispatchBackgroundPrivateKeySave: mod.ControlPrivateKeySave,
+  DispatchBackgroundPrivateKeyForget: mod.ControlPrivateKeyForget,
 };

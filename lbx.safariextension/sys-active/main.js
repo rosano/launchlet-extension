@@ -26,7 +26,7 @@ const mod = {
 
 		return {
 			DispatchRequestStorePayload() {
-		  	mod.CommandStorePayloadEncryptedData(event.data.LBXRequestEncryptedData);
+		  	mod.ControlStorePayloadEncryptedData(event.data.LBXRequestEncryptedData);
 		  },
 		}[event.data.LBXRequestName]();
 	},
@@ -70,9 +70,9 @@ const mod = {
 		api.MessageSendToBackground('DispatchBackgroundRunSignature', signature);
 	},
 
-	// COMMAND
+	// CONTROL
 
-	CommandStorePayloadEncryptedData(inputData) {
+	ControlStorePayloadEncryptedData(inputData) {
 		api.MessageSendToBackground('DispatchBackgroundStorePayloadEncryptedData', inputData);
 	},
 

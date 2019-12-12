@@ -33,71 +33,71 @@ const mod = {
 	// INTERFACE
 
 	InterfaceGenerateKeyButtonDidClick () {
-		mod.CommandGenerateKeys();
+		mod.ControlGenerateKeys();
 	},
 
 	InterfaceDeleteKeyButtonDidClick () {
-		mod.CommandDeleteKey();
+		mod.ControlDeleteKey();
 	},
 
 	InterfaceRunAutomaticRecipesFieldDidInput () {
-		mod.CommandLocalDataStore('kLBXPreferenceRunAutomaticRecipes', this.checked);
+		mod.ControlLocalDataStore('kLBXPreferenceRunAutomaticRecipes', this.checked);
 	},
 
 	InterfaceShowSettingsButtonDidClick () {
-		mod.CommandShowSettings();
+		mod.ControlShowSettings();
 	},
 
-	// COMMAND
+	// CONTROL
 	
-	async CommandGenerateKeys () {
+	async ControlGenerateKeys () {
 		let item = OLSK_TESTING_BEHAVIOUR() ? {
 			privateJwk: 'LBX_TESTING_PRIVATE_KEY',
 			publicJwk: 'LBX_TESTING_PUBLIC_KEY',
-		} : await mod._CommandGenerateKeys();
+		} : await mod._ControlGenerateKeys();
 
-		mod._CommandStorePrivateKey(item.privateJwk);
-		mod._CommandStorePublicKey(JSON.stringify(item.publicJwk));
+		mod._ControlStorePrivateKey(item.privateJwk);
+		mod._ControlStorePublicKey(JSON.stringify(item.publicJwk));
 	},
-	async _CommandGenerateKeys () {
+	async _ControlGenerateKeys () {
 		return new Promise(function (resolve, reject) {
 			window.simpleCrypto.asym.generateEncryptKey(reject, resolve);
 		});
 	},
-	_CommandStorePrivateKey (inputData) {
+	_ControlStorePrivateKey (inputData) {
 		if (OLSK_TESTING_BEHAVIOUR()) {
 			return;
 		}
 		
 		api.CallBackgroundFunction('DispatchBackgroundPrivateKeySave', inputData);
 	},
-	_CommandStorePublicKey (inputData) {
+	_ControlStorePublicKey (inputData) {
 		mod.ValuePublicKey(inputData);
 
 		if (OLSK_TESTING_BEHAVIOUR()) {
 			return;
 		}
 		
-		mod.CommandLocalDataStore('kLBXPreferencePublicKey', mod.ValuePublicKey());
+		mod.ControlLocalDataStore('kLBXPreferencePublicKey', mod.ValuePublicKey());
 	},
 
-	CommandDeleteKey () {
-		mod._CommandStorePublicKey(null)
+	ControlDeleteKey () {
+		mod._ControlStorePublicKey(null)
 
 		LBXPopoverPreloadDidPair = false;
 		
 		api.CallBackgroundFunction('DispatchBackgroundPrivateKeyForget');
 	},
 
-	CommandShowSettings () {
+	ControlShowSettings () {
 		api.SettingsPageProgrammaticLaunch();
 	},
 
-	CommandLocalDataStore (key, inputData) {
+	ControlLocalDataStore (key, inputData) {
 	  api.LocalDataStore(key, JSON.stringify(inputData));
 	},
 
-	async CommandLocalDataRetrieve (inputData) {
+	async ControlLocalDataRetrieve (inputData) {
 	  const outputData = await api.LocalDataRetrieve(inputData);
 	  
 	  if (typeof outputData === 'undefined') {
@@ -126,7 +126,7 @@ const mod = {
 			return;
 		}
 
-	  mod.ValuePublicKey(await mod.CommandLocalDataRetrieve('kLBXPreferencePublicKey'));
+	  mod.ValuePublicKey(await mod.ControlLocalDataRetrieve('kLBXPreferencePublicKey'));
 	},
 
 	async SetupDidPair() {
@@ -134,7 +134,7 @@ const mod = {
 			return;
 		}
 
-	  LBXPopoverPreloadDidPair = !!(await mod.CommandLocalDataRetrieve('kLBXPreferencePayload'));
+	  LBXPopoverPreloadDidPair = !!(await mod.ControlLocalDataRetrieve('kLBXPreferencePayload'));
 	},
 
 	async SetupRunAutomaticRecipes() {
@@ -142,7 +142,7 @@ const mod = {
 			return;
 		}
 
-	  mod._ValueRunAutomaticRecipes = !!(await mod.CommandLocalDataRetrieve('kLBXPreferenceRunAutomaticRecipes'));
+	  mod._ValueRunAutomaticRecipes = !!(await mod.ControlLocalDataRetrieve('kLBXPreferenceRunAutomaticRecipes'));
 	},
 
 	// LIFECYCLE

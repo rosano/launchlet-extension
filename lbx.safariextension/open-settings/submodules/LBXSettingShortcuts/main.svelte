@@ -19,9 +19,9 @@ const mod = {
 		dispatch('LBXSettingShortcutsDispatchCreate');
 	},
 
-	// COMMAND
+	// CONTROL
 
-	CommandNotifyChange (original, key, value) {
+	ControlNotifyChange (original, key, value) {
 		dispatch('LBXSettingShortcutsDispatchUpdate', Object.keys(LBXSettingShortcutsMap).reduce(function (coll, item) {
 			if (item !== original) {
 				coll[item] = LBXSettingShortcutsMap[item];
@@ -52,11 +52,11 @@ const mod = {
 
 {#each Object.keys(LBXSettingShortcutsMap) as item}
 	<p class="LBXSettingShortcutsItem">
-		<input class="LBXSettingShortcutsItemKeyField" placeholder={ OLSKLocalized('LBXSettingShortcutsItemKeyFieldPlaceholderText') } value={ item } autofocus on:input={ (event) => mod.CommandNotifyChange(item, event.target.value, undefined) } />
+		<input class="LBXSettingShortcutsItemKeyField" placeholder={ OLSKLocalized('LBXSettingShortcutsItemKeyFieldPlaceholderText') } value={ item } autofocus on:input={ (event) => mod.ControlNotifyChange(item, event.target.value, undefined) } />
 		
-		<input class="LBXSettingShortcutsItemValueField" placeholder={ OLSKLocalized('LBXSettingShortcutsItemValueFieldPlaceholderText') } value={ LBXSettingShortcutsMap[item] } on:input={ (event) => mod.CommandNotifyChange(item, undefined, event.target.value) } />
+		<input class="LBXSettingShortcutsItemValueField" placeholder={ OLSKLocalized('LBXSettingShortcutsItemValueFieldPlaceholderText') } value={ LBXSettingShortcutsMap[item] } on:input={ (event) => mod.ControlNotifyChange(item, undefined, event.target.value) } />
 
-		<button class="LBXSettingShortcutsItemDeleteButton" on:click={ (event) => mod.CommandNotifyChange(item, undefined, undefined) }>{ OLSKLocalized('LBXSettingShortcutsItemDeleteButtonText') }</button>
+		<button class="LBXSettingShortcutsItemDeleteButton" on:click={ (event) => mod.ControlNotifyChange(item, undefined, undefined) }>{ OLSKLocalized('LBXSettingShortcutsItemDeleteButtonText') }</button>
 	</p>
 {/each}
 
