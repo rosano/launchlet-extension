@@ -1,4 +1,4 @@
-import { OLSKRollupScaffoldScanStart } from 'OLSKRollup';
+import { OLSKRollupScaffoldScanStart } from 'OLSKRollupScaffold';
 
 export default OLSKRollupScaffoldScanStart(require('path').join(__dirname, 'lbx.safariextension'), {
 	OLSKRollupPluginSwapTokens: {

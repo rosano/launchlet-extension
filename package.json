@@ -12,7 +12,7 @@
   "devDependencies": {
     "// SVELTE": null,
     "svelte": "3.9.0",
-    "OLSKRollup": "olsk/OLSKRollup",
+    "OLSKRollupScaffold": "olsk/OLSKRollupScaffold",
 
     "// UI NORMALIZE": null,
     "normalize.css": "latest",
