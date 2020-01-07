@@ -28,7 +28,7 @@
     "OLSKSpec": "olsk/OLSKSpec",
 
     "// SERVE UI TEST STUBS": null,
-    "OLSKApp": "olsk/OLSKApp",
+    "OLSKExpress": "olsk/OLSKExpress",
 
     "// WEBCRYPTO": null,
     "simplecrypto": "encryb/simplecrypto",
