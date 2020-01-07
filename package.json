@@ -2,7 +2,7 @@
   "scripts": {
     "postinstall": "node ./package-postinstall.js",
 
-    "start": "olsk-app lbx.safariextension",
+    "start": "olsk-express lbx.safariextension",
 
     "test": "OLSK_APP_FOLDER=lbx.safariextension olsk-spec",
     
