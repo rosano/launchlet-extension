@@ -10,7 +10,7 @@ Object.entries({
 	return global[e.shift()]  = e.pop();
 });
 
-describe('LBXSettingsUIAccess', function () {
+describe('LBXSettingsUI_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);

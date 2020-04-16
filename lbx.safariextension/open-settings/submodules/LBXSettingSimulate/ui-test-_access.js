@@ -19,7 +19,7 @@ Object.entries({
 	return global[e.shift()]  = e.pop();
 });
 
-describe('LBXSettingSimulateUIAccess', function () {
+describe('LBXSettingSimulateUI_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);

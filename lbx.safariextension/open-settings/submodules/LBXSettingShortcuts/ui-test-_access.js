@@ -17,7 +17,7 @@ Object.entries({
 	return global[e.shift()]  = e.pop();
 });
 
-describe('LBXSettingShortcutsUIAccess', function () {
+describe('LBXSettingShortcutsUI_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);

@@ -18,7 +18,7 @@ Object.entries({
 	return global[e.shift()]  = e.pop();
 });
 
-describe('LBXPopoverUIAccess', function () {
+describe('LBXPopoverUI_Access', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
