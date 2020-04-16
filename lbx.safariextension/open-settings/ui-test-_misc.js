@@ -2,7 +2,7 @@ import { deepEqual } from 'assert';
 
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().LBXSettingsRoute;
 
-describe('LBXSettingsUIMisc', function () {
+describe('LBXSettingsUI_Misc', function () {
 
 before(function() {
 	return browser.OLSKVisit(kDefaultRoute);

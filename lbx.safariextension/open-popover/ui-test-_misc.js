@@ -2,7 +2,7 @@ import { deepEqual } from 'assert';
 
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().LBXPopoverRoute;
 
-describe('LBXPopoverUIMisc', function () {
+describe('LBXPopoverUI_Misc', function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute);
