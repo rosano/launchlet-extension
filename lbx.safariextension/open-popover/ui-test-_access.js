@@ -56,7 +56,7 @@ describe('LBXPopoverUIAccess', function () {
 		browser.assert.elements(LBXPopoverShowSettingsButton, 0);
 	});
 	
-	context('GenerateKey', function testGenerateKey() {
+	context('GenerateKey', function test_GenerateKey() {
 
 		before(function () {
 			browser.click(LBXPopoverGenerateKeyButton);
@@ -92,7 +92,7 @@ describe('LBXPopoverUIAccess', function () {
 		
 	});
 
-	context('DidPair', function testDidPair() {
+	context('DidPair', function test_DidPair() {
 
 		before(function () {
 			return browser.OLSKVisit(kDefaultRoute, {
@@ -128,7 +128,7 @@ describe('LBXPopoverUIAccess', function () {
 
 	});
 
-	context('DeleteKey', function testDeleteKey() {
+	context('DeleteKey', function test_DeleteKey() {
 
 		before(function () {
 			browser.click(LBXPopoverDeleteKeyButton);

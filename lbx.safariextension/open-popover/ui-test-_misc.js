@@ -8,7 +8,7 @@ describe('LBXPopoverUIMisc', function () {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
-	context('LBXPopoverGenerateKeyButton', function testLBXPopoverGenerateKeyButton() {
+	context('LBXPopoverGenerateKeyButton', function test_LBXPopoverGenerateKeyButton() {
 
 		before(function () {
 			browser.click(LBXPopoverGenerateKeyButton);

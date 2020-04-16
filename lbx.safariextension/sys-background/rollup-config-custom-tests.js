@@ -2,7 +2,7 @@ const { throws, deepEqual } = require('assert');
 
 const mainModule = require('./rollup-config-custom.js');
 
-describe('LBXBackgroundRollupConfigCustom', function testLBXBackgroundRollupConfigCustom() {
+describe('LBXBackgroundRollupConfigCustom', function test_LBXBackgroundRollupConfigCustom() {
 
 	it('throws error if not object', function() {
 		throws(function() {

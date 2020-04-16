@@ -4,7 +4,7 @@ const mainModule = require('./logic.js');
 
 import { _LBX_DISABLE_ENCRYPTION } from '../-shared/_common/main.js';
 
-describe('LBXRequestIsValid', function testLBXRequestIsValid() {
+describe('LBXRequestIsValid', function test_LBXRequestIsValid() {
 
 	const uStubItem = function () {
 		return {

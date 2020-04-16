@@ -2,7 +2,7 @@ import { throws, doesNotThrow, deepEqual } from 'assert';
 
 const mainModule = require('./rollup-config-custom.js');
 
-describe('LBXActiveRollupConfigCustom', function testLBXActiveRollupConfigCustom() {
+describe('LBXActiveRollupConfigCustom', function test_LBXActiveRollupConfigCustom() {
 
 	it('throws error if not object', function() {
 		throws(function() {

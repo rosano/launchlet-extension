@@ -2,7 +2,7 @@ const { throws, deepEqual } = require('assert');
 
 const mainModule = require('./main.js');
 
-describe('LBXShortcutValidation', function testLBXShortcutValidation() {
+describe('LBXShortcutValidation', function test_LBXShortcutValidation() {
 
 	it('throws if not string', function () {
 		throws(function () {
@@ -134,7 +134,7 @@ describe('LBXShortcutValidation', function testLBXShortcutValidation() {
 
 });
 
-describe('LBXShortcutString', function testLBXShortcutString() {
+describe('LBXShortcutString', function test_LBXShortcutString() {
 
 	it('throws if not object', function () {
 		throws(function () {

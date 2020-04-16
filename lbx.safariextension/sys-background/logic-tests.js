@@ -2,7 +2,7 @@ const { throws, deepEqual } = require('assert');
 
 const mainModule = require('./logic.js');
 
-describe('LBXPayloadIsValid', function testLBXPayloadIsValid() {
+describe('LBXPayloadIsValid', function test_LBXPayloadIsValid() {
 
 	const uStubItem = function() {
 		return {

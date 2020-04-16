@@ -21,7 +21,7 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 		browser.assert.text(LBXPopoverGenerateKeyButton, uLocalized('LBXPopoverGenerateKeyButtonText'))
 	});
 
-	context('GenerateKey', function testGenerateKey() {
+	context('GenerateKey', function test_GenerateKey() {
 
 		before(function () {
 			browser.click(LBXPopoverGenerateKeyButton)
@@ -37,7 +37,7 @@ describe(`LBXPopoverUILocalize-${ languageCode }`, function () {
 
 	});
 
-	context('DidPair', function testDidPair() {
+	context('DidPair', function test_DidPair() {
 
 		before(function () {
 			return browser.OLSKVisit(kDefaultRoute, {

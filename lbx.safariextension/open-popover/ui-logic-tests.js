@@ -2,7 +2,7 @@ const { throws, deepEqual } = require('assert');
 
 const mainModule = require('./ui-logic.js');
 
-describe('LBXPopoverRandomSeed', function testLBXPopoverRandomSeed() {
+describe('LBXPopoverRandomSeed', function test_LBXPopoverRandomSeed() {
 
 	it('returns string', function() {
 		deepEqual(typeof mainModule.LBXPopoverRandomSeed(), 'string');
