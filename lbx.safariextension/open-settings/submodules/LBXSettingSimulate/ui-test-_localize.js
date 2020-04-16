@@ -8,7 +8,7 @@ const uLocalized = function (inputData) {
 	return OLSKTestingLocalized(inputData, languageCode);
 };
 
-describe(`LBXSettingSimulateUILocalize-${ languageCode }`, function () {
+describe(`LBXSettingSimulateUI_Localize-${ languageCode }`, function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
