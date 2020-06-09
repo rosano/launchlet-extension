@@ -1,5 +1,3 @@
-import { deepEqual } from 'assert';
-
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().LBXSettingSimulateRoute;
 
 kDefaultRoute.OLSKRouteLanguages.forEach(function (languageCode) {
@@ -21,7 +19,7 @@ describe(`LBXSettingSimulateUI_Localize-${ languageCode }`, function () {
 	});
 
 	it('localizes LBXSettingSimulateBlurb', function () {
-		deepEqual(browser.query(LBXSettingSimulateBlurb).innerHTML, uLocalized('LBXSettingSimulateBlurbText'));
+		browser.assert.OLSKInnerHTML(LBXSettingSimulateBlurb, uLocalized('LBXSettingSimulateBlurbText'));
 	});
 
 	it('localizes LBXSettingSimulateCodeStringFieldLabel', function () {
