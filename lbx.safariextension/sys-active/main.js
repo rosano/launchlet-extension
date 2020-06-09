@@ -15,7 +15,7 @@ const mod = {
 		  return;
 		}
 
-		if ('LBX_ACTIVE_MESSAGE_PAGE_ORIGIN_STRING'.indexOf(event.origin) === -1) {
+		if (!'LBX_ACTIVE_MESSAGE_PAGE_ORIGIN_STRING'.includes(event.origin)) {
 			return
 		  // return console.warn('event.origin not match', event);
 		}
