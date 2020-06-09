@@ -1,5 +1,3 @@
-import { deepEqual } from 'assert';
-
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().LBXPopoverRoute;
 
 describe('LBXPopoverUI_Misc', function () {
@@ -28,7 +26,6 @@ describe('LBXPopoverUI_Misc', function () {
 
 		it('sets focus', function() {
 			browser.assert.hasFocus(LBXPopoverPublicKeyField)
-			deepEqual(browser.activeElement, browser.query(LBXPopoverPublicKeyField));
 		});
 		
 	});
