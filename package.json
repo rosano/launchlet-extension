@@ -21,13 +21,13 @@
     "// MOCHA PREPROCESS": null,
     "OLSKTesting": "olsk/OLSKTesting",
 
-    "// UI TESTS": null,
+    "// INTERFACE TESTS": null,
     "zombie": "latest",
 
     "// SPEC": null,
     "OLSKSpec": "olsk/OLSKSpec",
 
-    "// SERVE UI TEST STUBS": null,
+    "// SERVE INTERFACE TEST STUBS": null,
     "OLSKExpress": "olsk/OLSKExpress",
 
     "// WEBCRYPTO": null,
