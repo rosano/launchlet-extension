@@ -8,6 +8,12 @@ const mod = {
 
 	_ValueShortcutMap: {},
 
+	// CONTROL
+
+	ControlStorePayloadEncryptedData(inputData) {
+		api.MessageSendToBackground('DispatchBackgroundStorePayloadEncryptedData', inputData);
+	},
+
 	// MESSAGE
 
 	MessageDidReceiveFromPage (event) {
@@ -68,12 +74,6 @@ const mod = {
 		event.preventDefault();
 
 		api.MessageSendToBackground('DispatchBackgroundRunSignature', signature);
-	},
-
-	// CONTROL
-
-	ControlStorePayloadEncryptedData(inputData) {
-		api.MessageSendToBackground('DispatchBackgroundStorePayloadEncryptedData', inputData);
 	},
 
 	// SETUP

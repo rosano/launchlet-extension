@@ -4,35 +4,7 @@ import { LBXPayloadIsValid } from './logic.js'
 
 const mod = {
 
-	// MESSAGE
-
-	MessageDidReceiveFromActive (event) {
-    return {
-      DispatchBackgroundPrivateKeySave () {
-        mod.ControlPrivateKeySave(event.message)
-      },
-      DispatchBackgroundPrivateKeyForget() {
-        mod.ControlPrivateKeyForget();
-      },
-      DispatchBackgroundStorePayloadEncryptedData () {
-        mod.ControlHandleEventStorePayloadEncryptedData(event)
-      },
-      DispatchBackgroundRunSignature() {
-        mod.ControlRunSignature(event)
-      },
-      DispatchBackgroundRunTasks() {
-        mod.ControlRunTasks(event)
-      },
-      DispatchBackgroundSendShortcutsMap () {
-        mod.ControlSendShortcutsMap(event);
-      },
-      DispatchBackgroundUpdateShortcutsMap () {
-        mod.ControlUpdateShortcutsMap(event.message);
-      },
-    }[event.name]();
-  },
-
-  // VALUE
+	// VALUE
 
   _ValueMemoryPrivateKey: undefined,
   ValuePrivateKey (inputData) {
@@ -203,6 +175,34 @@ const mod = {
     mod._ControlLocalDataSet('kLBXPreferenceShortcutsMap', inputData);
   },
   
+  // MESSAGE
+
+  MessageDidReceiveFromActive (event) {
+    return {
+      DispatchBackgroundPrivateKeySave () {
+        mod.ControlPrivateKeySave(event.message)
+      },
+      DispatchBackgroundPrivateKeyForget() {
+        mod.ControlPrivateKeyForget();
+      },
+      DispatchBackgroundStorePayloadEncryptedData () {
+        mod.ControlHandleEventStorePayloadEncryptedData(event)
+      },
+      DispatchBackgroundRunSignature() {
+        mod.ControlRunSignature(event)
+      },
+      DispatchBackgroundRunTasks() {
+        mod.ControlRunTasks(event)
+      },
+      DispatchBackgroundSendShortcutsMap () {
+        mod.ControlSendShortcutsMap(event);
+      },
+      DispatchBackgroundUpdateShortcutsMap () {
+        mod.ControlUpdateShortcutsMap(event.message);
+      },
+    }[event.name]();
+  },
+
   // SETUP
 
   SetupEverything () {

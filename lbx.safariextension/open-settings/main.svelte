@@ -8,6 +8,10 @@ const OLSKLocalized = function(translationConstant) {
 
 const mod = {
 
+	// VALUE
+
+	LBXSettingShortcutsMap: {},
+
 	// MESSAGE
 
 	LBXSettingShortcutsDispatchCreate () {
@@ -29,10 +33,6 @@ const mod = {
 		  },
 		}[event.name]();
 	},
-
-	// VALUE
-
-	LBXSettingShortcutsMap: {},
 
 	// SETUP
 
