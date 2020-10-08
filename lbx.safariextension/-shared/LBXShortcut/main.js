@@ -1,15 +1,15 @@
 export const LBXShortcutValidation = function (inputData) {
 	if (typeof inputData !== 'string') {
-		throw new Error('LBXErrorInputInvalid');
+		throw new Error('LBXErrorInputNotValid');
 	}
 
 	return function (event) {
 		if (typeof event !== 'object' || event === null) {
-			throw new Error('LBXErrorInputInvalid');
+			throw new Error('LBXErrorInputNotValid');
 		}
 
 		if (typeof event.code !== 'string') {
-			throw new Error('LBXErrorInputInvalid');
+			throw new Error('LBXErrorInputNotValid');
 		};
 
 		const key = inputData.split('+').pop().toLowerCase();
@@ -44,15 +44,15 @@ export const LBXShortcutValidation = function (inputData) {
 
 export const LBXShortcutString = function (param1, param2) {
 	if (typeof param1 !== 'object' || param1 === null) {
-		throw new Error('LBXErrorInputInvalid');
+		throw new Error('LBXErrorInputNotValid');
 	}
 
 	if (typeof param1.code !== 'string') {
-		throw new Error('LBXErrorInputInvalid');
+		throw new Error('LBXErrorInputNotValid');
 	};
 
 	if (typeof param1.key !== 'string') {
-		throw new Error('LBXErrorInputInvalid');
+		throw new Error('LBXErrorInputNotValid');
 	};
 
 	if (param1.key === 'Control') {

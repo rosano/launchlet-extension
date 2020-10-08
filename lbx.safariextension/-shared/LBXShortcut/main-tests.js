@@ -7,7 +7,7 @@ describe('LBXShortcutValidation', function test_LBXShortcutValidation() {
 	it('throws if not string', function () {
 		throws(function () {
 			mainModule.LBXShortcutValidation(null)
-		}, /LBXErrorInputInvalid/);
+		}, /LBXErrorInputNotValid/);
 	});
 
 	it('returns function', function() {
@@ -19,7 +19,7 @@ describe('LBXShortcutValidation', function test_LBXShortcutValidation() {
 		it('throws if not object', function () {
 			throws(function () {
 				mainModule.LBXShortcutValidation('')(null)
-			}, /LBXErrorInputInvalid/);
+			}, /LBXErrorInputNotValid/);
 		});
 
 		it('throws if code not string', function () {
@@ -27,7 +27,7 @@ describe('LBXShortcutValidation', function test_LBXShortcutValidation() {
 				mainModule.LBXShortcutValidation('')({
 					code: null,
 				})
-			}, /LBXErrorInputInvalid/);
+			}, /LBXErrorInputNotValid/);
 		});
 
 		it('returns false', function () {
@@ -139,7 +139,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 	it('throws if not object', function () {
 		throws(function () {
 			mainModule.LBXShortcutString(null)
-		}, /LBXErrorInputInvalid/);
+		}, /LBXErrorInputNotValid/);
 	});
 
 	it('throws if code not string', function () {
@@ -148,7 +148,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 				code: null,
 				key: 'alfa',
 			})
-		}, /LBXErrorInputInvalid/);
+		}, /LBXErrorInputNotValid/);
 	});
 
 	it('throws if key not string', function () {
@@ -157,7 +157,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 				code: 'alfa',
 				key: null,
 			})
-		}, /LBXErrorInputInvalid/);
+		}, /LBXErrorInputNotValid/);
 	});
 
 	it('returns string', function () {
