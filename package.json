@@ -17,12 +17,6 @@
     "normalize.css": "latest",
     "OLSKLayout": "olsk/OLSKLayout",
 
-    "// MOCHA PREPROCESS": null,
-    "OLSKTesting": "olsk/OLSKTesting",
-
-    "// INTERFACE TESTS": null,
-    "zombie": "latest",
-
     "// SPEC": null,
     "OLSKSpec": "olsk/OLSKSpec",
 
