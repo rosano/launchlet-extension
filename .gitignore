@@ -7,7 +7,7 @@ package-lock.json
 .static
 
 # LOCAL
-.env
+.env*
 
 # TEMP
 lbx.safariextension/-shared/images/*
