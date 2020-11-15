@@ -1,26 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	
-	<link rel="stylesheet" type="text/css" href="../-shared/__external/normalize.css/normalize.css" />
-	<link rel="stylesheet" type="text/css" href="../-shared/__external/OLSKLayout/ui-style.css" />
-	<link rel="stylesheet" type="text/css" href="../-shared/_common/ui-style.css" />
-	<link rel="stylesheet" type="text/css" href="../open-popover/__compiled/ui-style.css" />
-	
-	<script src="../-shared/__external/simplecrypto/src/simplecrypto.js"></script>
+<%
+locals.OLSKPageAssets = [
+	'../-shared/__external/normalize.css/normalize.css',
+	'../-shared/__external/OLSKLayout/ui-style.css',
+	'../-shared/_common/ui-style.css',
+	'../open-popover/__compiled/ui-style.css',
 
-	<script type="text/javascript">
-		window.OLSKPublicConstants = function (inputData) {
-			return <%- JSON.stringify({
-				OLSKSharedPageCurrentLanguage,
-			}) %>[inputData];
-		};
-	</script>
-</head>
-<body class="OLSKCommon">
+	'../-shared/__external/simplecrypto/src/simplecrypto.js',
+];
+locals.OLSKPagePublicConstants = {
+	OLSKSharedPageCurrentLanguage,
+};
+%>
 
 <script src="../open-popover/__compiled/ui-behaviour.js"></script>
-
-</body>
-</html>

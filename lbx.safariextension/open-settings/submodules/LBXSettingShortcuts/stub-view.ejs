@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	
-	<link rel="stylesheet" type="text/css" href="../../../-shared/__external/normalize.css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="/open-settings/submodules/LBXSettingShortcuts/__compiled/ui-style.css">
-
-	<script type="text/javascript">
-		window.OLSKPublicConstants = function (inputData) {
-			return <%- JSON.stringify({
-				OLSKSharedPageCurrentLanguage,
-			}) %>[inputData];
-		};
-	</script>
-</head>
-<body>
+<%
+locals.OLSKPageAssets = [
+	'../../../-shared/__external/normalize.css/normalize.css',
+	'/open-settings/submodules/LBXSettingShortcuts/__compiled/ui-style.css',
+];
+locals.OLSKPagePublicConstants = {
+	OLSKSharedPageCurrentLanguage,
+};
+%>
 
 <script src="/open-settings/submodules/LBXSettingShortcuts/__compiled/ui-behaviour.js"></script>
-
-</body>
-</html>

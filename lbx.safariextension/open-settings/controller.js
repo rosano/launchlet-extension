@@ -4,7 +4,7 @@ exports.OLSKControllerRoutes = function() {
 			OLSKRoutePath: '/settings',
 			OLSKRouteMethod: 'get',
 			OLSKRouteFunction (req, res, next) {
-				return res.render(require('path').join(__dirname, 'ui-view.html'));
+				return res.OLSKLayoutRender(require('path').join(__dirname, 'ui-view.html'));
 			},
 			OLSKRouteLanguages: ['en', 'fr', 'es'],
 		},
