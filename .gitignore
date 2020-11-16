@@ -8,6 +8,7 @@ package-lock.json
 
 # LOCAL
 .env*
+!.env-sample
 
 # TEMP
 lbx.safariextension/-shared/images/*
