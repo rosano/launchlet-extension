@@ -8,7 +8,7 @@
 
     "test": "OLSK_APP_FOLDER=lbx.safariextension olsk-spec",
 
-    "build": "olsk-rollup-build",
+    "build": "olsk-rollup",
     "watch": "olsk-rollup-watch"
   },
   "devDependencies": {
