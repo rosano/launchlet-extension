@@ -6,7 +6,7 @@ exports.OLSKControllerRoutes = function() {
 			OLSKRouteFunction (req, res, next) {
 				return res.OLSKLayoutRender(require('path').join(__dirname, 'stub-view.ejs'));
 			},
-			OLSKRouteLanguages: ['en', 'fr', 'es'],
+			OLSKRouteLanguageCodes: ['en', 'fr', 'es'],
 		},
 	};
 };
