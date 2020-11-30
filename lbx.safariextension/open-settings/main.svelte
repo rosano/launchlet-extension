@@ -69,15 +69,15 @@ import LBXSettingSimulate from './submodules/LBXSettingSimulate/main.svelte';
 	<a class="LBXSettingsGuideLink" href="https://launchlet.dev/guide" target="_blank">{ OLSKLocalized('LBXSettingsGuideLinkText') }</a>
 </p>
 
-<hr>
+<hr role="presentation" />
 
 <LBXSettingShortcuts LBXSettingShortcutsMap={ mod.LBXSettingShortcutsMap } on:LBXSettingShortcutsDispatchCreate={ mod.LBXSettingShortcutsDispatchCreate } on:LBXSettingShortcutsDispatchUpdate={ mod.LBXSettingShortcutsDispatchUpdate } />
 
-<hr>
+<hr role="presentation" />
 
 <LBXSettingSimulate />
 
-<hr>
+<hr role="presentation" />
 
 </div>
 
