@@ -1,16 +1,16 @@
 const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().LBXPopoverRoute;
 
-kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (languageCode) {
+kDefaultRoute.OLSKRouteLanguageCodes.forEach(function (OLSKRoutingLanguage) {
 
 const uLocalized = function (inputData) {
-	return OLSKTestingLocalized(inputData, languageCode);
+	return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 };
 
-describe(`LBXPopoverUI_Localize-${ languageCode }`, function () {
+describe(`LBXPopoverUI_Localize-${ OLSKRoutingLanguage }`, function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
-			OLSKRoutingLanguage: languageCode,
+			OLSKRoutingLanguage,
 		});
 
 	});
@@ -39,7 +39,7 @@ describe(`LBXPopoverUI_Localize-${ languageCode }`, function () {
 
 		before(function () {
 			return browser.OLSKVisit(kDefaultRoute, {
-				OLSKRoutingLanguage: languageCode,
+				OLSKRoutingLanguage,
 				LBXPopoverPreloadPrivateKey: 'alfa',
 				LBXPopoverPreloadPublicKey: 'bravo',
 				LBXPopoverPreloadDidPair: 'true',
