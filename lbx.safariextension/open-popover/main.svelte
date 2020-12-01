@@ -7,7 +7,7 @@ const OLSKLocalized = function(translationConstant) {
 };
 
 import Clipboard from 'clipboard';
-import { OLSK_TESTING_BEHAVIOUR } from 'OLSKTesting';
+import { OLSK_SPEC_UI } from 'OLSKSpec';
 
 import { LBXPopoverRandomSeed } from './ui-logic.js';
 
@@ -51,7 +51,7 @@ const mod = {
 	// CONTROL
 	
 	async ControlGenerateKeys () {
-		let item = OLSK_TESTING_BEHAVIOUR() ? {
+		let item = OLSK_SPEC_UI() ? {
 			privateJwk: 'LBX_TESTING_PRIVATE_KEY',
 			publicJwk: 'LBX_TESTING_PUBLIC_KEY',
 		} : await mod._ControlGenerateKeys();
@@ -65,7 +65,7 @@ const mod = {
 		});
 	},
 	_ControlStorePrivateKey (inputData) {
-		if (OLSK_TESTING_BEHAVIOUR()) {
+		if (OLSK_SPEC_UI()) {
 			return;
 		}
 		
@@ -74,7 +74,7 @@ const mod = {
 	_ControlStorePublicKey (inputData) {
 		mod.ValuePublicKey(inputData);
 
-		if (OLSK_TESTING_BEHAVIOUR()) {
+		if (OLSK_SPEC_UI()) {
 			return;
 		}
 		
@@ -122,7 +122,7 @@ const mod = {
 			mod.ValuePublicKey(LBXPopoverPreloadPublicKey);
 		}
 
-		if (OLSK_TESTING_BEHAVIOUR() || !api.IsExtensionContext()) {
+		if (OLSK_SPEC_UI() || !api.IsExtensionContext()) {
 			return;
 		}
 
@@ -130,7 +130,7 @@ const mod = {
 	},
 
 	async SetupDidPair() {
-		if (OLSK_TESTING_BEHAVIOUR() || !api.IsExtensionContext()) {
+		if (OLSK_SPEC_UI() || !api.IsExtensionContext()) {
 			return;
 		}
 
@@ -138,7 +138,7 @@ const mod = {
 	},
 
 	async SetupRunAutomaticRecipes() {
-		if (OLSK_TESTING_BEHAVIOUR() || !api.IsExtensionContext()) {
+		if (OLSK_SPEC_UI() || !api.IsExtensionContext()) {
 			return;
 		}
 
