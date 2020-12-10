@@ -1,62 +1,62 @@
 const { throws, deepEqual } = require('assert');
 
-const mainModule = require('./main.js');
+const mod = require('./main.js');
 
 describe('LBXShortcutValidation', function test_LBXShortcutValidation() {
 
 	it('throws if not string', function () {
 		throws(function () {
-			mainModule.LBXShortcutValidation(null)
+			mod.LBXShortcutValidation(null)
 		}, /LBXErrorInputNotValid/);
 	});
 
 	it('returns function', function() {
-		deepEqual(typeof mainModule.LBXShortcutValidation(''), 'function');
+		deepEqual(typeof mod.LBXShortcutValidation(''), 'function');
 	});
 
 	context('function', function () {
 		
 		it('throws if not object', function () {
 			throws(function () {
-				mainModule.LBXShortcutValidation('')(null)
+				mod.LBXShortcutValidation('')(null)
 			}, /LBXErrorInputNotValid/);
 		});
 
 		it('throws if code not string', function () {
 			throws(function () {
-				mainModule.LBXShortcutValidation('')({
+				mod.LBXShortcutValidation('')({
 					code: null,
 				})
 			}, /LBXErrorInputNotValid/);
 		});
 
 		it('returns false', function () {
-			deepEqual(mainModule.LBXShortcutValidation('')({
+			deepEqual(mod.LBXShortcutValidation('')({
 				code: 'a',
 			}), false);
 		});
 
 		it('returns true if code match same case', function () {
-			deepEqual(mainModule.LBXShortcutValidation('a')({
+			deepEqual(mod.LBXShortcutValidation('a')({
 				code: 'a',
 			}), true);
 		});
 
 		it('returns true if code match different case', function () {
-			deepEqual(mainModule.LBXShortcutValidation('a')({
+			deepEqual(mod.LBXShortcutValidation('a')({
 				code: 'A',
 			}), true);
 		});
 
 		it('returns true if key match same case', function () {
-			deepEqual(mainModule.LBXShortcutValidation('[a]')({
+			deepEqual(mod.LBXShortcutValidation('[a]')({
 				key: 'a',
 				code: '',
 			}), true);
 		});
 
 		it('returns true if key match different case', function () {
-			deepEqual(mainModule.LBXShortcutValidation('[a]')({
+			deepEqual(mod.LBXShortcutValidation('[a]')({
 				key: 'A',
 				code: '',
 			}), true);
@@ -65,13 +65,13 @@ describe('LBXShortcutValidation', function test_LBXShortcutValidation() {
 		context('Shift', function () {
 
 			it('returns false if no shiftKey', function () {
-				deepEqual(mainModule.LBXShortcutValidation('Shift+A')({
+				deepEqual(mod.LBXShortcutValidation('Shift+A')({
 					code: 'a',
 				}), false);
 			});
 
 			it('returns true', function () {
-				deepEqual(mainModule.LBXShortcutValidation('Shift+A')({
+				deepEqual(mod.LBXShortcutValidation('Shift+A')({
 					code: 'a',
 					shiftKey: true,
 				}), true);
@@ -82,13 +82,13 @@ describe('LBXShortcutValidation', function test_LBXShortcutValidation() {
 		context('Ctrl', function () {
 
 			it('returns false if no ctrlKey', function () {
-				deepEqual(mainModule.LBXShortcutValidation('Ctrl+A')({
+				deepEqual(mod.LBXShortcutValidation('Ctrl+A')({
 					code: 'a',
 				}), false);
 			});
 
 			it('returns true', function () {
-				deepEqual(mainModule.LBXShortcutValidation('Ctrl+A')({
+				deepEqual(mod.LBXShortcutValidation('Ctrl+A')({
 					code: 'a',
 					ctrlKey: true,
 				}), true);
@@ -99,13 +99,13 @@ describe('LBXShortcutValidation', function test_LBXShortcutValidation() {
 		context('Alt', function () {
 
 			it('returns false if no altKey', function () {
-				deepEqual(mainModule.LBXShortcutValidation('Alt+A')({
+				deepEqual(mod.LBXShortcutValidation('Alt+A')({
 					code: 'a',
 				}), false);
 			});
 
 			it('returns true', function () {
-				deepEqual(mainModule.LBXShortcutValidation('Alt+A')({
+				deepEqual(mod.LBXShortcutValidation('Alt+A')({
 					code: 'a',
 					altKey: true,
 				}), true);
@@ -116,13 +116,13 @@ describe('LBXShortcutValidation', function test_LBXShortcutValidation() {
 		context('Cmd', function () {
 
 			it('returns false if no metaKey', function () {
-				deepEqual(mainModule.LBXShortcutValidation('Cmd+A')({
+				deepEqual(mod.LBXShortcutValidation('Cmd+A')({
 					code: 'a',
 				}), false);
 			});
 
 			it('returns true', function () {
-				deepEqual(mainModule.LBXShortcutValidation('Cmd+A')({
+				deepEqual(mod.LBXShortcutValidation('Cmd+A')({
 					code: 'a',
 					metaKey: true,
 				}), true);
@@ -138,13 +138,13 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 
 	it('throws if not object', function () {
 		throws(function () {
-			mainModule.LBXShortcutString(null)
+			mod.LBXShortcutString(null)
 		}, /LBXErrorInputNotValid/);
 	});
 
 	it('throws if code not string', function () {
 		throws(function () {
-			mainModule.LBXShortcutString({
+			mod.LBXShortcutString({
 				code: null,
 				key: 'alfa',
 			})
@@ -153,7 +153,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 
 	it('throws if key not string', function () {
 		throws(function () {
-			mainModule.LBXShortcutString({
+			mod.LBXShortcutString({
 				code: 'alfa',
 				key: null,
 			})
@@ -161,14 +161,14 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 	});
 
 	it('returns string', function () {
-		deepEqual(mainModule.LBXShortcutString({
+		deepEqual(mod.LBXShortcutString({
 			code: 'alfa',
 			key: 'bravo',
 		}), '');
 	});
 
 	it('ignores if Ctrl', function () {
-		deepEqual(mainModule.LBXShortcutString({
+		deepEqual(mod.LBXShortcutString({
 			code: 'alfa',
 			key: 'Control',
 			ctrlKey: true,
@@ -176,7 +176,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 	});
 
 	it('ignores if Cmd', function () {
-		deepEqual(mainModule.LBXShortcutString({
+		deepEqual(mod.LBXShortcutString({
 			code: 'alfa',
 			key: 'Meta',
 			metaKey: true,
@@ -184,7 +184,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 	});
 
 	it('ignores if Alt', function () {
-		deepEqual(mainModule.LBXShortcutString({
+		deepEqual(mod.LBXShortcutString({
 			code: 'alfa',
 			key: 'Alt',
 			altKey: true,
@@ -192,7 +192,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 	});
 
 	it('ignores if Shift', function () {
-		deepEqual(mainModule.LBXShortcutString({
+		deepEqual(mod.LBXShortcutString({
 			code: 'alfa',
 			key: 'Shift',
 			shiftKey: true,
@@ -200,7 +200,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 	});
 
 	it('ignores if Tab', function () {
-		deepEqual(mainModule.LBXShortcutString({
+		deepEqual(mod.LBXShortcutString({
 			code: 'Tab',
 			key: 'Tab',
 			shiftKey: true,
@@ -208,7 +208,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 	});
 
 	it('prepends Ctrl', function () {
-		deepEqual(mainModule.LBXShortcutString({
+		deepEqual(mod.LBXShortcutString({
 			code: 'alfa',
 			key: 'bravo',
 			ctrlKey: true,
@@ -216,7 +216,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 	});
 
 	it('prepends Alt', function () {
-		deepEqual(mainModule.LBXShortcutString({
+		deepEqual(mod.LBXShortcutString({
 			code: 'alfa',
 			key: 'bravo',
 			altKey: true,
@@ -224,7 +224,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 	});
 
 	it('prepends Shift', function () {
-		deepEqual(mainModule.LBXShortcutString({
+		deepEqual(mod.LBXShortcutString({
 			code: 'alfa',
 			key: 'bravo',
 			shiftKey: true,
@@ -232,7 +232,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 	});
 
 	it('prepends Cmd', function () {
-		deepEqual(mainModule.LBXShortcutString({
+		deepEqual(mod.LBXShortcutString({
 			code: 'alfa',
 			key: 'bravo',
 			metaKey: true,
@@ -242,7 +242,7 @@ describe('LBXShortcutString', function test_LBXShortcutString() {
 	context('param2', function () {
 
 		it('uses key', function () {
-			deepEqual(mainModule.LBXShortcutString({
+			deepEqual(mod.LBXShortcutString({
 				code: 'alfa',
 				key: 'bravo',
 				metaKey: true,

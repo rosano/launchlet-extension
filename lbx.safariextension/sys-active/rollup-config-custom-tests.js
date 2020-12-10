@@ -1,17 +1,17 @@
 import { throws, doesNotThrow, deepEqual } from 'assert';
 
-const mainModule = require('./rollup-config-custom.js');
+const mod = require('./rollup-config-custom.js');
 
 describe('LBXActiveRollupConfigCustom', function test_LBXActiveRollupConfigCustom() {
 
 	it('throws error if not object', function() {
 		throws(function() {
-			mainModule.LBXActiveRollupConfigCustom(null);
+			mod.LBXActiveRollupConfigCustom(null);
 		}, /LBXErrorInputNotValid/);
 	});
 
 	it('removes livereload', function() {
-		deepEqual(mainModule.LBXActiveRollupConfigCustom({
+		deepEqual(mod.LBXActiveRollupConfigCustom({
 			output: {},
 			plugins: [{
 				name: 'livereload',
