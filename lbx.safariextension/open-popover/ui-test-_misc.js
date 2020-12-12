@@ -6,6 +6,18 @@ describe('LBXPopoverUI_Misc', function () {
 		return browser.OLSKVisit(kDefaultRoute);
 	});
 
+	describe('body', function () {
+
+		it('classes OLSKCommon', function () {
+			browser.assert.hasClass('body', 'OLSKCommon');
+		});
+
+		it('classes OLSKCommonCapped', function () {
+			browser.assert.hasClass('body', 'OLSKCommonCapped');
+		});
+
+	});
+
 	context('LBXPopoverGenerateKeyButton', function test_LBXPopoverGenerateKeyButton() {
 
 		before(function () {

@@ -2,20 +2,32 @@ const kDefaultRoute = require('./controller.js').OLSKControllerRoutes().LBXSetti
 
 describe('LBXSettingsUI_Misc', function () {
 
-before(function() {
-	return browser.OLSKVisit(kDefaultRoute);
-});
-
-describe('LBXSettingsGuideLink', function () {
-	
-	it('sets href', function () {
-		browser.assert.attribute(LBXSettingsGuideLink, 'href', 'https://launchlet.dev/guide');
+	before(function() {
+		return browser.OLSKVisit(kDefaultRoute);
 	});
 
-	it('sets target', function () {
-		browser.assert.attribute(LBXSettingsGuideLink, 'target', '_blank');
+	describe('body', function () {
+
+		it('classes OLSKCommon', function () {
+			browser.assert.hasClass('body', 'OLSKCommon');
+		});
+
+		it('classes OLSKCommonCapped', function () {
+			browser.assert.hasClass('body', 'OLSKCommonCapped');
+		});
+
 	});
 
-});
+	describe('LBXSettingsGuideLink', function () {
+		
+		it('sets href', function () {
+			browser.assert.attribute(LBXSettingsGuideLink, 'href', 'https://launchlet.dev/guide');
+		});
+
+		it('sets target', function () {
+			browser.assert.attribute(LBXSettingsGuideLink, 'target', '_blank');
+		});
+
+	});
 
 });
