@@ -17,7 +17,7 @@
 
     "// UI NORMALIZE": null,
     "normalize.css": "latest",
-    "OLSKLayout": "olsk/OLSKLayout",
+    "OLSKDecor": "olsk/OLSKDecor",
 
     "// SPEC": null,
     "OLSKSpec": "olsk/OLSKSpec",
