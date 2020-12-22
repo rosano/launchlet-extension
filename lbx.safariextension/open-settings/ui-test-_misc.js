@@ -8,12 +8,12 @@ describe('LBXSettingsUI_Misc', function () {
 
 	describe('body', function () {
 
-		it('classes OLSKCommon', function () {
-			browser.assert.hasClass('body', 'OLSKCommon');
+		it('classes OLSKDecor', function () {
+			browser.assert.hasClass('body', 'OLSKDecor');
 		});
 
-		it('classes OLSKCommonCapped', function () {
-			browser.assert.hasClass('body', 'OLSKCommonCapped');
+		it('classes OLSKDecorCapped', function () {
+			browser.assert.hasClass('body', 'OLSKDecorCapped');
 		});
 
 	});
