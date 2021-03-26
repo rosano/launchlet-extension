@@ -1,5 +1,5 @@
 LBXSettingSimulateHeadingText: Simulación del teclado
-LBXSettingSimulateBlurbText: Intenta cualquier combinación que incluye <code>Ctrl</code>, <code>Cmd</code>, <code>Alt</code>, o <code>Shift</code> y el atajo equivalente debería aparecer en bajo. Si no te veas lo que concorde, tal vez significa que es reservada por el navegador.
+LBXSettingSimulateBlurbText: 'Intenta cualquier combinación que incluye <code>Ctrl</code>, <code>Cmd</code>, <code>Alt</code>, o <code>Shift</code> y el atajo equivalente debería aparecer en bajo. Si no te veas lo que concorde, tal vez significa que es reservada por el navegador.'
 LBXSettingSimulateCodeStringFieldLabelText: Por event.code
 LBXSettingSimulateKeyStringFieldLabelText: Por event.key
 LBXSettingSimulateSharedCopyButtonText: Copiar

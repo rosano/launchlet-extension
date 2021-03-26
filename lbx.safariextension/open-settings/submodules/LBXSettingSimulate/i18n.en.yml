@@ -1,5 +1,5 @@
 LBXSettingSimulateHeadingText: Keyboard Simulation
-LBXSettingSimulateBlurbText: Try any key combination that includes <code>Ctrl</code>, <code>Cmd</code>, <code>Alt</code>, or <code>Shift</code> and the corresponding shortcut string should appear below. If you don't see one that matches, it might be because it is reserved by the browser.
+LBXSettingSimulateBlurbText: 'Try any key combination that includes <code>Ctrl</code>, <code>Cmd</code>, <code>Alt</code>, or <code>Shift</code> and the corresponding shortcut string should appear below. If you don''t see one that matches, it might be because it is reserved by the browser.'
 LBXSettingSimulateCodeStringFieldLabelText: Via event.code
 LBXSettingSimulateKeyStringFieldLabelText: Via event.key
 LBXSettingSimulateSharedCopyButtonText: Copy
