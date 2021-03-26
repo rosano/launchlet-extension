@@ -8,11 +8,11 @@ describe('LBXPopoverUI_Misc', function () {
 
 	describe('body', function () {
 
-		it('classes OLSKDecor', function () {
+		it.skip('classes OLSKDecor', function () {
 			browser.assert.hasClass('body', 'OLSKDecor');
 		});
 
-		it('classes OLSKDecorCapped', function () {
+		it.skip('classes OLSKDecorCapped', function () {
 			browser.assert.hasClass('body', 'OLSKDecorCapped');
 		});
 
