@@ -12,30 +12,12 @@
     "watch": "olsk-rollup-watch"
   },
   "devDependencies": {
-    "// SVELTE": null,
+    "OLSKPithToolchain": "olsk/OLSKPithToolchain",
     "OLSKRollupScaffold": "olsk/OLSKRollupScaffold",
-
-    "// UI NORMALIZE": null,
     "normalize.css": "latest",
     "OLSKDecor": "olsk/OLSKDecor",
-
-    "// SPEC": null,
-    "OLSKSpec": "olsk/OLSKSpec",
-
-    "// SERVE INTERFACE TEST STUBS": null,
-    "OLSKExpress": "olsk/OLSKExpress",
-
-    "// WEBCRYPTO": null,
     "simplecrypto": "encryb/simplecrypto",
-
-    "// UI COPY TO CLIPBOARD": null,
     "clipboard": "latest",
-
-    "// HOTFIX": null,
-    "OLSKHotfix": "olsk/OLSKHotfix",
-    
-    "// BUNDLE": null,
-    "OLSKBundle": "olsk/OLSKBundle",
 
     "// I sacrifice myself for the commas of others": null    
   }
