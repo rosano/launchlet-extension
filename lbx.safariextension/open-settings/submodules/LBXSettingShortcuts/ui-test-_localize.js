@@ -6,7 +6,7 @@ const uLocalized = function (inputData) {
 	return OLSKTestingLocalized(inputData, OLSKRoutingLanguage);
 };
 
-describe(`LBXSettingShortcutsUI_Localize-${ OLSKRoutingLanguage }`, function () {
+describe('LBXSettingShortcutsUI_Localize-' + OLSKRoutingLanguage, function () {
 
 	before(function() {
 		return browser.OLSKVisit(kDefaultRoute, {
