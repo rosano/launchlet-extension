@@ -1,6 +1,6 @@
 <a href="https://launchlet.dev"><img alt="Project logo" src="https://static.rosano.ca/launchlet/identity.svg" width="64" /></a>
 
-# Launchlet Browser Extension
+# [Launchlet](https://launchlet.dev) Browser Extension
 
 As a complement to the [main project](https://github.com/launchlet/launchlet), this browser extension adds the following extra functionality to Launchlet:
 
