@@ -72,3 +72,7 @@ The extension makes it possible to set shortcuts using the *Signature* for any *
 For example, by default there is a shortcut of `Alt+Shift+2` for the signature `XYZAlfa`. This means that a *Recipe* with the *Signature* `XYZAlfa` should run with the key combination `Alt+Shift+2` — replace `XYZAlfa` with the *Signature* from your own *Recipe* to customize the shortcut.
 
 The version of Launchlet built in the Composer has the *Signature* `LBXShortcutDefault`.
+
+## ❤️
+
+If you’re enjoying this, consider [contributing to my Open Collective](https://opencollective.com/rosano/contribute). Virtually everything I create is public, accessible for free, and open-source. Your support helps me keep adding to the commons and making it available for everyone.
