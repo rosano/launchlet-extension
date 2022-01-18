@@ -5,7 +5,7 @@ Object.entries({
 	
 	LBXSettingsGuideLink: '.LBXSettingsGuideLink',
 }).map(function (e) {
-	return global[e.shift()]  = e.pop();
+	return global[e.shift()] = e.pop();
 });
 
 describe('LBXSettingsUI_Access', function () {

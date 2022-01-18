@@ -14,7 +14,7 @@ Object.entries({
 	LBXSettingSimulateKeyStringField: '.LBXSettingSimulateKeyStringField',
 	LBXSettingSimulateKeyStringCopyButton: '.LBXSettingSimulateKeyStringCopyButton',
 }).map(function (e) {
-	return global[e.shift()]  = e.pop();
+	return global[e.shift()] = e.pop();
 });
 
 describe('LBXSettingSimulateUI_Access', function () {

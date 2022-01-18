@@ -13,7 +13,7 @@ Object.entries({
 
 	LBXPopoverShowSettingsButton: '.LBXPopoverShowSettingsButton',
 }).map(function (e) {
-	return global[e.shift()]  = e.pop();
+	return global[e.shift()] = e.pop();
 });
 
 describe('LBXPopoverUI_Access', function () {

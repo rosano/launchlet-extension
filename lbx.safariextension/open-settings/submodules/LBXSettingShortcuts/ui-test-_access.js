@@ -12,7 +12,7 @@ Object.entries({
 	LBXSettingShortcutsItemValueField: '.LBXSettingShortcutsItemValueField',
 	LBXSettingShortcutsItemDeleteButton: '.LBXSettingShortcutsItemDeleteButton',
 }).map(function (e) {
-	return global[e.shift()]  = e.pop();
+	return global[e.shift()] = e.pop();
 });
 
 describe('LBXSettingShortcutsUI_Access', function () {
