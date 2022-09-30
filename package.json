@@ -17,8 +17,6 @@
     "normalize.css": "latest",
     "OLSKDecor": "olsk/OLSKDecor",
     "simplecrypto": "encryb/simplecrypto",
-    "clipboard": "latest",
-
-    "//": "I sacrifice myself for the commas of others"
+    "clipboard": "latest"
   }
 }
