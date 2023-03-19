@@ -2,7 +2,7 @@
 
 # [Launchlet](https://launchlet.dev) Browser Extension
 
-As a complement to the [main project](https://github.com/launchlet/launchlet), this browser extension adds the following extra functionality to Launchlet:
+As a complement to the [main project](https://github.com/rosano/launchlet), this browser extension adds the following extra functionality to Launchlet:
 
 - Run Recipes automatically on page load
 - Run Recipes via keyboard shortcuts
@@ -14,7 +14,7 @@ There are two parts to running the extension: *Install* in the browser, and then
 
 ## Install
 
-The simplest way to install is from the extension platforms, but there are other options in the [releases](https://github.com/launchlet/launchlet-extension/releases).
+The simplest way to install is from the extension platforms, but there are other options in the [releases](https://github.com/rosano/launchlet-extension/releases).
 
 ### Firefox
 
@@ -32,7 +32,7 @@ The extension can't run on the 'Empty Page' but you can set the Homepage to 'abo
 
 #### Safari 12
 
-1. Download and unzip the '_shared/unpacked' [release](https://github.com/launchlet/launchlet-extension/releases)
+1. Download and unzip the '_shared/unpacked' [release](https://github.com/rosano/launchlet-extension/releases)
 2. Show the Develop menu: Safari > Preferences > Advanced > Show Develop menu in menu bar
 3. Show the Extension Builder: Develop > Show Extension Builder
 4. Install the unpacked extension: + > Add Extension > [select the lbx.safariextension folder]
@@ -42,7 +42,7 @@ Quitting Safari will reset extension data and require re-entering your password 
 
 #### Safari 11
 
-Download the 'safari-signed' [release](https://github.com/launchlet/launchlet-extension/releases) and open with Safari
+Download the 'safari-signed' [release](https://github.com/rosano/launchlet-extension/releases) and open with Safari
 
 ## Pair
 
